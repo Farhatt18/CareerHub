@@ -1,3 +1,39 @@
-* {
+/* * {
   background-color: blue;
+} */
+
+.signup-container {
+  max-width: 430px;
+  padding: 20px;
+  border-radius: 8px;
+  margin: 0 auto;
+  border: 1px solid #ccc;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.sign {
+  color: black;
+  font-size: 25px;
+  font-size: bold;
+  margin-bottom: 20px;
+}
+.signup-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.signup-container label {
+  color: #000000bf;
+}
+
+.signup-container input {
+  width: 100%;
+  padding: 14px 16px;
+  margin-bottom: 16px;
+  box-sizing: border-box;
+  color: black;
 }

@@ -1,3 +1,108 @@
-* {
+/* * {
   background-color: aquamarine;
+} */
+
+/* .main-container {
+  max-width: 400px;
+  margin-top: 100px;
+} */
+
+/* .navbar {
+  /* background-color: #333; */
+/* padding: 20px; */
+/* } */
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  /* margin: 0 auto; */
+  /* margin-left: 40px; */
+  padding: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.navbar-logo {
+  /* margin-left: 40px; */
+  color: #0a66c2; /* Logo text color */
+  text-decoration: none;
+  font-size: 1.5rem; /* Adjust the font size */
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+}
+
+.signup-button {
+  border: solid;
+  text-align: center;
+  font-size: 16px;
+  border-radius: 24px;
+  /* padding: 1rem; */
+  padding: 10px;
+  color: #0a66c2; /* Navigation link text color */
+  text-decoration: none;
+  /* margin-right: 20px; */
+  font-weight: 600;
+  line-height: 1.25;
+}
+.login-button {
+  /* border: solid; */
+  margin-right: 10px;
+  text-align: center;
+  font-size: 16px;
+  border-radius: 24px;
+  /* padding: 1rem; */
+  padding: 10px;
+  color: gray; /* Navigation link text color */
+  text-decoration: none;
+  /* font-style: bold; */
+  /* margin-right: 20px; */
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.login-button:hover {
+  background-color: lightblue;
+}
+
+.signup-button:hover {
+  /* text-decoration: underline; Underline on hover */
+  background-color: lightblue;
+}
+
+/* Additional styling for the login form if needed */
+/* .login-container {
+  display: flex;
+  align-items: center;
+  margin-right: 20px; /* Adjust the margin between links and login form */
+/* }  */
+
+/* Additional styling for the ProfileButton if needed */
+.profile-button {
+  background-color: white;
+  color: #0a66c2;
+  /* text-decoration: none; */
+  margin-right: 20px;
+  /* font-size: 1rem; */
+}
+
+.active {
+  font-weight: bold; /* Bold font for active links */
+}
+
+.navbar-container span {
+  color: white;
+  /* border: #0a66c2; */
+  background-color: #0a66c2;
+  border-radius: 5px;
+  border: 1px solid;
 }

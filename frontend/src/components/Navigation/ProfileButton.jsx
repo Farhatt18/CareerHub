@@ -31,8 +31,12 @@ function ProfileButton({ user }) {
     dispatch(sessionActions.logout());
   };
 
+  const handleMenuClick = (e) => {
+    e.stopPropagation();
+  };
+
   return (
-    <>
+    <div className="profile-button-container" onClick={handleMenuClick}>
       <button onClick={toggleMenu}>
         <i className="fa-solid fa-user-circle" />
       </button>
@@ -41,11 +45,12 @@ function ProfileButton({ user }) {
           <li>{user.username}</li>
           <li>{user.email}</li>
           <li>
+            {/* {user.username} */}
             <button onClick={logout}>Log Out</button>
           </li>
         </ul>
       )}
-    </>
+    </div>
   );
 }
 

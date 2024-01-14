@@ -1,7 +1,7 @@
 import { useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
-import { Navigate } from "react-router-dom";
+import { Navigate, Link } from "react-router-dom";
 import "./LoginForm.css";
 
 function LoginForm() {
@@ -32,36 +32,76 @@ function LoginForm() {
     );
   };
 
+  const handleDemo = async (e) => {
+    e.preventDefault();
+    setCredential("Demo-lition");
+    setPassword("password");
+    await handleSubmit(e);
+  };
+
   return (
-    <>
-      <h1>Log In</h1>
-      <form onSubmit={handleSubmit}>
-        <ul>
-          {errors.map((error) => (
-            <li key={error}>{error}</li>
-          ))}
-        </ul>
-        <label>
-          Username or Email
-          <input
-            type="text"
-            value={credential}
-            onChange={(e) => setCredential(e.target.value)}
-            required
-          />
-        </label>
-        <label>
-          Password
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </label>
-        <button type="submit">Log In</button>
-      </form>
-    </>
+    // <div className="login">
+    //   <div className="header-container">
+    //     <h1> Welcome Back </h1>
+    //     <p className="subheader">
+    //       Stay connected with your professional world. Sign in now to embrace
+    //       your next opportunity.
+    //     </p>
+    //   </div>
+    <div className="login-container">
+      <div className="log-container">
+        <div className="log-ele">
+          <h1> Welcome to the start of your professional journey!</h1>
+          {/* <p className="subheader">
+        Stay connected with your professional world. Sign in now to embrace your
+        next opportunity.
+      </p> */}
+
+          <form onSubmit={handleSubmit}>
+            <ul>
+              {errors.map((error) => (
+                <li key={error}>{error}</li>
+              ))}
+            </ul>
+            <label>
+              Username or Email
+              <input
+                type="text"
+                value={credential}
+                onChange={(e) => setCredential(e.target.value)}
+                required
+              />
+            </label>
+            <label>
+              Password
+              <input
+                type="password"
+                name="password"
+                autoComplete="current-password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+            </label>
+            <button type="submit">Log In</button>
+          </form>
+          <button className="demo-button" onClick={handleDemo}>
+            Demo user
+          </button>
+          <p className="session-redirect">
+            New to CareerHub?
+            <Link to="/signup" style={{ textDecoration: "none" }}>
+              Sign Up
+            </Link>
+          </p>
+        </div>
+        {/* <img
+          src="	https://static.licdn.com/aero-v1/sc/h/dxf91zhqd2z6b0bwg85ktm5s4"
+          alt="logo"
+          className="log-img"
+        // /> */}
+      </div>
+    </div>
   );
 }
 
