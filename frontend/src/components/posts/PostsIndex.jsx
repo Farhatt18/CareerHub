@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import PostForm from "./PostForm";
 import PostIndexItem from "./PostIndexItem";
-import { selectArray, fetchPosts } from "../../store/post";
+import { selectArray, fetchPosts } from "../../store/reducers/post";
 import "./Post.css";
 
 const PostIndex = () => {

@@ -1,7 +1,7 @@
 import { createStore, applyMiddleware, compose, combineReducers } from "redux";
 import { thunk } from "redux-thunk";
-import session from "./session";
-import posts from "./post";
+import session from "./reducers/session";
+import posts from "./reducers/post";
 
 const rootReducer = combineReducers({
   session,

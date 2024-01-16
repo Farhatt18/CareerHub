@@ -1,5 +1,5 @@
 import { useState } from "react";
-import * as sessionActions from "../../store/session";
+import * as sessionActions from "../../store/reducers/session";
 import { useDispatch, useSelector } from "react-redux";
 import { Navigate, Link } from "react-router-dom";
 import "./LoginForm.css";

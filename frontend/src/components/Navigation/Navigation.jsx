@@ -44,7 +44,7 @@ function Navigation() {
   const loggedInHeader = (
     <div className="header">
       <NavLink to="/" className="navbar-logo">
-        Career<span>Hub</span>
+        <span>Hub</span>
       </NavLink>
       <div className="navbar-links">
         <ProfileButton user={sessionUser} />

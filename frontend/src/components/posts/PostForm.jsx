@@ -6,7 +6,7 @@ import {
   fetchPost,
   createPost,
   updatePost,
-} from "../../store/post";
+} from "../../store/reducers/post";
 
 const PostForm = () => {
   const dispatch = useDispatch();

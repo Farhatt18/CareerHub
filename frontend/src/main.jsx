@@ -5,7 +5,7 @@ import App from "./App";
 import "./index.css";
 import configureStore from "./store/store";
 import csrfFetch, { restoreCSRF } from "./store/csrf";
-import * as sessionActions from "./store/session";
+import * as sessionActions from "./store/reducers/session";
 
 const store = configureStore();
 

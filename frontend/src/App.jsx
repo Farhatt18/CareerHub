@@ -10,7 +10,7 @@ import {
 import LoginForm from "./components/session/LoginForm";
 import SignupForm from "./components/session/SignupForm";
 import Navigation from "./components/Navigation/Navigation";
-import * as sessionActions from "./store/session";
+import * as sessionActions from "./store/reducers/session";
 import PostIndex from "./components/posts/postsIndex";
 import Protected from "./components/Auth/Protected";
 
