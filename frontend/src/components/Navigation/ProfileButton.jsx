@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { useDispatch } from "react-redux";
 import * as sessionActions from "../../store/session";
+import "./ProfileButton.css";
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
@@ -31,14 +32,11 @@ function ProfileButton({ user }) {
     dispatch(sessionActions.logout());
   };
 
-  const handleMenuClick = (e) => {
-    e.stopPropagation();
-  };
-
   return (
-    <div className="profile-button-container" onClick={handleMenuClick}>
+    <div className="profile-button-container">
       <button onClick={toggleMenu}>
         <i className="fa-solid fa-user-circle" />
+        <p>Me</p>
       </button>
       {showMenu && (
         <ul className="profile-dropdown" ref={dropdownRef}>

@@ -27,14 +27,14 @@ function Navigation() {
         <NavLink
           to={"/login"}
           className="login-button"
-          activeClassName="active"
+          activeclassname="active"
         >
           Log In
         </NavLink>
         <NavLink
-          to={"/signup/show"}
+          to={"/signup"}
           className="signup-button"
-          activeClassName="active"
+          activeclassname="active"
         >
           Sign Up
         </NavLink>

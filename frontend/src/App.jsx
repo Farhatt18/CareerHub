@@ -1,10 +1,18 @@
+//app
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Outlet, createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  Outlet,
+  createBrowserRouter,
+  RouterProvider,
+  Navigate,
+} from "react-router-dom";
 import LoginForm from "./components/session/LoginForm";
 import SignupForm from "./components/session/SignupForm";
 import Navigation from "./components/Navigation/Navigation";
 import * as sessionActions from "./store/session";
+import PostIndex from "./components/posts/postsIndex";
+import Protected from "./components/Auth/Protected";
 
 function Layout() {
   const dispatch = useDispatch();
@@ -21,7 +29,17 @@ function Layout() {
   return (
     <>
       <Navigation />
-      {isLoaded && <Outlet>{!sessionUser && <LoginForm />}</Outlet>}
+      {isLoaded && (
+        <Outlet>
+          {!sessionUser && <LoginForm />}
+          {sessionUser && (
+            <>
+              <Navigate to="/posts" />
+              <PostIndex />
+            </>
+          )}
+        </Outlet>
+      )}
     </>
   );
 }
@@ -43,12 +61,14 @@ const router = createBrowserRouter([
       {
         path: "signup",
         element: <SignupForm />,
-        children: [
-          {
-            path: "show",
-            element: <SignupForm />,
-          },
-        ],
+      },
+      {
+        path: "posts",
+        element: (
+          <Protected>
+            <PostIndex />
+          </Protected>
+        ),
       },
     ],
   },

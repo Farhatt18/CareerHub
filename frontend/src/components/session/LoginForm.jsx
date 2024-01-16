@@ -36,7 +36,7 @@ function LoginForm() {
     e.preventDefault();
     setCredential("Demo-lition");
     setPassword("password");
-    await handleSubmit(e);
+    // await handleSubmit(e);
   };
 
   return (
@@ -95,11 +95,11 @@ function LoginForm() {
             </Link>
           </p>
         </div>
-        {/* <img
+        <img
           src="	https://static.licdn.com/aero-v1/sc/h/dxf91zhqd2z6b0bwg85ktm5s4"
           alt="logo"
           className="log-img"
-        // /> */}
+        />
       </div>
     </div>
   );

@@ -1,0 +1,53 @@
+.post-index-container {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.post-form {
+  margin-bottom: 20px;
+}
+
+.post-form button {
+  display: block;
+  border-radius: 40px;
+  background-color: #8c8c8c33;
+  color: #0000004d;
+  border: none;
+  padding: auto;
+}
+
+.post-form .active {
+  background-color: #0073b1;
+  color: white;
+}
+
+.post-index-item {
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.post-index-item p {
+  margin-bottom: 10px;
+}
+
+.post-index-item button {
+  background-color: #0073b1;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.post-index-item button:hover {
+  background-color: #005a8e;
+}

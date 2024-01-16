@@ -1,9 +1,36 @@
-/* .profile-dropdown {
-  /* margin-right: 10px; */
-/* display: flex;
-  justify-content: center; */
-/* } */
-/* .profile-button-container {
-  /* display: block; */
-/* margin-right: 20px; */
-/* }  */
+.profile-button-container {
+  position: relative;
+}
+
+.profile-dropdown {
+  position: absolute;
+  /* top: 60px; Adjust the distance from the top */
+  /* right: 20px; Adjust the distance from the right */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  z-index: 1;
+  display: none;
+}
+
+.profile-button-container:hover .profile-dropdown {
+  display: block;
+  /* margin: 10px; */
+}
+
+.profile-dropdown li {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.profile-dropdown li:hover {
+  background-color: lightblue;
+}
+
+.profile-button-container i {
+  margin-right: 4px;
+  /* border-radius: 10px; */
+}
