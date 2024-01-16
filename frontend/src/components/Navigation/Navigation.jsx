@@ -42,9 +42,9 @@ function Navigation() {
     </div>
   );
   const loggedInHeader = (
-    <div className="header-logged">
+    <div className="header">
       <div className="logo">
-        <NavLink to="/" className="navbar-logo">
+        <NavLink to={"/feed"} className="navbar-logo">
           <span>Hub</span>
         </NavLink>
       </div>
@@ -62,14 +62,21 @@ function Navigation() {
     // </h1> */}
     // {/* {sessionLinks} */}
     // {/* </> */}
-
     <>
-      <nav className="navbar">
-        <div className="navbar-container">
-          {sessionUser ? loggedInHeader : loggedOutHeader}
-        </div>
-      </nav>
-      {/* <LoginForm /> */}
+      {sessionUser && (
+        <nav className="navbar">
+          <div className="navbar-container">
+            {sessionUser ? loggedInHeader : loggedOutHeader}
+          </div>
+        </nav>
+      )}
+      {!sessionUser && (
+        <nav className="nav">
+          <div className="navbarNotLogged">
+            {!sessionUser ? loggedOutHeader : loggedInHeader}
+          </div>
+        </nav>
+      )}
     </>
   );
 }

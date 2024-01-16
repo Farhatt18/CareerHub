@@ -13,6 +13,7 @@ import Navigation from "./components/Navigation/Navigation";
 import * as sessionActions from "./store/reducers/session";
 import PostIndex from "./components/posts/postsIndex";
 import Protected from "./components/Auth/Protected";
+import Feed from "./components/feed/feed";
 
 function Layout() {
   const dispatch = useDispatch();
@@ -27,10 +28,14 @@ function Layout() {
   }, [dispatch]);
 
   return (
-    <div className="main">
+    // <div className="main">
+    <>
       <Navigation />
-      {isLoaded && <Outlet>{!sessionUser && <LoginForm />}</Outlet>}
-    </div>
+      <div className="main">
+        {isLoaded && <Outlet>{!sessionUser && <LoginForm />}</Outlet>}
+      </div>
+    </>
+    // </div>
   );
 }
 
@@ -44,6 +49,15 @@ const router = createBrowserRouter([
         // element: <h1> Welcome to the start of your professional journey!</h1>,
         element: <LoginForm />,
       },
+      {
+        path: "feed",
+        element: (
+          <Protected>
+            <Feed />
+          </Protected>
+        ),
+      },
+
       {
         path: "login",
         element: <LoginForm />,

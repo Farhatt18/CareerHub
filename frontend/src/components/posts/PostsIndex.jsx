@@ -15,7 +15,6 @@ const PostIndex = () => {
 
   return (
     <div className="post-index-container">
-      <PostForm />
       <ul>
         {posts.map((post) => {
           <PostIndexItem key={post.id} post={post} />;

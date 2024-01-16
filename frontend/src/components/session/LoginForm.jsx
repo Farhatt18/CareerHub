@@ -11,7 +11,7 @@ function LoginForm() {
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
 
-  if (sessionUser) return <Navigate to="/" replace={true} />;
+  if (sessionUser) return <Navigate to="/feed" replace={true} />;
 
   const handleSubmit = (e) => {
     e.preventDefault();

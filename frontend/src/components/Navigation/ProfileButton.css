@@ -33,6 +33,19 @@
 }
 
 .profile-button-container i {
+  background-color: #e7e2dc;
   margin-right: 4px;
+
   /* border-radius: 10px; */
+}
+.profile-button-container button {
+  /* border-radius: 30px; */
+  border: none;
+  cursor: pointer;
+  width: 70px;
+}
+.logout:hover {
+  border: none;
+  width: 70px;
+  text-decoration: underline;
 }
