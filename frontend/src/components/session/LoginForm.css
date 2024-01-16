@@ -1,48 +1,8 @@
-/* .login {
-  background-color: white;
-  align-items: center;
-  justify-content: center;
-} */
-
-/* .login{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) ;
-}
-
-
-.header-container{
-  text-align: center;
-} 
-.login-container {
-  max-width: 400px;
-  /* margin-left: 40px; */
-  /* margin-bottom: 10px; */
-  /* margin-top: 100px; */
-  /* margin: 0 auto; */
-  /* padding: 20px; */
-  /* border: 1px solid #ccc;  */
-  /* position: absolute; */
-  /* top: 50%; */
-  /* left: 50%; */
-  /* transform: translate(-50%, -50%); */
-    /* border-radius: 5px; */
-    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */ * /;
-/* }  */
-
-
-/* label {
-  /* display: block; */
-  /* margin-bottom: 8px; */
-/* } */ 
-
-.login-container label{
+.login-container label {
   margin-bottom: 8px;
   display: block;
-  color: #000000BF;
+  color: #000000bf;
 }
-
 
 .login-container input {
   color: black;
@@ -67,47 +27,57 @@
   background-color: #004182;
 }
 
-.login-container h1{
+.login-container h1 {
   margin-bottom: 30px;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   /* font-weight: none; */
 
-  color: lightcoral;
+  color: #b2401f;
   font-size: 35px;
   /* text-align: center; */
-} 
+}
 
 /* .subheader{
   color: #00000099;
   font-size: 1rem;
 } */
 
-p{
+p {
   text-align: center;
-} 
+}
 
 .log-container {
   display: flex;
-  align-items: center; 
-  justify-content: space-between; 
+  align-items: center;
+  justify-content: space-between;
   /* width: 500px; */
 
   margin-left: 40px;
-} 
+}
 
 .log-img {
   height: auto;
   width: 700px;
   /* margin-right: 50px; */
-} 
+}
 
 @media (max-width: 700px) {
-  .log-img{
-    display: none;
+  .log-img {
+    height: auto;
+    width: 400px;
+  }
+  .log-container {
+    display: block;
+    align-items: center;
+    justify-content: space-between;
+    /* width: 500px; */
+
+    margin-left: 40px;
   }
 }
 .log-ele {
-  margin-right: 200px;
+  margin-right: 300px;
   padding: 40px;
   /* width: 500px; */
-} 
+}

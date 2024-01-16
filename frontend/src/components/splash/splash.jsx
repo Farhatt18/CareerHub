@@ -1,8 +1,14 @@
-const Splashpage = () => {
-  <div className="splashPage">
-    <Navigation />
-    <LoginForm />
-  </div>;
-};
+// import Navigation from "../Navigation/Navigation";
+// import LoginForm from "../session/LoginForm";
+// import "./splash.css";
 
-export default Splashpage;
+// const Splashpage = () => {
+//   return (
+//     <div className="splashPage">
+//       <Navigation />
+//       <LoginForm />
+//     </div>
+//   );
+// };
+
+// export default Splashpage;

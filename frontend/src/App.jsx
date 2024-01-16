@@ -29,17 +29,7 @@ function Layout() {
   return (
     <>
       <Navigation />
-      {isLoaded && (
-        <Outlet>
-          {!sessionUser && <LoginForm />}
-          {sessionUser && (
-            <>
-              <Navigate to="/posts" />
-              <PostIndex />
-            </>
-          )}
-        </Outlet>
-      )}
+      {isLoaded && <Outlet>{!sessionUser && <LoginForm />}</Outlet>}
     </>
   );
 }
