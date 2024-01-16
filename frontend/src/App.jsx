@@ -1,43 +1,49 @@
 //app
-import { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+// import { useState, useEffect } from "react";
+// import { useDispatch, useSelector } from "react-redux";
 import {
-  Outlet,
+  // Outlet,
   createBrowserRouter,
   RouterProvider,
-  Navigate,
+  // Navigate,
 } from "react-router-dom";
 import LoginForm from "./components/session/LoginForm";
 import SignupForm from "./components/session/SignupForm";
-import Navigation from "./components/Navigation/Navigation";
-import * as sessionActions from "./store/reducers/session";
-import PostIndex from "./components/posts/postsIndex";
+// import Navigation from "./components/Navigation/Navigation";
+// import * as sessionActions from "./store/reducers/session";
+// import PostIndex from "./components/posts/postsIndex";
 import Protected from "./components/Auth/Protected";
 import Feed from "./components/feed/feed";
 
-function Layout() {
-  const dispatch = useDispatch();
-  const sessionUser = useSelector((state) => state.session.user);
+// function Layout() {
+//   const dispatch = useDispatch();
+//   const sessionUser = useSelector((state) => state.session.user);
 
-  const [isLoaded, setIsLoaded] = useState(false);
+//   const [isLoaded, setIsLoaded] = useState(false);
 
-  useEffect(() => {
-    dispatch(sessionActions.restoreSession()).then(() => {
-      setIsLoaded(true);
-    });
-  }, [dispatch]);
+//   useEffect(() => {
+//     const fetchData = async () => {
+//       try {
+//         await dispatch(sessionActions.restoreSession());
+//         setIsLoaded(true);
+//       } catch (error) {
+//         console.error("Error restoring session:", error);
+//         setIsLoaded(true); // Set isLoaded to true to avoid infinite loop
+//       }
+//     };
 
-  return (
-    // <div className="main">
-    <>
-      <Navigation />
-      <div className="main">
-        {isLoaded && <Outlet>{!sessionUser && <LoginForm />}</Outlet>}
-      </div>
-    </>
-    // </div>
-  );
-}
+//     fetchData();
+//   }, [dispatch]);
+
+//   return (
+//     // <div className="main">
+//     <>
+//       <Navigation />
+//       <div className="main">{isLoaded && <Outlet />}</div>
+//     </>
+//     // </div>
+//   );
+// }
 
 const router = createBrowserRouter([
   {
