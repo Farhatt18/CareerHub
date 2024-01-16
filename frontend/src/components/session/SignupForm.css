@@ -3,6 +3,7 @@
 } */
 
 .signup-container {
+  background-color: white;
   max-width: 430px;
   padding: 20px;
   border-radius: 8px;

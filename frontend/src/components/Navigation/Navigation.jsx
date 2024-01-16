@@ -42,10 +42,12 @@ function Navigation() {
     </div>
   );
   const loggedInHeader = (
-    <div className="header">
-      <NavLink to="/" className="navbar-logo">
-        <span>Hub</span>
-      </NavLink>
+    <div className="header-logged">
+      <div className="logo">
+        <NavLink to="/" className="navbar-logo">
+          <span>Hub</span>
+        </NavLink>
+      </div>
       <div className="navbar-links">
         <ProfileButton user={sessionUser} />
       </div>

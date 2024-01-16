@@ -4,8 +4,10 @@
 
 .profile-dropdown {
   position: absolute;
-  /* top: 60px; Adjust the distance from the top */
-  /* right: 20px; Adjust the distance from the right */
+  text-align: center;
+  /* width: 150px; */
+  /* top: 60px; */
+  right: 20px;
   list-style: none;
   padding: 0;
   margin: 0;

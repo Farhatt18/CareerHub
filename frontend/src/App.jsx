@@ -27,10 +27,10 @@ function Layout() {
   }, [dispatch]);
 
   return (
-    <>
+    <div className="main">
       <Navigation />
       {isLoaded && <Outlet>{!sessionUser && <LoginForm />}</Outlet>}
-    </>
+    </div>
   );
 }
 

@@ -57,7 +57,7 @@ function LoginForm() {
         next opportunity.
       </p> */}
 
-          <form onSubmit={handleSubmit}>
+          <form className="loginForm" onSubmit={handleSubmit}>
             <ul>
               {errors.map((error) => (
                 <li key={error}>{error}</li>
