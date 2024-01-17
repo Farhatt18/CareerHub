@@ -51,7 +51,7 @@ function LoginForm() {
                 <li key={error}>{error}</li>
               ))}
             </ul>
-            <label htmlFor="title"> Username or Email </label>
+            <label htmlFor="title"> Email or username </label>
             <input
               type="text"
               value={credential}
