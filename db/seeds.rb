@@ -22,7 +22,7 @@ ApplicationRecord.transaction do
     email: 'demo@user.io', 
     password: 'password'
   )
-  
+
 
   # More users
   10.times do 
@@ -38,12 +38,12 @@ ApplicationRecord.transaction do
   puts "Creating posts..."
 
   Post.create!(
-    user_id: 1
-    body: "Excited to join the local running club!",
-  )
+    user_id: 1,
+    body: "Excited to join the local running club!"
+)
 
   Post.create!(
-    user_id: 1
-    body: "I like cows that go MOOOOOOO!!!",
-  )
+    user_id: 1,
+    body: "I like cows that go MOOOOOOO!!!"
+)
 end
