@@ -21,11 +21,7 @@ const router = createBrowserRouter([
       },
       {
         path: "feed",
-        element: (
-          // <Protected>
-          <Feed />
-          // </Protected>
-        ),
+        element: <Feed />,
       },
       // {
       //   path: "posts",

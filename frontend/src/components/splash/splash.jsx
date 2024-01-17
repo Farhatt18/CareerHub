@@ -1,8 +1,17 @@
 import Navigation from "../Navigation/Navigation";
 import LoginForm from "../session/LoginForm";
 import "./splash.css";
-
+// import { Navigate, redirect } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 const splash = () => {
+  const history = useHistory();
+  let currentUser = sessionStorage.currentUser;
+  if (currentUser !== "null") {
+    // debugger;
+    // <Navigate to="/feed" replace={true} />;
+    history.push("/feed");
+    // redirect("/feed");
+  }
   return (
     <div className="main">
       <div className="logo">
