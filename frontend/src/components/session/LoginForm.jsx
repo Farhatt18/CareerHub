@@ -74,7 +74,7 @@ function LoginForm() {
           </button>
           <div className="signUp">
             <button className="session-redirect">
-              New to CareerHub?
+              New to CareerHub?&#160;
               <Link to="/signup" style={{ textDecoration: "none" }}>
                 Sign Up
               </Link>

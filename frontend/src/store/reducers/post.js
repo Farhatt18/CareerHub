@@ -7,17 +7,17 @@ const RECEIVE_POST = "posts/RECEIVE_POST";
 const REMOVE_POST = "posts/REMOVE_POST";
 
 //Action creator
-export const receive_posts = (posts) => ({
+export const receivePosts = (posts) => ({
   type: RECEIVE_POSTS,
   posts,
 });
 
-export const receive_post = (post) => ({
+export const receivePost = (post) => ({
   type: RECEIVE_POST,
   post,
 });
 
-export const remove_post = (postId) => ({
+export const removePost = (postId) => ({
   type: REMOVE_POST,
   postId,
 });
@@ -34,7 +34,7 @@ export const fetchPosts = () => async (dispatch) => {
   const res = await csrfFetch(`/api/posts`);
   if (res.ok) {
     const data = await res.json();
-    dispatch(receive_posts(data));
+    dispatch(receivePosts(data));
   }
 };
 
@@ -42,7 +42,7 @@ export const fetchPost = (post) => async (dispatch) => {
   const res = await csrfFetch(`/api/posts/${post.id}`);
   if (res.ok) {
     const data = await res.json();
-    dispatch(receive_posts(data));
+    dispatch(receivePosts(data));
   }
 };
 
@@ -54,7 +54,7 @@ export const createPost = (post) => async (dispatch) => {
 
   if (res.ok) {
     const data = await res.json();
-    dispatch(receive_post(data));
+    dispatch(receivePost(data));
   }
 };
 
@@ -66,7 +66,7 @@ export const updatePost = (post) => async (dispatch) => {
 
   if (res.ok) {
     const data = await res.json();
-    dispatch(receive_post(data));
+    dispatch(receivePost(data));
   }
 };
 
@@ -76,7 +76,7 @@ export const deletePost = (postId) => async (dispatch) => {
   });
 
   if (res.ok) {
-    dispatch(remove_post(postId));
+    dispatch(removePost(postId));
   }
 };
 

@@ -98,7 +98,7 @@ function SignupForm() {
             </label>
             <button type="submit">Sign Up</button>
             <p className="session-redirect">
-              Already on CareerHub?
+              Already on CareerHub?&#160;
               <Link to="/" style={{ textDecoration: "none" }}>
                 Log In
               </Link>
