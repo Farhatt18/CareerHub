@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { useDispatch } from "react-redux";
 import * as sessionActions from "../../store/reducers/session";
 import "./ProfileButton.css";
+import { useNavigate } from "react-router-dom";
 // import { Navigate } from "react-router-dom";
 
 function ProfileButton({ user }) {
@@ -9,7 +10,7 @@ function ProfileButton({ user }) {
   const [showMenu, setShowMenu] = useState(false);
   const dropdownRef = useRef(null);
 
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const toggleMenu = (e) => {
     e.stopPropagation(); // Keep click from bubbling up to document and triggering closeMenu
     setShowMenu(!showMenu);
@@ -32,6 +33,7 @@ function ProfileButton({ user }) {
   const logout = (e) => {
     e.preventDefault();
     dispatch(sessionActions.logout());
+    navigate("/");
   };
 
   return (

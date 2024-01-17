@@ -1,12 +1,12 @@
 .main {
-  margin-left: 80px;
+  margin-left: 8%;
   position: absolute;
 }
 
 .loginPage {
-  margin-right: 100px;
+  margin-right: 2%;
   padding: 40px;
-  width: 580px;
+  /* width: 580px; */
 }
 .log-container {
   display: flex;

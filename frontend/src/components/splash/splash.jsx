@@ -1,16 +1,21 @@
+import { useSelector } from "react-redux";
 import Navigation from "../Navigation/Navigation";
 import LoginForm from "../session/LoginForm";
 import "./splash.css";
+import { Navigate } from "react-router-dom";
+// import { Navigate } from "react-router-dom";
 // import { Navigate, redirect } from "react-router-dom";
-import { useHistory } from "react-router-dom";
-const splash = () => {
-  const history = useHistory();
-  let currentUser = sessionStorage.currentUser;
-  if (currentUser !== "null") {
-    // debugger;
-    // <Navigate to="/feed" replace={true} />;
-    history.push("/feed");
-    // redirect("/feed");
+// import { useHistory } from "react-router-dom";
+const Splash = () => {
+  // let currentUser = sessionStorage.currentUser;
+  // if (currentUser !== "null") {
+  //   return <Navigate to="/feed" replace={true} />;
+  // }
+
+  const sesssionUser = useSelector((state) => state.session.user);
+
+  if (sesssionUser) {
+    return <Navigate to="/feed" replace={true} />;
   }
   return (
     <div className="main">
@@ -33,4 +38,4 @@ const splash = () => {
   );
 };
 
-export default splash;
+export default Splash;

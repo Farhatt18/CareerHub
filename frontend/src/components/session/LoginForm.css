@@ -1,5 +1,6 @@
-.login-ele label {
-  margin-bottom: 8px;
+.login-container label {
+  /* width: 1%; */
+  /* width: 80%; */
   display: block;
   color: #000000bf;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
@@ -9,24 +10,25 @@
 }
 
 .login-container input {
+  margin-top: 1%;
   color: black;
-  width: 100%;
+  width: 80%;
   padding: 14px 16px;
-  margin-bottom: 16px;
+  margin-bottom: 2%;
   box-sizing: border-box;
   border-radius: 5px;
   border: 1px solid;
 }
 
-.log-container button {
+.log-ele button {
   background-color: #0a66c2;
   color: white;
   padding: 10px 15px;
   border: none;
   border-radius: 24px;
   cursor: pointer;
-  width: 100%;
-  margin-bottom: 20px;
+  width: 80%;
+  margin-bottom: 2%;
   height: 50px;
   font-size: 16px;
   font-weight: 600;
@@ -55,7 +57,23 @@
   font-size: 1rem;
 } */
 
-p {
+/* 
+.session-redirect {
   text-align: center;
   font-size: 20px;
+} */
+
+/* .session-redirect {
+  font-size: 20px;
+  
+} */
+
+.signUp button {
+  background-color: #ffffff;
+  color: black;
+  font-size: 20px;
+}
+
+.signUp button:hover {
+  background-color: gray;
 }

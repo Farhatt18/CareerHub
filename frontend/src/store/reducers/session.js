@@ -61,12 +61,14 @@ export const logout = () => async (dispatch) => {
   const response = await csrfFetch("/api/session", {
     method: "DELETE",
   });
-  sessionStorage.setItem("currentUser", null);
+  sessionStorage.setItem("currentUser", JSON.stringify(null));
   dispatch(removeUser());
   return response;
 };
 
-const initialState = { user: null };
+const storedUser = JSON.parse(sessionStorage.getItem("currentUser"));
+const initialUser = storedUser ? storedUser : null;
+const initialState = { user: initialUser };
 
 const sessionReducer = (state = initialState, action) => {
   switch (action.type) {

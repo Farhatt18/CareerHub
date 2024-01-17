@@ -51,37 +51,35 @@ function LoginForm() {
                 <li key={error}>{error}</li>
               ))}
             </ul>
-            <label>
-              Username or Email
-              <input
-                type="text"
-                value={credential}
-                onChange={(e) => setCredential(e.target.value)}
-                required
-              />
-            </label>
-            <label>
-              Password
-              <input
-                type="password"
-                name="password"
-                autoComplete="current-password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-              />
-            </label>
+            <label htmlFor="title"> Username or Email </label>
+            <input
+              type="text"
+              value={credential}
+              onChange={(e) => setCredential(e.target.value)}
+              required
+            />
+            <label htmlFor="password"> Password </label>
+            <input
+              type="password"
+              name="password"
+              autoComplete="current-password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
             <button type="submit">Log In</button>
           </form>
           <button className="demo-button" onClick={handleDemo}>
             Demo user
           </button>
-          <p className="session-redirect">
-            New to CareerHub?
-            <Link to="/signup" style={{ textDecoration: "none" }}>
-              Sign Up
-            </Link>
-          </p>
+          <div className="signUp">
+            <button className="session-redirect">
+              New to CareerHub?
+              <Link to="/signup" style={{ textDecoration: "none" }}>
+                Sign Up
+              </Link>
+            </button>
+          </div>
         </div>
       </div>
     </div>
