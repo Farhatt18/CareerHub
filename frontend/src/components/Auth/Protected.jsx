@@ -4,9 +4,7 @@ import { Navigate } from "react-router-dom";
 const Auth = ({ children }) => {
   const sessionUser = useSelector((state) => state.session.user);
   if (!sessionUser) {
-    // return redirect("/login");
-    return <Navigate to="/login" />;
-    // return "hello";
+    return <Navigate to="/" />;
   }
   return children;
 };

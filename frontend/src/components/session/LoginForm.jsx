@@ -40,24 +40,11 @@ function LoginForm() {
   };
 
   return (
-    // <div className="login">
-    //   <div className="header-container">
-    //     <h1> Welcome Back </h1>
-    //     <p className="subheader">
-    //       Stay connected with your professional world. Sign in now to embrace
-    //       your next opportunity.
-    //     </p>
-    //   </div>
     <div className="login-container">
       <div className="log-container">
         <div className="log-ele">
           <h1> Welcome to the start of your professional journey!</h1>
-          {/* <p className="subheader">
-        Stay connected with your professional world. Sign in now to embrace your
-        next opportunity.
-      </p> */}
-
-          <form className="loginForm" onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit}>
             <ul>
               {errors.map((error) => (
                 <li key={error}>{error}</li>
@@ -95,11 +82,6 @@ function LoginForm() {
             </Link>
           </p>
         </div>
-        <img
-          src="	https://static.licdn.com/aero-v1/sc/h/dxf91zhqd2z6b0bwg85ktm5s4"
-          alt="logo"
-          className="log-img"
-        />
       </div>
     </div>
   );

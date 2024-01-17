@@ -1,4 +1,4 @@
-.login-container label {
+.login-ele label {
   margin-bottom: 8px;
   display: block;
   color: #000000bf;
@@ -59,44 +59,3 @@ p {
   text-align: center;
   font-size: 20px;
 }
-
-.log-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: absolute;
-  /* margin-left: 20px; */
-}
-
-.log-img {
-  margin-top: 50px;
-  height: auto;
-  width: 800px;
-  /* margin-right: 50px; */
-}
-
-@media (max-width: 700px) {
-  .log-img {
-    height: auto;
-    width: 400px;
-  }
-  .log-container {
-    display: block;
-    align-items: center;
-    justify-content: space-between;
-    /* width: 500px; */
-
-    margin-left: 40px;
-  }
-}
-.log-ele {
-  margin-right: 100px;
-  padding: 40px;
-  width: 580px;
-}
-
-/* .main {
-  position: absolute;
-  margin-left: 120px;
-  margin-top: 10px;
-} */

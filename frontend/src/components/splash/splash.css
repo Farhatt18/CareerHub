@@ -1,0 +1,31 @@
+.main {
+  margin-left: 80px;
+  position: absolute;
+}
+
+.loginPage {
+  margin-right: 100px;
+  padding: 40px;
+  width: 580px;
+}
+.log-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.log-img {
+  margin-top: 50px;
+  height: auto;
+  width: 700px;
+}
+@media (max-width: 700px) {
+  .log-img {
+    height: auto;
+    width: 400px;
+  }
+  .log-container {
+    display: block;
+    align-items: center;
+    justify-content: space-between;
+  }
+}

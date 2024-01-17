@@ -24,11 +24,7 @@ function Navigation() {
         Career<span>Hub</span>
       </NavLink>
       <div className="navbar-links">
-        <NavLink
-          to={"/login"}
-          className="login-button"
-          activeclassname="active"
-        >
+        <NavLink to={"/"} className="login-button" activeclassname="active">
           Log In
         </NavLink>
         <NavLink

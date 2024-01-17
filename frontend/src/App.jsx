@@ -1,85 +1,40 @@
 //app
-// import { useState, useEffect } from "react";
-// import { useDispatch, useSelector } from "react-redux";
-import {
-  // Outlet,
-  createBrowserRouter,
-  RouterProvider,
-  // Navigate,
-} from "react-router-dom";
-import LoginForm from "./components/session/LoginForm";
+import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
+// import LoginForm from "./components/session/LoginForm";
 import SignupForm from "./components/session/SignupForm";
-// import Navigation from "./components/Navigation/Navigation";
-// import * as sessionActions from "./store/reducers/session";
-// import PostIndex from "./components/posts/postsIndex";
-import Protected from "./components/Auth/Protected";
+// import Protected from "./components/Auth/Protected";
 import Feed from "./components/feed/feed";
-
-// function Layout() {
-//   const dispatch = useDispatch();
-//   const sessionUser = useSelector((state) => state.session.user);
-
-//   const [isLoaded, setIsLoaded] = useState(false);
-
-//   useEffect(() => {
-//     const fetchData = async () => {
-//       try {
-//         await dispatch(sessionActions.restoreSession());
-//         setIsLoaded(true);
-//       } catch (error) {
-//         console.error("Error restoring session:", error);
-//         setIsLoaded(true); // Set isLoaded to true to avoid infinite loop
-//       }
-//     };
-
-//     fetchData();
-//   }, [dispatch]);
-
-//   return (
-//     // <div className="main">
-//     <>
-//       <Navigation />
-//       <div className="main">{isLoaded && <Outlet />}</div>
-//     </>
-//     // </div>
-//   );
-// }
+import Splash from "./components/splash/splash";
 
 const router = createBrowserRouter([
   {
-    element: <Layout />,
+    path: "/",
+    element: <Outlet />,
     children: [
       {
-        path: "/",
-        // element: <h1> Welcome!</h1>,
-        // element: <h1> Welcome to the start of your professional journey!</h1>,
-        element: <LoginForm />,
-      },
-      {
-        path: "feed",
-        element: (
-          <Protected>
-            <Feed />
-          </Protected>
-        ),
-      },
-
-      {
-        path: "login",
-        element: <LoginForm />,
+        index: true,
+        element: <Splash />,
       },
       {
         path: "signup",
         element: <SignupForm />,
       },
       {
-        path: "posts",
+        path: "feed",
         element: (
-          <Protected>
-            <PostIndex />
-          </Protected>
+          // <Protected>
+          <Feed />
+          // </Protected>
         ),
       },
+      // {
+      //   path: "posts",
+      //   element: (
+      //     <Protected>
+      //       <PostIndex />
+      //     </Protected>
+      //   ),
+      // },
     ],
   },
 ]);
