@@ -21,7 +21,7 @@ function Navigation() {
   const loggedOutHeader = (
     <div className="header">
       <NavLink to="/" className="navbar-logo">
-        Career<span>Hub</span>
+        Career<span>hub</span>
       </NavLink>
       <div className="navbar-links">
         <NavLink to={"/"} className="login-button" activeclassname="active">
@@ -41,7 +41,7 @@ function Navigation() {
     <div className="header">
       <div className="logo">
         <NavLink to={"/feed"} className="navbar-logo">
-          <span>Hub</span>
+          <span>hub</span>
         </NavLink>
       </div>
       <div className="navbar-links">

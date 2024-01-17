@@ -37,6 +37,7 @@ export const login =
       body: JSON.stringify({ credential, password }),
     });
     const data = await response.json();
+    sessionStorage.setItem("currentUser", JSON.stringify(data.user));
     dispatch(setUser(data.user));
     return response;
   };
@@ -52,6 +53,7 @@ export const signup = (user) => async (dispatch) => {
     }),
   });
   const data = await response.json();
+  sessionStorage.setItem("currentUser", JSON.stringify(data.user));
   dispatch(setUser(data.user));
   return response;
 };
@@ -59,6 +61,7 @@ export const logout = () => async (dispatch) => {
   const response = await csrfFetch("/api/session", {
     method: "DELETE",
   });
+  sessionStorage.setItem("currentUser", null);
   dispatch(removeUser());
   return response;
 };

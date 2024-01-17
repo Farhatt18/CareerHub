@@ -1,3 +1,4 @@
+/* //logged in */
 .navbar {
   width: 100%;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -5,23 +6,6 @@
   position: absolute;
   background-color: whitesmoke;
 }
-
-.navbarNotLogged {
-  margin: 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1200px;
-  /* margin: 0 auto; */
-  /* margin-left: 40px; */
-  /* padding: 30px; */
-}
-
-.nav {
-  margin-top: 20px;
-  margin-left: 40px;
-}
-
 .navbar-container {
   display: flex;
   justify-content: space-between;
@@ -35,6 +19,23 @@
   /* margin-bottom: 5px; */
 
   padding: 0px 35px;
+}
+
+/* //notlogged in */
+.nav {
+  margin-top: 20px;
+  margin-left: 40px;
+}
+
+.navbarNotLogged {
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  /* margin: 0 auto; */
+  /* margin-left: 40px; */
+  /* padding: 30px; */
 }
 
 .header {

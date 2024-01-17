@@ -1,3 +1,3 @@
 json.post do 
-  json.extract! @post, id:,:user_id, :body, :created_at
+  json.extract! @post, :id, :user_id, :body, :created_at
 end

@@ -28,8 +28,10 @@ const Feed = () => {
       <div className="navigationWrapper">
         <Navigation />
       </div>
-      <div>
-        <h1>Welcome!</h1>
+      <div className="body">
+        <div className="header">
+          <h1>Welcome!</h1>
+        </div>
       </div>
     </div>
   );

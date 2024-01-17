@@ -6,6 +6,7 @@ import "./index.css";
 import configureStore from "./store/store";
 import csrfFetch, { restoreCSRF } from "./store/csrf";
 import * as sessionActions from "./store/reducers/session";
+import * as postActions from "./store/reducers/post";
 
 const store = configureStore();
 
@@ -14,6 +15,7 @@ if (import.meta.env.MODE !== "production") {
   window.store = store;
   window.csrfFetch = csrfFetch;
   window.sessionActions = sessionActions;
+  window.postActions = postActions;
 }
 
 ReactDOM.createRoot(document.getElementById("root")).render(

@@ -43,7 +43,7 @@ function SignupForm() {
     <div className="signUpPageWrapper">
       <div className="nav">
         <NavLink to="/" className="navbar-logo">
-          Career<span>Hub</span>
+          Career<span>hub</span>
         </NavLink>
       </div>
       <div className="signup-info">
