@@ -60,11 +60,11 @@ function Navigation() {
     // {/* </> */}
     <>
       {sessionUser && (
-        <nav className="navbar">
+        <header className="navbar">
           <div className="navbar-container">
             {sessionUser ? loggedInHeader : loggedOutHeader}
           </div>
-        </nav>
+        </header>
       )}
       {!sessionUser && (
         <nav className="nav">
