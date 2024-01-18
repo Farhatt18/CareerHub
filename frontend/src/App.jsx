@@ -26,11 +26,10 @@ function Layout() {
 
 const router = createBrowserRouter([
   {
-    path: "/",
     element: <Layout />,
     children: [
       {
-        index: true,
+        path: "/",
         element: <Splash />,
       },
       {

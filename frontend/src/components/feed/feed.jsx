@@ -10,15 +10,13 @@ import * as modalActions from "../../store/reducers/modals";
 const Feed = () => {
   const sessionUser = useSelector((state) => state.session.user);
   const dispatch = useDispatch();
-  const isModalVisible = useSelector(
-    (state) => state.modals.type === "SHOW_MODAL"
-  );
+  const isModalVisible = useSelector((state) => state.modals.type === true);
   // const modalType = useSelector(state => state.modals.type);
 
   if (!sessionUser) return <Navigate to="/" />;
 
   const openPostModal = () => {
-    dispatch(showModal("SHOW_MODAL"));
+    dispatch(modalActions.showModal());
   };
   return (
     <div className="homePageWrapper">

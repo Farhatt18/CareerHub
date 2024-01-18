@@ -27,13 +27,21 @@ async function csrfFetch(url, options = {}) {
 
 export default csrfFetch;
 
-export function storeCSRFToken(response) {
-  const csrfToken = response.headers.get("X-CSRF-Token");
-  if (csrfToken) sessionStorage.setItem("X-CSRF-Token", csrfToken);
-}
+export const restoreSession = async () => {
+  let res = await fetch("/api/session");
+  let token = res.headers.get("X-CSRF-Token");
+  sessionStorage.setItem("X-CSRF-Token", token);
+  let data = await res.json();
+  sessionStorage.setItem("currentUser", JSON.stringify(data.user));
+};
 
-export async function restoreCSRF() {
-  const response = await csrfFetch("/api/session");
-  storeCSRFToken(response);
-  return response;
-}
+// export function storeCSRFToken(response) {
+//   const csrfToken = response.headers.get("X-CSRF-Token");
+//   if (csrfToken) sessionStorage.setItem("X-CSRF-Token", csrfToken);
+// }
+
+// export async function restoreCSRF() {
+//   const response = await csrfFetch("/api/session");
+//   storeCSRFToken(response);
+//   return response;
+// }

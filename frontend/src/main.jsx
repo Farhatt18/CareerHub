@@ -7,14 +7,13 @@ import configureStore from "./store/store";
 import * as sessionActions from "./store/reducers/session";
 import * as postActions from "./store/reducers/post";
 import * as modalActions from "./store/reducers/modals";
-import csrfFetch, { restoreCSRF } from "./store/csrf";
+import csrfFetch from "./store/csrf";
 
 // let currentUser = JSON.parse(sessionStorage.getItem("currentUser"));
-
 const store = configureStore();
 
 if (import.meta.env.MODE !== "production") {
-  restoreCSRF();
+  // restoreCSRF();
   window.store = store;
   window.csrfFetch = csrfFetch;
   window.sessionActions = sessionActions;
