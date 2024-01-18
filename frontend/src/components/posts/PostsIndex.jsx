@@ -17,7 +17,7 @@ const PostIndex = () => {
     <div className="post-index-container">
       <ul>
         {posts.map((post) => {
-          <PostIndexItem key={post.id} post={post} />;
+          return <PostIndexItem key={post.id} post={post} />;
         })}
       </ul>
     </div>
