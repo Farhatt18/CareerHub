@@ -55,6 +55,7 @@ function LoginForm() {
             <input
               type="text"
               value={credential}
+              autoComplete="username"
               onChange={(e) => setCredential(e.target.value)}
               required
             />
