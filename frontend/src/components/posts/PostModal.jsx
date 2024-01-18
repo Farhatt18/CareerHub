@@ -10,6 +10,7 @@ import {
 // import Modal from "../Modal/modal";
 // import { hideModal } from "../../store/reducers/modals";
 import * as modalActions from "../../store/reducers/modals";
+import "./PostModal.css";
 
 const PostModal = () => {
   const dispatch = useDispatch();
@@ -42,16 +43,22 @@ const PostModal = () => {
   };
 
   return (
-    <div className="post-modal">
-      <div className="modal-content">
-        <button
-          className="close"
-          onClick={() => dispatch(modalActions.hideModal())}
-        >
-          X
-        </button>
+    <div className="postModalBackground">
+      <div className="modalContent">
+        <div className="modalHeader">
+          <span
+            className="close"
+            onClick={() => dispatch(modalActions.hideModal())}
+          >
+            X
+          </span>
+          <div>
+            <h2>Hello!</h2>
+          </div>
+        </div>
         {/* <h2>{postId ? "Update Post" : "Start a Post"}</h2> */}
-        <form onSubmit={handleSubmit} className="post-form">
+
+        <form onSubmit={handleSubmit}>
           <textarea
             value={body}
             onChange={(e) => setBody(e.target.value)}
