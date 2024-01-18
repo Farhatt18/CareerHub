@@ -57,9 +57,11 @@ const PostModal = () => {
             onChange={(e) => setBody(e.target.value)}
             placeholder="What's on your mind?"
           />
-          <button className={body ? "active" : ""}>
-            {postId ? "Update Post" : "Post"}
-          </button>
+          <div className="footer">
+            <button className={body ? "active" : ""}>
+              {postId ? "Update Post" : "Post"}
+            </button>
+          </div>
         </form>
       </div>
     </div>

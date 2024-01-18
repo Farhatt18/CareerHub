@@ -51,7 +51,7 @@ function LoginForm() {
                 <li key={error}>{error}</li>
               ))}
             </ul>
-            <label htmlFor="title"> Email or username </label>
+            <label> Email or username </label>
             <input
               type="text"
               value={credential}
@@ -59,7 +59,7 @@ function LoginForm() {
               onChange={(e) => setCredential(e.target.value)}
               required
             />
-            <label htmlFor="password"> Password </label>
+            <label> Password </label>
             <input
               type="password"
               name="password"
