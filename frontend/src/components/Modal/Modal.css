@@ -75,7 +75,7 @@
   z-index: 999;
   /* you may have other elements with z-index, this one should be the highest
    in order to be on top of the whole UI */
-}
+/* } */
 
 /* #modal-background {
   position: fixed;
@@ -90,4 +90,4 @@
   position: absolute;
   background-color: white;
   border-radius: 10px;
-} */ 
+} */

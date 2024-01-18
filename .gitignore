@@ -21,6 +21,8 @@
 /tmp/pids/*
 !/tmp/pids/
 !/tmp/pids/.keep
+!/public
+
 
 # Ignore storage (uploaded files in development and any SQLite databases).
 /storage/*
@@ -34,3 +36,5 @@
 
 .byebug_history
 .DS_Store
+
+

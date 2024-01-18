@@ -79,8 +79,8 @@ test:
 # Read https://guides.rubyonrails.org/configuring.html#configuring-a-database
 # for a full overview on how database connection configuration can be specified.
 #
+
+#In config/database.yml, change the production key at the bottom of the file to read as follows (remember that spacing and indentation matter in a .yml file!)
 production:
   <<: *default
-  database: career_hub_production
-  username: career_hub
-  password: <%= ENV["CAREER_HUB_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>

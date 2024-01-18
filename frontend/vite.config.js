@@ -19,4 +19,8 @@ export default defineConfig(({ mode }) => ({
     // uncomment the following line:
     // open: true
   },
+  build: {
+    outDir: "../public",
+    emptyOutDir: true,
+  },
 }));

@@ -11,7 +11,7 @@
 
 // export default Modal;
 
-import "./Modal.css";
+// import "./Modal.css";
 // import PostForm from "../posts/PostForm";
 // function Modal({ closeModal }) {
 //   return (

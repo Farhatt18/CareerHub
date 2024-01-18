@@ -11,4 +11,6 @@ Rails.application.routes.draw do
     resources :posts, except: [:edit, :new]
   end
   
+  #catch all routes to serve up frontend files
+  get '*path', to: "static_pages#frontend_index"
 end
