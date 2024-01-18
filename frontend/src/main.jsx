@@ -8,22 +8,29 @@ import csrfFetch, { restoreCSRF } from "./store/csrf";
 import * as sessionActions from "./store/reducers/session";
 import * as postActions from "./store/reducers/post";
 import * as modalActions from "./store/reducers/modals";
+import { restoreSession } from "./store/reducers/session";
 
-const store = configureStore();
+const initializeApp = () => {
+  // let currentUser = JSON.parse(sessionStorage.getItem("currentUser"));
 
-if (import.meta.env.MODE !== "production") {
-  restoreCSRF();
-  window.store = store;
-  window.csrfFetch = csrfFetch;
-  window.sessionActions = sessionActions;
-  window.postActions = postActions;
-  window.modalActions = modalActions;
-}
+  const store = configureStore();
 
-ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
-  </React.StrictMode>
-);
+  if (import.meta.env.MODE !== "production") {
+    restoreCSRF();
+    window.store = store;
+    window.csrfFetch = csrfFetch;
+    window.sessionActions = sessionActions;
+    window.postActions = postActions;
+    window.modalActions = modalActions;
+  }
+
+  ReactDOM.createRoot(document.getElementById("root")).render(
+    <React.StrictMode>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </React.StrictMode>
+  );
+};
+
+restoreSession().then(initializeApp);
