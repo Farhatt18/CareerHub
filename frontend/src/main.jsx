@@ -4,11 +4,10 @@ import { Provider } from "react-redux";
 import App from "./App";
 import "./index.css";
 import configureStore from "./store/store";
-import csrfFetch, { restoreCSRF } from "./store/csrf";
 import * as sessionActions from "./store/reducers/session";
 import * as postActions from "./store/reducers/post";
 import * as modalActions from "./store/reducers/modals";
-import { restoreSession } from "./store/reducers/session";
+import csrfFetch, { restoreSession } from "./store/csrf";
 
 const initializeApp = () => {
   // let currentUser = JSON.parse(sessionStorage.getItem("currentUser"));
@@ -16,7 +15,7 @@ const initializeApp = () => {
   const store = configureStore();
 
   if (import.meta.env.MODE !== "production") {
-    restoreCSRF();
+    restoreSession();
     window.store = store;
     window.csrfFetch = csrfFetch;
     window.sessionActions = sessionActions;
