@@ -46,6 +46,19 @@ class Api::PostsController < ApplicationController
       render plain: "You can't destroy what's not there."
     end
   end
+  
+  # def destroy
+  #   begin
+  #     @post = Post.find(params[:id])
+  #     if @post.destroy
+  #       render :index
+  #     else
+  #       render plain: "Failed to destroy the post."
+  #     end
+  #   rescue ActiveRecord::RecordNotFound
+  #     render plain: "Post not found.", status: 404
+  #   end
+  # end
 
   private 
   def post_params

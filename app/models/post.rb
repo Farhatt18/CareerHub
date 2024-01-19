@@ -1,5 +1,7 @@
 class Post < ApplicationRecord
   belongs_to :user
+  has_one_attached :photo
+  # has_many_attached :photos
   validates :body, presence: true
   validate :post_length
 
