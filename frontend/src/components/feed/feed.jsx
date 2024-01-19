@@ -1,9 +1,6 @@
 import "./feed.css";
 import Navigation from "../Navigation/Navigation";
-// import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-// import PostModal from "../posts/PostModal";
-// import { showModal } from "../../store/reducers/modals";
 import { Navigate } from "react-router-dom";
 import * as modalActions from "../../store/reducers/modals";
 import PostModal from "../posts/PostModal";

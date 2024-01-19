@@ -3,9 +3,6 @@ import Navigation from "../Navigation/Navigation";
 import LoginForm from "../session/LoginForm";
 import "./splash.css";
 import { Navigate } from "react-router-dom";
-// import { Navigate } from "react-router-dom";
-// import { Navigate, redirect } from "react-router-dom";
-// import { useHistory } from "react-router-dom";
 const Splash = () => {
   // let currentUser = sessionStorage.currentUser;
   // if (currentUser !== "null") {

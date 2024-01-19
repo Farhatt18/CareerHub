@@ -100,21 +100,6 @@
   background-color: lightblue;
 }
 
-/* Additional styling for the login form if needed */
-/* .login-container {
-  display: flex;
-  align-items: center;
-  margin-right: 20px; /* Adjust the margin between links and login form */
-/* }  */
-
-/* Additional styling for the ProfileButton if needed */
-/* .profile-button {
-  background-color: white;
-  color: #0a66c2;
-  /* text-decoration: none; */
-/* margin-right: 20px; */
-/* font-size: 1rem; */
-/* } */
 * .active {
   font-weight: bold; /* Bold font for active links */
 }

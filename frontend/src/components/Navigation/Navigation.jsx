@@ -2,21 +2,9 @@ import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 import ProfileButton from "./ProfileButton";
 import "./Navigation.css";
-// import LoginForm from "../session/LoginForm";
 
 function Navigation() {
   const sessionUser = useSelector((state) => state.session.user);
-
-  // const sessionLinks = sessionUser ? (
-  //   <li>
-  //     <ProfileButton user={sessionUser} />
-  //   </li>
-  // ) : (
-  //   <>
-  //     <NavLink to="/login">Log In</NavLink>
-  //     <NavLink to="/signup">Sign Up</NavLink>
-  //   </>
-  // );
 
   const loggedOutHeader = (
     <div className="header">

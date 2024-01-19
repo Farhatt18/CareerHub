@@ -3,7 +3,6 @@ import { useDispatch } from "react-redux";
 import * as sessionActions from "../../store/reducers/session";
 import "./ProfileButton.css";
 import { useNavigate } from "react-router-dom";
-// import { Navigate } from "react-router-dom";
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
@@ -45,7 +44,6 @@ function ProfileButton({ user }) {
       {showMenu && (
         <ul className="profile-dropdown" ref={dropdownRef}>
           <li>{user.username}</li>
-          <li>{user.email}</li>
           <li>
             {/* {user.username} */}
             <button onClick={(e) => logout(e)} className="logout">
