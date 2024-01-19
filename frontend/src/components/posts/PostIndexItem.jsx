@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { deletePost } from "../../store/reducers/post";
-
+import "./PostIndexItem.css";
 const PostIndexItem = ({ post }) => {
   const dispatch = useDispatch();
 
@@ -10,9 +10,11 @@ const PostIndexItem = ({ post }) => {
   };
 
   return (
-    <div className="post-index-item">
-      <p>{post.body}</p>
-      <button onClick={handleDelete}>Delete</button>
+    <div className="postIndexItem">
+      <div className="eachPost">
+        <p>{post.body}</p>
+        <button onClick={handleDelete}>X</button>
+      </div>
     </div>
   );
 };

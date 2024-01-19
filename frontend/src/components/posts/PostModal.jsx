@@ -12,6 +12,7 @@ import {
 import * as modalActions from "../../store/reducers/modals";
 import Modal from "../Modal/modal";
 import "./PostModal.css";
+// import PostIndex from "./postsIndex";
 
 const PostModal = () => {
   const dispatch = useDispatch();

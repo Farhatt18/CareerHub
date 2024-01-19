@@ -1,0 +1,14 @@
+.postIndexItems {
+}
+
+.eachPost {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.eachPost button {
+  border: none;
+  background-color: white;
+}

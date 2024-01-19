@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
 import * as modalActions from "../../store/reducers/modals";
 import PostModal from "../posts/PostModal";
+import PostIndex from "../posts/postsIndex";
 
 const Feed = () => {
   const sessionUser = useSelector((state) => state.session.user);
@@ -27,6 +28,10 @@ const Feed = () => {
             <i className="fa-solid fa-user-circle fa-3x" />
             <button onClick={openPostModal}> Start a Post </button>
             {modalType && <PostModal user={sessionUser.user} />}
+          </div>
+
+          <div className="allPosts">
+            <PostIndex />
           </div>
         </div>
       </div>
