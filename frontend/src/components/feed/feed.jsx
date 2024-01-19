@@ -24,7 +24,7 @@ const Feed = () => {
       <div className="feed-container">
         <div className="body">
           <div className="postWrapper">
-            <i className="fa-solid fa-user-circle fa-2x" />
+            <i className="fa-solid fa-user-circle fa-3x" />
             <button onClick={openPostModal}> Start a Post </button>
             {modalType && <PostModal user={sessionUser.user} />}
           </div>

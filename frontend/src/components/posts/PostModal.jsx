@@ -17,7 +17,8 @@ const PostModal = () => {
   const dispatch = useDispatch();
   const { postId } = useParams();
   const post = useSelector(selectPost(postId));
-  const [body, setBody] = useState(post?.body || "");
+  const [body, setBody] = useState("");
+  // const storedUser = JSON.parse(sessionStorage.getItem("currentUser"));
 
   useEffect(() => {
     if (postId) {
@@ -35,10 +36,14 @@ const PostModal = () => {
     e.preventDefault();
 
     if (postId) {
-      dispatch(updatePost({ id: postId, body }));
+      dispatch(updatePost({ id: postId, ...body }));
     } else {
       dispatch(createPost({ body }));
     }
+    dispatch(modalActions.hideModal());
+  };
+
+  const handleCloseBtn = () => {
     dispatch(modalActions.hideModal());
   };
 
@@ -52,6 +57,9 @@ const PostModal = () => {
               <span>Name</span>
             </div>
           </button>
+          <button className="closeBtn" onClick={handleCloseBtn}>
+            X
+          </button>
         </h2>
         <div className="sharedBody">
           <form onSubmit={handleSubmit}>
@@ -59,7 +67,9 @@ const PostModal = () => {
               value={body}
               onChange={(e) => setBody(e.target.value)}
               placeholder="What's on your mind?"
+              maxLength={3000}
             />
+
             <div className="footer">
               <button className={body ? "active" : ""}>
                 {postId ? "Save" : "Post"}

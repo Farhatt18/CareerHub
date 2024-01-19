@@ -21,11 +21,11 @@ function Layout() {
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    // path: "/",
     element: <Layout />,
     children: [
       {
-        index: true,
+        path: "/",
         element: <Splash />,
       },
       {
