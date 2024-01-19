@@ -1,8 +1,9 @@
 import * as postModalActions from "../../store/reducers/modals";
 import Modal from "../Modal/modal";
 import { useDispatch } from "react-redux";
+import PostForm from "./postForm";
 
-const PostForm = () => {
+const PostModal = () => {
   const dispatch = useDispatch();
   // const showModal = useSelector((state) => state.modals.showModal);
 
@@ -18,4 +19,4 @@ const PostForm = () => {
   );
 };
 
-export default PostForm;
+export default PostModal;

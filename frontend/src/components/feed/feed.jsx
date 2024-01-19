@@ -18,6 +18,7 @@ const Feed = () => {
   const openPostModal = () => {
     dispatch(modalActions.showModal());
   };
+
   return (
     <div className="homePageWrapper">
       <div className="navigationWrapper">

@@ -11,11 +11,11 @@ import csrfFetch, { restoreSession } from "./store/csrf";
 
 // let currentUser = JSON.parse(sessionStorage.getItem("currentUser"));
 
-const initialized = () => {
+const initialApp = () => {
   const store = configureStore();
 
   if (import.meta.env.MODE !== "production") {
-    // restoreCSRF();
+    // restoreSession();
     window.store = store;
     window.csrfFetch = csrfFetch;
     window.sessionActions = sessionActions;
@@ -31,5 +31,4 @@ const initialized = () => {
     </React.StrictMode>
   );
 };
-
-restoreSession().then(initialized);
+restoreSession().then(initialApp);

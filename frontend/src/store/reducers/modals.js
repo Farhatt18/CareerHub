@@ -9,13 +9,13 @@ export const hideModal = () => ({
   type: HIDE_MODAL,
 });
 
-function modalsReducer(state = { type: true }, action) {
+function modalsReducer(state = { type: false }, action) {
   switch (action.type) {
     case SHOW_MODAL: {
-      return { type: false };
+      return { type: true };
     }
     case HIDE_MODAL:
-      return { type: true };
+      return { type: false };
     default:
       return state;
   }

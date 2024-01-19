@@ -11,6 +11,19 @@ import SignupForm from "./components/session/SignupForm";
 import Feed from "./components/feed/feed";
 import Splash from "./components/splash/splash";
 
+// function Layout() {
+//   const dispatch = useDispatch();
+//   const [isLoaded, setIsLoaded] = useState(false);
+
+//   useEffect(() => {
+//     dispatch(sessionActions.restoreSession()).then(() => {
+//       setIsLoaded(true);
+//     });
+//   }, [dispatch]);
+
+//   return <>{isLoaded && <Outlet />}</>;
+// }
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -28,14 +41,6 @@ const router = createBrowserRouter([
         path: "feed",
         element: <Feed />,
       },
-      // {
-      //   path: "posts",
-      //   element: (
-      //     <Protected>
-      //       <PostIndex />
-      //     </Protected>
-      //   ),
-      // },
     ],
   },
 ]);

@@ -10,9 +10,9 @@ import {
 // import Modal from "../Modal/modal";
 // import { hideModal } from "../../store/reducers/modals";
 import * as modalActions from "../../store/reducers/modals";
-import "./PostModal.css";
+// import "./PostModal.css";
 
-const PostModal = () => {
+const PostForm = () => {
   const dispatch = useDispatch();
   const { postId } = useParams();
   const post = useSelector(selectPost(postId));
@@ -58,4 +58,4 @@ const PostModal = () => {
   );
 };
 
-export default PostModal;
+export default PostForm;
