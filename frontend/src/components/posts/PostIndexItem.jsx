@@ -13,6 +13,7 @@ const PostIndexItem = ({ post }) => {
     <div className="postIndexItem">
       <div className="eachPost">
         <p>{post.body}</p>
+        {/* <img src={post.photoUrl} alt="random" /> */}
         <button onClick={handleDelete}>X</button>
       </div>
     </div>

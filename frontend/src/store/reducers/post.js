@@ -32,8 +32,12 @@ export const selectPost = (postId) => {
 export const fetchPosts = () => async (dispatch) => {
   const res = await csrfFetch(`/api/posts`);
   if (res.ok) {
-    const data = await res.json();
-    dispatch(receivePosts(data));
+    const postsArray = await res.json();
+    const postsObject = {};
+    postsArray.forEach((post) => {
+      postsObject[post.id] = post;
+    });
+    dispatch(receivePosts(postsObject));
   }
 };
 
