@@ -35,13 +35,13 @@
 
 // export default Modal;
 
-const Modal = () => {
-  return (
-    <div id="modal">
-      <div id="modal-background" />
-      <div id="modal-content"></div>
-    </div>
-  );
-};
+// const Modal = () => {
+//   return (
+//     <div id="modal">
+//       <div id="modal-background" />
+//       <div id="modal-content"></div>
+//     </div>
+//   );
+// };
 
-export default Modal;
+// export default Modal;
