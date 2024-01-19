@@ -25,10 +25,9 @@ export const removePost = (postId) => ({
 export const selectArray = (state) => Object.values(state.posts);
 export const selectPost = (postId) => {
   return (state) => {
-    state.posts[postId] ? state.posts[postId] : null;
+    return state.posts[postId] || null;
   };
 };
-
 //thunk action
 export const fetchPosts = () => async (dispatch) => {
   const res = await csrfFetch(`/api/posts`);

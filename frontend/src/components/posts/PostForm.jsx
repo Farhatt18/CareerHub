@@ -16,7 +16,7 @@ const PostForm = () => {
   const dispatch = useDispatch();
   const { postId } = useParams();
   const post = useSelector(selectPost(postId));
-  const [body, setBody] = useState("");
+  const [body, setBody] = useState(post?.body || "");
 
   useEffect(() => {
     if (postId) {
