@@ -34,7 +34,7 @@ const PostForm = () => {
     e.preventDefault();
 
     if (postId) {
-      dispatch(updatePost({ id: postId, ...body }));
+      dispatch(updatePost({ id: postId, body }));
     } else {
       dispatch(createPost({ body }));
     }
