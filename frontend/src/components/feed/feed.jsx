@@ -29,6 +29,7 @@ const Feed = () => {
             <button onClick={openPostModal}> Start a Post </button>
             {modalType && <PostModal user={sessionUser.user} />}
           </div>
+          <br />
 
           <div className="allPosts">
             <PostIndex />

@@ -35,13 +35,6 @@
 
   /* background-color: aquamarine; */
 }
-.allPosts {
-  margin-top: 75px;
-  width: 555px;
-  height: 116px;
-  background-color: rgb(255, 255, 255);
-  border-radius: 0.8rem;
-}
 .postWrapper button {
   margin-left: 8px;
   background-color: white;
@@ -72,4 +65,8 @@
 .fa-solid.fa-user-circle ::before {
   width: 48px;
   height: 48px;
+}
+
+.allPosts {
+  margin-top: 75px;
 }
