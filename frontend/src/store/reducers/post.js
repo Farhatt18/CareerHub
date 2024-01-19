@@ -79,20 +79,6 @@ export const deletePost = (postId) => async (dispatch) => {
   }
 };
 
-// const initialState = {
-//   posts: {
-//     1: {
-//       id: 1,
-//       author_id: 1,
-//       content: "Excited to join the local running club!",
-//     },
-//     2: {
-//       id: 2,
-//       author_id: 2,
-//       content: "Just completed a thrilling mountain biking trail!",
-//     },
-//   },
-// };
 //Reducer
 const postReducers = (state = {}, action) => {
   const nextState = { ...state };
