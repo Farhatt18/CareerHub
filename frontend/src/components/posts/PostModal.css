@@ -1,0 +1,81 @@
+/* .postModalWrapper{
+  width: ;
+} */
+
+.sharedHeader {
+  width: 672px;
+  height: 80px;
+}
+
+button.btnShared {
+  width: 265px;
+  height: 80px;
+  border: none;
+  padding: 12px;
+}
+
+.icon {
+  display: flex;
+  width: 241px;
+  height: 56px;
+  /* background-color: aquamarine; */
+}
+.icon .fa-user-circle {
+  width: 56px;
+  height: 56px;
+}
+
+.icon span {
+  margin-left: 8px;
+  line-height: 25px;
+  font-weight: 600;
+  text-align: left;
+  font-size: 20px;
+  width: 141px;
+  /* height: 25px;s */
+  text-decoration: none solid rgba(0, 0, 0, 0.9);
+  color: #000000;
+}
+
+.sharedBody {
+  width: 744px;
+  height: 488px;
+}
+
+.sharedBody textarea {
+  width: 696px;
+  height: 330px;
+  /* height: 96px; */
+  border: none;
+  padding: 12px;
+  margin: 20px;
+  font-size: 20px;
+}
+
+.footer {
+  flex: 20%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 744px;
+  height: 64px;
+  /* background-color: aquamarine; */
+
+  border-top: 0.1px solid;
+  border-color: rgba(0, 0, 0, 0.9);
+}
+
+.footer button {
+  width: 65px;
+  height: 32px;
+  padding: 6px 16px;
+  border: none;
+  background-color: #8c8c8c33;
+  color: #0000004d;
+  cursor: pointer;
+}
+
+.sharedBody .active {
+  background-color: #0b65c2;
+  color: white;
+}

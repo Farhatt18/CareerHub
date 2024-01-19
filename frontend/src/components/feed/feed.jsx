@@ -2,21 +2,21 @@ import "./feed.css";
 import Navigation from "../Navigation/Navigation";
 // import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import PostModal from "../posts/PostModal";
-import { showModal } from "../../store/reducers/modals";
+// import PostModal from "../posts/PostModal";
+// import { showModal } from "../../store/reducers/modals";
 import { Navigate } from "react-router-dom";
 import * as modalActions from "../../store/reducers/modals";
+import PostModal from "../posts/PostModal";
 
 const Feed = () => {
   const sessionUser = useSelector((state) => state.session.user);
   const dispatch = useDispatch();
-  const isModalVisible = useSelector((state) => state.modals.type === true);
-  // const modalType = useSelector(state => state.modals.type);
+  const modalType = useSelector((state) => state.modals.type === "SHOW_MODAL");
 
   if (!sessionUser) return <Navigate to="/" />;
 
   const openPostModal = () => {
-    dispatch(modalActions.showModal());
+    dispatch(modalActions.showModal("SHOW_MODAL"));
   };
 
   return (
@@ -27,10 +27,9 @@ const Feed = () => {
       <div className="feed-container">
         <div className="body">
           <div className="postWrapper">
+            <i className="fa-solid fa-user-circle fa-2x" />
             <button onClick={openPostModal}> Start a Post </button>
-            {isModalVisible && showModal !== null && (
-              <PostModal onClose={() => dispatch(modalActions.hideModal())} />
-            )}
+            {modalType && <PostModal user={sessionUser.user} />}
           </div>
         </div>
       </div>

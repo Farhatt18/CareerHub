@@ -37,8 +37,8 @@ export const fetchPosts = () => async (dispatch) => {
   }
 };
 
-export const fetchPost = (post) => async (dispatch) => {
-  const res = await csrfFetch(`/api/posts/${post.id}`);
+export const fetchPost = (postId) => async (dispatch) => {
+  const res = await csrfFetch(`/api/posts/${postId}`);
   if (res.ok) {
     const data = await res.json();
     dispatch(receivePosts(data));

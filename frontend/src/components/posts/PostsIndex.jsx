@@ -1,26 +1,26 @@
-// import { useEffect } from "react";
-// import { useDispatch, useSelector } from "react-redux";
-// // import PostForm from "./PostForm";
-// import PostIndexItem from "./PostIndexItem";
-// import { selectArray, fetchPosts } from "../../store/reducers/post";
-// import "./Post.css";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+// import PostForm from "./PostForm";
+import PostIndexItem from "./PostIndexItem";
+import { selectArray, fetchPosts } from "../../store/reducers/post";
+import "./Post.css";
 
-// const PostIndex = () => {
-//   const dispatch = useDispatch();
-//   const posts = useSelector(selectArray);
+const PostIndex = () => {
+  const dispatch = useDispatch();
+  const posts = useSelector(selectArray);
 
-//   useEffect(() => {
-//     dispatch(fetchPosts);
-//   }, [dispatch]);
+  useEffect(() => {
+    dispatch(fetchPosts);
+  }, [dispatch]);
 
-//   return (
-//     <div className="post-index-container">
-//       <ul>
-//         {posts.map((post) => {
-//           return <PostIndexItem key={post.id} post={post} />;
-//         })}
-//       </ul>
-//     </div>
-//   );
-// };
-// export default PostIndex;
+  return (
+    <div className="post-index-container">
+      <ul>
+        {posts.map((post) => {
+          return <PostIndexItem key={post.id} post={post} />;
+        })}
+      </ul>
+    </div>
+  );
+};
+export default PostIndex;

@@ -15,7 +15,7 @@ const initialApp = () => {
   const store = configureStore();
 
   if (import.meta.env.MODE !== "production") {
-    // restoreSession();
+    restoreSession();
     window.store = store;
     window.csrfFetch = csrfFetch;
     window.sessionActions = sessionActions;
