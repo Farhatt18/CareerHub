@@ -35,11 +35,11 @@
 
 // export default Modal;
 
-const Modal = ({ children }) => {
+const Modal = () => {
   return (
     <div id="modal">
       <div id="modal-background" />
-      <div id="modal-content">{children}</div>
+      <div id="modal-content"></div>
     </div>
   );
 };
