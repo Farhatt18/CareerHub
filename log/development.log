@@ -39488,3 +39488,316 @@ Processing by Api::PostsController#destroy as JSON
 Completed 200 OK in 21ms (Views: 0.3ms | ActiveRecord: 3.0ms | Allocations: 10321)
 
 
+Started GET "/api/session" for ::1 at 2024-01-19 21:05:17 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_user'
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/show.json.jbuilder (Duration: 1.0ms | Allocations: 639)
+Completed 200 OK in 203ms (Views: 189.8ms | ActiveRecord: 4.6ms | Allocations: 291812)
+
+
+Started GET "/api/session" for ::1 at 2024-01-19 21:05:18 -0500
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_user'
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/show.json.jbuilder (Duration: 0.3ms | Allocations: 189)
+Completed 200 OK in 2ms (Views: 0.5ms | ActiveRecord: 0.4ms | Allocations: 1278)
+
+
+Started GET "/api/session" for ::1 at 2024-01-19 21:05:18 -0500
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_user'
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/show.json.jbuilder (Duration: 0.2ms | Allocations: 189)
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.3ms | Allocations: 1119)
+
+
+Started GET "/api/posts" for ::1 at 2024-01-19 21:05:18 -0500
+Processing by Api::PostsController#index as JSON
+  Rendering api/posts/index.json.jbuilder
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/api/posts/index.json.jbuilder:1
+  Rendered api/posts/index.json.jbuilder (Duration: 10.7ms | Allocations: 3938)
+Completed 200 OK in 15ms (Views: 7.1ms | ActiveRecord: 4.3ms | Allocations: 6635)
+
+
+Started GET "/api/posts" for ::1 at 2024-01-19 21:05:18 -0500
+Processing by Api::PostsController#index as JSON
+  Rendering api/posts/index.json.jbuilder
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/api/posts/index.json.jbuilder:1
+  Rendered api/posts/index.json.jbuilder (Duration: 1.3ms | Allocations: 1300)
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.2ms | Allocations: 1808)
+
+
+Started POST "/api/posts" for ::1 at 2024-01-19 21:05:27 -0500
+Processing by Api::PostsController#create as JSON
+  Parameters: {"body"=>"dnwd ", "post"=>{"body"=>"dnwd "}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_user'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/posts_controller.rb:14:in `create'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/posts_controller.rb:14:in `create'
+  [1m[36mPost Create (0.7ms)[0m  [1m[32mINSERT INTO "posts" ("user_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 1], ["body", "dnwd "], ["created_at", "2024-01-20 02:05:27.567537"], ["updated_at", "2024-01-20 02:05:27.567537"]]
+  ↳ app/controllers/api/posts_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/posts_controller.rb:14:in `create'
+  Rendering api/posts/show.json.jbuilder
+  Rendered api/posts/show.json.jbuilder (Duration: 6.6ms | Allocations: 6111)
+  Rendering api/errors/internal_server_error.json.jbuilder
+  Rendered api/errors/internal_server_error.json.jbuilder (Duration: 0.6ms | Allocations: 219)
+
+ActionView::Template::Error - undefined method `photos' for #<Post id: 22, user_id: 1, body: "dnwd ", created_at: "2024-01-20 02:05:27.567537000 +0000", updated_at: "2024-01-20 02:05:27.567537000 +0000">
+Did you mean?  photo
+               photo=:
+	app/views/api/posts/show.json.jbuilder:3
+	app/controllers/api/posts_controller.rb:15:in `create'
+
+Completed 500 Internal Server Error in 25ms (Views: 1.1ms | ActiveRecord: 2.2ms | Allocations: 15704)
+
+
+Started GET "/api/session" for ::1 at 2024-01-19 21:06:53 -0500
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_user'
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/show.json.jbuilder (Duration: 1.3ms | Allocations: 331)
+Completed 200 OK in 7ms (Views: 3.2ms | ActiveRecord: 0.3ms | Allocations: 2060)
+
+
+Started GET "/api/session" for ::1 at 2024-01-19 21:06:53 -0500
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_user'
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/show.json.jbuilder (Duration: 0.2ms | Allocations: 188)
+Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 0.3ms | Allocations: 1241)
+
+
+Started GET "/api/session" for ::1 at 2024-01-19 21:06:53 -0500
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_user'
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/show.json.jbuilder (Duration: 0.4ms | Allocations: 188)
+Completed 200 OK in 7ms (Views: 1.2ms | ActiveRecord: 0.3ms | Allocations: 1308)
+
+
+Started GET "/api/posts" for ::1 at 2024-01-19 21:06:53 -0500
+Processing by Api::PostsController#index as JSON
+  Rendering api/posts/index.json.jbuilder
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/api/posts/index.json.jbuilder:1
+  Rendered api/posts/index.json.jbuilder (Duration: 1.8ms | Allocations: 1578)
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.3ms | Allocations: 2333)
+
+
+Started GET "/api/posts" for ::1 at 2024-01-19 21:06:53 -0500
+Processing by Api::PostsController#index as JSON
+  Rendering api/posts/index.json.jbuilder
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/api/posts/index.json.jbuilder:1
+  Rendered api/posts/index.json.jbuilder (Duration: 2.0ms | Allocations: 1348)
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.2ms | Allocations: 1856)
+
+
+Started POST "/api/posts" for ::1 at 2024-01-19 21:06:57 -0500
+Processing by Api::PostsController#create as JSON
+  Parameters: {"body"=>"cmmwc", "post"=>{"body"=>"cmmwc"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_user'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/posts_controller.rb:14:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/posts_controller.rb:14:in `create'
+  [1m[36mPost Create (0.4ms)[0m  [1m[32mINSERT INTO "posts" ("user_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 1], ["body", "cmmwc"], ["created_at", "2024-01-20 02:06:57.499780"], ["updated_at", "2024-01-20 02:06:57.499780"]]
+  ↳ app/controllers/api/posts_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/posts_controller.rb:14:in `create'
+  Rendering api/posts/show.json.jbuilder
+  [1m[36mActiveStorage::Attachment Load (0.7ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 23], ["record_type", "Post"], ["name", "photo"], ["LIMIT", 1]]
+  ↳ app/views/api/posts/show.json.jbuilder:3
+  Rendered api/posts/show.json.jbuilder (Duration: 12.8ms | Allocations: 7437)
+Completed 200 OK in 19ms (Views: 11.5ms | ActiveRecord: 3.2ms | Allocations: 11356)
+
+
+Started DELETE "/api/posts/23" for ::1 at 2024-01-19 21:07:04 -0500
+Processing by Api::PostsController#destroy as JSON
+  Parameters: {"id"=>"23", "post"=>{}}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/api/posts_controller.rb:42:in `destroy'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/posts_controller.rb:43:in `destroy'
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 23], ["record_type", "Post"], ["name", "photo"], ["LIMIT", 1]]
+  ↳ app/controllers/api/posts_controller.rb:43:in `destroy'
+  [1m[36mPost Destroy (0.5ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 23]]
+  ↳ app/controllers/api/posts_controller.rb:43:in `destroy'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/posts_controller.rb:43:in `destroy'
+  Rendering api/posts/index.json.jbuilder
+  Rendered api/posts/index.json.jbuilder (Duration: 0.1ms | Allocations: 30)
+Completed 200 OK in 35ms (Views: 0.4ms | ActiveRecord: 1.9ms | Allocations: 4605)
+
+
+Started DELETE "/api/posts/22" for ::1 at 2024-01-19 21:07:05 -0500
+Processing by Api::PostsController#destroy as JSON
+  Parameters: {"id"=>"22", "post"=>{}}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/api/posts_controller.rb:42:in `destroy'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/posts_controller.rb:43:in `destroy'
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 22], ["record_type", "Post"], ["name", "photo"], ["LIMIT", 1]]
+  ↳ app/controllers/api/posts_controller.rb:43:in `destroy'
+  [1m[36mPost Destroy (0.4ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 22]]
+  ↳ app/controllers/api/posts_controller.rb:43:in `destroy'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/posts_controller.rb:43:in `destroy'
+  Rendering api/posts/index.json.jbuilder
+  Rendered api/posts/index.json.jbuilder (Duration: 0.1ms | Allocations: 24)
+Completed 200 OK in 10ms (Views: 0.5ms | ActiveRecord: 1.5ms | Allocations: 3508)
+
+
+Started DELETE "/api/posts/21" for ::1 at 2024-01-19 21:07:07 -0500
+Processing by Api::PostsController#destroy as JSON
+  Parameters: {"id"=>"21", "post"=>{}}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/api/posts_controller.rb:42:in `destroy'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/posts_controller.rb:43:in `destroy'
+  [1m[36mActiveStorage::Attachment Load (0.5ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 21], ["record_type", "Post"], ["name", "photo"], ["LIMIT", 1]]
+  ↳ app/controllers/api/posts_controller.rb:43:in `destroy'
+  [1m[36mPost Destroy (0.4ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 21]]
+  ↳ app/controllers/api/posts_controller.rb:43:in `destroy'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/posts_controller.rb:43:in `destroy'
+  Rendering api/posts/index.json.jbuilder
+  Rendered api/posts/index.json.jbuilder (Duration: 0.1ms | Allocations: 24)
+Completed 200 OK in 11ms (Views: 0.6ms | ActiveRecord: 1.9ms | Allocations: 3513)
+
+
+Started GET "/api/session" for ::1 at 2024-01-19 21:07:10 -0500
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_user'
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/show.json.jbuilder (Duration: 0.7ms | Allocations: 216)
+Completed 200 OK in 4ms (Views: 1.2ms | ActiveRecord: 0.2ms | Allocations: 1152)
+
+
+Started GET "/api/session" for ::1 at 2024-01-19 21:07:10 -0500
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_user'
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/show.json.jbuilder (Duration: 0.2ms | Allocations: 188)
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.2ms | Allocations: 1117)
+
+
+Started GET "/api/session" for ::1 at 2024-01-19 21:07:10 -0500
+Started GET "/api/posts" for ::1 at 2024-01-19 21:07:10 -0500
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_user'
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/show.json.jbuilder (Duration: 0.2ms | Allocations: 189)
+Completed 200 OK in 2ms (Views: 0.6ms | ActiveRecord: 0.2ms | Allocations: 1274)
+
+
+Processing by Api::PostsController#index as JSON
+  Rendering api/posts/index.json.jbuilder
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/api/posts/index.json.jbuilder:1
+  Rendered api/posts/index.json.jbuilder (Duration: 17.0ms | Allocations: 1236)
+Completed 200 OK in 20ms (Views: 18.0ms | ActiveRecord: 0.4ms | Allocations: 1674)
+
+
+Started GET "/api/posts" for ::1 at 2024-01-19 21:07:10 -0500
+Processing by Api::PostsController#index as JSON
+  Rendering api/posts/index.json.jbuilder
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/api/posts/index.json.jbuilder:1
+  Rendered api/posts/index.json.jbuilder (Duration: 1.2ms | Allocations: 1233)
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.2ms | Allocations: 1670)
+
+
+Started POST "/api/posts" for ::1 at 2024-01-19 21:07:20 -0500
+Processing by Api::PostsController#create as JSON
+  Parameters: {"body"=>"dmqkdmqk", "post"=>{"body"=>"dmqkdmqk"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_user'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/posts_controller.rb:14:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/posts_controller.rb:14:in `create'
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("user_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 1], ["body", "dmqkdmqk"], ["created_at", "2024-01-20 02:07:20.226294"], ["updated_at", "2024-01-20 02:07:20.226294"]]
+  ↳ app/controllers/api/posts_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/posts_controller.rb:14:in `create'
+  Rendering api/posts/show.json.jbuilder
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 24], ["record_type", "Post"], ["name", "photo"], ["LIMIT", 1]]
+  ↳ app/views/api/posts/show.json.jbuilder:3
+  Rendered api/posts/show.json.jbuilder (Duration: 1.0ms | Allocations: 1003)
+Completed 200 OK in 6ms (Views: 1.1ms | ActiveRecord: 1.2ms | Allocations: 4720)
+
+
+Started DELETE "/api/posts/24" for ::1 at 2024-01-19 21:07:34 -0500
+Processing by Api::PostsController#destroy as JSON
+  Parameters: {"id"=>"24", "post"=>{}}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/controllers/api/posts_controller.rb:42:in `destroy'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/posts_controller.rb:43:in `destroy'
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 24], ["record_type", "Post"], ["name", "photo"], ["LIMIT", 1]]
+  ↳ app/controllers/api/posts_controller.rb:43:in `destroy'
+  [1m[36mPost Destroy (0.3ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 24]]
+  ↳ app/controllers/api/posts_controller.rb:43:in `destroy'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/posts_controller.rb:43:in `destroy'
+  Rendering api/posts/index.json.jbuilder
+  Rendered api/posts/index.json.jbuilder (Duration: 0.1ms | Allocations: 24)
+Completed 200 OK in 8ms (Views: 0.5ms | ActiveRecord: 1.3ms | Allocations: 3499)
+
+
+Started POST "/api/posts" for ::1 at 2024-01-19 21:07:38 -0500
+Processing by Api::PostsController#create as JSON
+  Parameters: {"body"=>"ndjalnjf", "post"=>{"body"=>"ndjalnjf"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_user'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/posts_controller.rb:14:in `create'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/posts_controller.rb:14:in `create'
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("user_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 1], ["body", "ndjalnjf"], ["created_at", "2024-01-20 02:07:38.975517"], ["updated_at", "2024-01-20 02:07:38.975517"]]
+  ↳ app/controllers/api/posts_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/posts_controller.rb:14:in `create'
+  Rendering api/posts/show.json.jbuilder
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 25], ["record_type", "Post"], ["name", "photo"], ["LIMIT", 1]]
+  ↳ app/views/api/posts/show.json.jbuilder:3
+  Rendered api/posts/show.json.jbuilder (Duration: 1.1ms | Allocations: 1000)
+Completed 200 OK in 7ms (Views: 1.2ms | ActiveRecord: 1.3ms | Allocations: 4679)
+
+
+Started DELETE "/api/posts/25" for ::1 at 2024-01-19 21:07:42 -0500
+Processing by Api::PostsController#destroy as JSON
+  Parameters: {"id"=>"25", "post"=>{}}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/api/posts_controller.rb:42:in `destroy'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/posts_controller.rb:43:in `destroy'
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 25], ["record_type", "Post"], ["name", "photo"], ["LIMIT", 1]]
+  ↳ app/controllers/api/posts_controller.rb:43:in `destroy'
+  [1m[36mPost Destroy (0.6ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 25]]
+  ↳ app/controllers/api/posts_controller.rb:43:in `destroy'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/posts_controller.rb:43:in `destroy'
+  Rendering api/posts/index.json.jbuilder
+  Rendered api/posts/index.json.jbuilder (Duration: 0.1ms | Allocations: 24)
+Completed 200 OK in 11ms (Views: 0.5ms | ActiveRecord: 1.9ms | Allocations: 3504)
+
+
