@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchPost, createPost, updatePost } from "../../store/reducers/post";
+import { useState } from "react";
+
+import { useDispatch } from "react-redux";
+import { createPost } from "../../store/reducers/post";
 // import Modal from "../Modal/modal";
 // import { hideModal } from "../../store/reducers/modals";
 import * as modalActions from "../../store/reducers/modals";
@@ -11,31 +11,14 @@ import "./PostModal.css";
 
 const PostModal = ({ userName }) => {
   const dispatch = useDispatch();
-  const { postId } = useParams();
-  const post = useSelector((state) => state.posts[postId]);
   const [body, setBody] = useState("");
   // const storedUser = JSON.parse(sessionStorage.getItem("currentUser"));
-
-  useEffect(() => {
-    if (postId) {
-      dispatch(fetchPost(postId));
-    }
-  }, [dispatch, postId]);
-
-  useEffect(() => {
-    if (postId && post) {
-      setBody(post.body);
-    }
-  }, [postId, post]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (postId) {
-      dispatch(updatePost({ id: postId, ...body }));
-    } else {
-      dispatch(createPost({ body }));
-    }
+    dispatch(createPost({ body }));
+
     dispatch(modalActions.hideModal());
   };
 
@@ -67,9 +50,7 @@ const PostModal = ({ userName }) => {
             />
 
             <div className="footer">
-              <button className={body ? "active" : ""}>
-                {postId ? "Save" : "Post"}
-              </button>
+              <button className={body ? "active" : ""}>Post</button>
             </div>
           </form>
         </div>
