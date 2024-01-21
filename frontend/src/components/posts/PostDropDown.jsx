@@ -2,9 +2,8 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { deletePost, updatePost } from "../../store/reducers/post";
 import "./PostDropDown.css";
-// import PostModal from "./PostModal";
+
 import Modal from "../Modal/modal";
-import * as modalActions from "../../store/reducers/modals";
 
 const PostDropDown = ({ post, postId, postUserId }) => {
   const dispatch = useDispatch();
@@ -15,8 +14,7 @@ const PostDropDown = ({ post, postId, postUserId }) => {
 
   const handleDropDownToggle = () => {
     setShowDropDown(!showDropDown);
-  }; // const modalType = useSelector((state) => state.modals.type === "SHOW_MODAL");
-
+  };
   const handleDelete = () => {
     if (sessionUser && sessionUser.id === postUserId) {
       dispatch(deletePost(postId));
@@ -24,21 +22,14 @@ const PostDropDown = ({ post, postId, postUserId }) => {
     }
   };
 
-  // const handleEdit = () => {
-  //   // dispatch(updatePost(postId));
-  //   if (sessionUser.id === postUserId) {
-  //     dispatch(modalActions.showModal("SHOW_MODAL", { postId }));
-  //     setShowDropDown(false);
-  //   }
-  // };
-
   const handleUpdatePost = async () => {
     const updatedPost = { ...post, body: editedBody };
     await dispatch(updatePost(updatedPost));
     setIsEditing(false);
   };
   const handleCloseBtn = () => {
-    dispatch(modalActions.hideModal());
+    setShowDropDown(false);
+    setIsEditing(false);
   };
 
   return (
@@ -53,14 +44,36 @@ const PostDropDown = ({ post, postId, postUserId }) => {
               <button onClick={() => setIsEditing(true)}>Edit Post</button>
               {isEditing && (
                 <Modal>
-                  <form>
-                    <textarea
-                      value={editedBody}
-                      onChange={(e) => setEditedBody(e.target.value)}
-                      maxLength={3000}
-                    />
-                    <button onClick={handleUpdatePost}>Save</button>
-                  </form>
+                  <div className="postEditWrapper">
+                    <h2 className="editSharedHeader">
+                      <button className="btnShared">
+                        <div className="icon">
+                          <i className="fa-solid fa-user-circle fa-3x" />
+                          <span>{sessionUser.username}</span>
+                        </div>
+                      </button>
+                      <button className="postClose" onClick={handleCloseBtn}>
+                        X
+                      </button>
+                    </h2>
+                    <div className="editSharedBody">
+                      <form>
+                        <textarea
+                          value={editedBody}
+                          onChange={(e) => setEditedBody(e.target.value)}
+                          maxLength={3000}
+                        />
+                        <div className="editFooter">
+                          <button
+                            onClick={handleUpdatePost}
+                            className={editedBody ? "active" : ""}
+                          >
+                            Save
+                          </button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
                 </Modal>
               )}
               <button onClick={handleDelete}>Delete Post</button>
