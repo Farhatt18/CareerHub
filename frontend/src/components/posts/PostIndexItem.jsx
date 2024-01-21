@@ -1,14 +1,9 @@
-import { useDispatch } from "react-redux";
-// import { deletePost } from "../../store/reducers/post";
+import { useSelector } from "react-redux";
 import "./PostIndexItem.css";
 import PostDropDown from "./PostDropDown";
-const PostIndexItem = ({ post }) => {
-  // const dispatch = useDispatch();
 
-  // const handleDelete = (e) => {
-  //   e.preventDefault();
-  //   dispatch(deletePost(post.id));
-  // };
+const PostIndexItem = ({ post }) => {
+  const sessionUser = useSelector((state) => state.session.user);
 
   return (
     <div className="postIndexItem">
@@ -18,13 +13,14 @@ const PostIndexItem = ({ post }) => {
             <i className="fa-solid fa-user-circle fa-3x" />
             <span>Name</span>
           </div>
-          <PostDropDown postId={post.id} />
+          {sessionUser && sessionUser.id === post.userId && (
+            <PostDropDown postId={post.id} postUserId={post.userId} />
+          )}
         </div>
         <p>{post.body}</p>
-        {/* <img src={post.photoUrl} alt="random" /> */}
-        {/* <button onClick={handleDelete}>X</button> */}
       </div>
     </div>
   );
 };
+
 export default PostIndexItem;

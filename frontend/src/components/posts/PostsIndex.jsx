@@ -2,12 +2,12 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 // import PostForm from "./PostForm";
 import PostIndexItem from "./PostIndexItem";
-import { fetchPosts, selectArray } from "../../store/reducers/post";
+import { fetchPosts, selectPosts } from "../../store/reducers/post";
 // import Modal from "../Modal/modal";
 
 const PostIndex = () => {
   const dispatch = useDispatch();
-  const posts = useSelector(selectArray);
+  const posts = useSelector(selectPosts);
 
   useEffect(() => {
     dispatch(fetchPosts());
@@ -17,7 +17,10 @@ const PostIndex = () => {
     <div className="allPostContainer">
       <ul>
         {posts.map((post) => {
-          return post.id ? <PostIndexItem key={post.id} post={post} /> : null;
+          if (post && post.id) {
+            return <PostIndexItem key={post.id} post={post} />;
+          }
+          return null;
         })}
       </ul>
     </div>

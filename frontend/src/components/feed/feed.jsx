@@ -27,7 +27,12 @@ const Feed = () => {
           <div className="postWrapper">
             <i className="fa-solid fa-user-circle fa-3x" />
             <button onClick={openPostModal}> Start a Post </button>
-            {modalType && <PostModal user={sessionUser.user} />}
+            {modalType && (
+              <PostModal
+                user={sessionUser.user}
+                userName={sessionUser.username}
+              />
+            )}
           </div>
           <br />
 

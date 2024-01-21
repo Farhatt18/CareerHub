@@ -1,12 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  selectPost,
-  fetchPost,
-  createPost,
-  updatePost,
-} from "../../store/reducers/post";
+import { fetchPost, createPost, updatePost } from "../../store/reducers/post";
 // import Modal from "../Modal/modal";
 // import { hideModal } from "../../store/reducers/modals";
 import * as modalActions from "../../store/reducers/modals";
@@ -14,10 +9,10 @@ import Modal from "../Modal/modal";
 import "./PostModal.css";
 // import PostIndex from "./postsIndex";
 
-const PostModal = () => {
+const PostModal = ({ userName }) => {
   const dispatch = useDispatch();
   const { postId } = useParams();
-  const post = useSelector(selectPost(postId));
+  const post = useSelector((state) => state.posts[postId]);
   const [body, setBody] = useState("");
   // const storedUser = JSON.parse(sessionStorage.getItem("currentUser"));
 
@@ -55,7 +50,7 @@ const PostModal = () => {
           <button className="btnShared">
             <div className="icon">
               <i className="fa-solid fa-user-circle fa-3x" />
-              <span>Name</span>
+              <span>{userName}</span>
             </div>
           </button>
           <button className="closeBtn" onClick={handleCloseBtn}>

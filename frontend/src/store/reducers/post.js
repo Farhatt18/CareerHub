@@ -1,4 +1,4 @@
-// import { createSelector } from "reselect";
+import { createSelector } from "reselect";
 import csrfFetch from "../csrf";
 
 //Action constant
@@ -22,12 +22,14 @@ export const removePost = (postId) => ({
   postId,
 });
 
-export const selectArray = (state) => Object.values(state.posts);
-export const selectPost = (postId) => {
-  return (state) => {
-    return state.posts[postId] || null;
-  };
-};
+// Define a base selector to get the posts from the Redux state
+const selectPostsState = (state) => state.posts;
+
+// Use createSelector to create a memoized selector that transforms the posts
+export const selectPosts = createSelector([selectPostsState], (posts) =>
+  Object.values(posts)
+);
+
 //thunk action
 export const fetchPosts = () => async (dispatch) => {
   const res = await csrfFetch(`/api/posts`);
@@ -45,7 +47,7 @@ export const fetchPost = (postId) => async (dispatch) => {
   const res = await csrfFetch(`/api/posts/${postId}`);
   if (res.ok) {
     const data = await res.json();
-    dispatch(receivePosts(data));
+    dispatch(receivePost(data));
   }
 };
 
@@ -88,10 +90,9 @@ const postReducers = (state = {}, action) => {
   const nextState = { ...state };
   switch (action.type) {
     case RECEIVE_POSTS:
-      return action.posts;
+      return { ...action.posts };
     case RECEIVE_POST:
-      nextState[action.post.id] = action.post;
-      return nextState;
+      return { ...nextState, [action.post.id]: action.post };
     case REMOVE_POST:
       delete nextState[action.postId];
       return nextState;
