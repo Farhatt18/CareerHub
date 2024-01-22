@@ -4,14 +4,12 @@
 .postIndexItem {
   display: flex;
   justify-content: space-between;
-  /* align-items: center;s */
-  padding: 20px;
+  /* padding: 20px; */
   margin-top: 10px;
-  width: 523px;
+  min-width: 523px;
   min-height: 200px;
   background-color: rgb(255, 255, 255);
   border-radius: 0.8rem;
-  /* background-color: aquamarine; */
 }
 .eachPost {
   display: block;
@@ -26,7 +24,7 @@
   font-size: 14px;
   font-weight: 400;
   color: #000000e6;
-  padding: 0px;
+  padding: 20px;
   /* background-color: aquamarine; */
 }
 
@@ -38,6 +36,8 @@
 .postHeader {
   width: 523px;
   /* height: 63px; */
+  padding-top: 10px;
+  padding-left: 10px;
   display: flex;
   justify-content: space-between;
 }

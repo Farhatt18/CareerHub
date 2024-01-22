@@ -1,10 +1,11 @@
 import { useSelector } from "react-redux";
 import "./PostIndexItem.css";
 import PostDropDown from "./PostDropDown";
+import CreateComment from "../comments/createComment";
 
-const PostIndexItem = ({ post }) => {
+const PostIndexItem = ({ post, postUserId }) => {
   const sessionUser = useSelector((state) => state.session.user);
-  console.log(post);
+
   return (
     <div className="postIndexItem">
       <div className="eachPost">
@@ -30,10 +31,11 @@ const PostIndexItem = ({ post }) => {
             className="image"
             src={post.photoUrl}
             alt="img"
-            width={523}
-            height={523}
+            width={563}
+            height={563}
           />
         )}
+        <CreateComment postId={post.id} postUserId={post.userId} />
       </div>
     </div>
   );

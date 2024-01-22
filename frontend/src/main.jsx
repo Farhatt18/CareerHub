@@ -8,6 +8,7 @@ import csrfFetch, { restoreCSRF } from "./store/csrf";
 import * as sessionActions from "./store/reducers/session";
 import * as postActions from "./store/reducers/post";
 import * as modalActions from "./store/reducers/modals";
+import * as commentActions from "./store/reducers/comment";
 
 // let currentUser = JSON.parse(sessionStorage.getItem("currentUser"));
 
@@ -20,6 +21,7 @@ if (import.meta.env.MODE !== "production") {
   window.sessionActions = sessionActions;
   window.postActions = postActions;
   window.modalActions = modalActions;
+  window.commentActions = commentActions;
 }
 
 restoreCSRF();
