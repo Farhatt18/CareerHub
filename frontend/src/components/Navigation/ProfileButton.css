@@ -1,26 +1,26 @@
 .profile-button-container {
   position: relative;
+  display: inline;
+}
+
+.dropDownBtn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
 }
 
 .profile-dropdown {
   position: absolute;
-  text-align: center;
-  /* width: 150px; */
-  /* top: 60px; */
-  right: 20px;
-  list-style: none;
-  padding: 0;
-  margin: 0;
+  margin-top: 15px;
   background-color: white;
+  min-width: 250px;
+  min-height: 100px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  border-radius: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
   z-index: 1;
-  display: none;
-}
-
-.profile-button-container:hover .profile-dropdown {
-  display: block;
-  /* margin: 10px; */
+  right: 0;
 }
 
 .profile-dropdown li {
@@ -28,24 +28,37 @@
   cursor: pointer;
 }
 
-.profile-dropdown li:hover {
-  background-color: lightblue;
-}
-
 .profile-button-container i {
-  background-color: #e7e2dc;
   margin-right: 4px;
-
-  /* border-radius: 10px; */
 }
 .profile-button-container button {
-  /* border-radius: 30px; */
   border: none;
   cursor: pointer;
   width: 70px;
 }
-.logout:hover {
+
+.dropDownBtn h6 {
+  font-size: 10px;
+}
+
+.signOut {
+  border: none;
+  background-color: white;
+}
+.signOut:hover {
   border: none;
   width: 70px;
   text-decoration: underline;
+}
+
+.profileName {
+  display: flex;
+  font-size: 16px;
+}
+
+.profileName .user {
+  background-color: white;
+  color: black;
+  border: none;
+  font-size: 16px;
 }

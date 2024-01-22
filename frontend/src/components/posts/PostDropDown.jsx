@@ -2,7 +2,8 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { deletePost, updatePost } from "../../store/reducers/post";
 import "./PostDropDown.css";
-
+import edit from "../../assets/image/pencil.png";
+import trash from "../../assets/image/trash.png";
 import Modal from "../Modal/modal";
 
 const PostDropDown = ({ post, postId, postUserId }) => {
@@ -41,7 +42,12 @@ const PostDropDown = ({ post, postId, postUserId }) => {
         <div className="dropDownOptions">
           {sessionUser && sessionUser.id === postUserId && (
             <>
-              <button onClick={() => setIsEditing(true)}>Edit Post</button>
+              <div className="editBox">
+                <button onClick={() => setIsEditing(true)}>
+                  <img src={edit} width={20} height={20} alt="pencil" />
+                  Edit Post
+                </button>
+              </div>
               {isEditing && (
                 <Modal>
                   <div className="postEditWrapper">
@@ -76,7 +82,13 @@ const PostDropDown = ({ post, postId, postUserId }) => {
                   </div>
                 </Modal>
               )}
-              <button onClick={handleDelete}>Delete Post</button>
+              <div className="deleteBox">
+                <button onClick={handleDelete}>
+                  {" "}
+                  <img src={trash} width={20} height={20} alt="trash" /> Delete
+                  Post
+                </button>
+              </div>
             </>
           )}
         </div>

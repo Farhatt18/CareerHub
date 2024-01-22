@@ -1,31 +1,44 @@
 import { useState } from "react";
 
 import { useDispatch } from "react-redux";
-import { createPost } from "../../store/reducers/post";
-// import Modal from "../Modal/modal";
-// import { hideModal } from "../../store/reducers/modals";
 import * as modalActions from "../../store/reducers/modals";
 import Modal from "../Modal/modal";
 import "./PostModal.css";
-// import PostIndex from "./postsIndex";
 
 const PostModal = ({ userName }) => {
   const dispatch = useDispatch();
   const [body, setBody] = useState("");
-  // const storedUser = JSON.parse(sessionStorage.getItem("currentUser"));
+  const [newPost, setNewPost] = useState(null);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    const formData = new FormData();
+    formData.append("post[body]", body);
+    if (newPost) {
+      formData.append("post[photo]", newPost);
+    }
 
-    dispatch(createPost({ body }));
-
-    dispatch(modalActions.hideModal());
+    const response = await fetch("/api/posts", {
+      method: "POST",
+      body: formData,
+    });
+    if (response.ok) {
+      const post = await response.json();
+      setBody("");
+      setNewPost(null);
+      setNewPost(post);
+    }
   };
 
   const handleCloseBtn = () => {
     dispatch(modalActions.hideModal());
   };
+  const handleFile = ({ currentTarget }) => {
+    const file = currentTarget.files[0];
+    setNewPost(file);
+  };
 
+  // console.log(newPost);
   return (
     <Modal>
       <div className="postModalWrapper">
@@ -48,6 +61,7 @@ const PostModal = ({ userName }) => {
               placeholder="What's on your mind?"
               maxLength={3000}
             />
+            <input type="file" onChange={handleFile} />
 
             <div className="footer">
               <button className={body ? "active" : ""}>Post</button>

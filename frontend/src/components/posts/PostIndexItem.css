@@ -8,11 +8,11 @@
   padding: 20px;
   margin-top: 10px;
   width: 523px;
-  height: 200px;
+  min-height: 200px;
   background-color: rgb(255, 255, 255);
   border-radius: 0.8rem;
+  /* background-color: aquamarine; */
 }
-
 .eachPost {
   display: block;
   /* background-color: azure; */
@@ -40,4 +40,8 @@
   /* height: 63px; */
   display: flex;
   justify-content: space-between;
+}
+
+.icon span {
+  width: 200px;
 }

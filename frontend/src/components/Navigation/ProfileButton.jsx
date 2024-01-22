@@ -1,13 +1,14 @@
 import { useState, useEffect, useRef } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import * as sessionActions from "../../store/reducers/session";
 import "./ProfileButton.css";
 import { useNavigate } from "react-router-dom";
 
-function ProfileButton({ user }) {
+function ProfileButton() {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
   const dropdownRef = useRef(null);
+  const sessionUser = useSelector((state) => state.session.user);
 
   const navigate = useNavigate();
   const toggleMenu = (e) => {
@@ -37,16 +38,21 @@ function ProfileButton({ user }) {
 
   return (
     <div className="profile-button-container">
-      <button onClick={toggleMenu}>
-        <i className="fa-solid fa-user-circle" />
+      <button className="dropDownBtn" onClick={toggleMenu}>
+        <i className="fa-solid fa-user-circle s" />
         <h6>Me</h6>
       </button>
       {showMenu && (
         <ul className="profile-dropdown" ref={dropdownRef}>
-          <li>{user.username}</li>
+          <li>
+            <div className="profileName">
+              <i className="fa-solid fa-user-circle fa-3x" />
+              <span className="user">{sessionUser.username}</span>
+            </div>
+          </li>
           <li>
             {/* {user.username} */}
-            <button onClick={(e) => logout(e)} className="logout">
+            <button onClick={(e) => logout(e)} className="signOut">
               Log Out
             </button>
           </li>

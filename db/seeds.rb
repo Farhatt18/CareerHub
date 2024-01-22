@@ -21,6 +21,8 @@ require "open-uri"
   User.create!(
     username: 'Demo-lition', 
     email: 'demo@user.io', 
+    fname: "Demo",
+    lname: 'Lition',
     password: 'password'
   )
 
@@ -30,6 +32,8 @@ require "open-uri"
     User.create!({
       username: Faker::Internet.unique.username(specifier: 3),
       email: Faker::Internet.unique.email,
+      fname: Faker::Name.first_name,
+      lname: Faker::Name.last_name,
       password: 'password'
     }) 
   end
@@ -37,7 +41,6 @@ require "open-uri"
   puts "Done!"
 
   puts "Creating posts..."
-
   post1 = Post.create!(
     user_id: 1,
     body: "Excited to join the local running club!"

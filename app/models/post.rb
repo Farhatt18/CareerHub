@@ -1,9 +1,11 @@
 class Post < ApplicationRecord
   belongs_to :user
   has_one_attached :photo
+  has_many :comments, dependent: :destroy
   # has_many_attached :photos
   validates :body, presence: true
   validate :post_length
+
 
   def post_length 
     if body.length > 3000

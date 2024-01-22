@@ -9,6 +9,8 @@ function SignupForm() {
   const sessionUser = useSelector((state) => state.session.user);
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
+  const [fname, setFname] = useState("");
+  const [lname, setLname] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState([]);
@@ -20,7 +22,13 @@ function SignupForm() {
     if (password === confirmPassword) {
       setErrors([]);
       return dispatch(
-        sessionActions.signup({ email, username, password })
+        sessionActions.signup({
+          email,
+          username,
+          fname,
+          lname,
+          password,
+        })
       ).catch(async (res) => {
         let data;
         try {
@@ -73,6 +81,26 @@ function SignupForm() {
                 autoComplete="username"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
+                required
+              />
+            </label>
+            <label>
+              First Name
+              <input
+                type="text"
+                autoComplete="fname"
+                value={fname}
+                onChange={(e) => setFname(e.target.value)}
+                required
+              />
+            </label>
+            <label>
+              Last Name
+              <input
+                type="text"
+                autoComplete="lname"
+                value={lname}
+                onChange={(e) => setLname(e.target.value)}
                 required
               />
             </label>

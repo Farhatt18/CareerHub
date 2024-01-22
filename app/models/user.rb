@@ -10,11 +10,13 @@ class User < ApplicationRecord
     format: { with: URI::MailTo::EMAIL_REGEXP }
   validates :session_token, presence: true, uniqueness: true
   validates :password, length: { in: 6..40 }, allow_nil: true
+  validates :fname, :lname, presence: true
 
   before_validation :ensure_session_token
 
 
   has_many :posts, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   def self.find_by_credentials(credential, password)
     if credential =~ URI::MailTo::EMAIL_REGEXP

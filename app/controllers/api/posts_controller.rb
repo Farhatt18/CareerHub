@@ -1,4 +1,5 @@
 class Api::PostsController < ApplicationController
+  wrap_parameters include: Post.attribute_names + [:photo]
   def index
     @posts = if params[:user_id]
       Post.where(user_id: params[:user_id])
@@ -30,6 +31,7 @@ class Api::PostsController < ApplicationController
 
   def show
     @post = Post.find_by(id: params[:id])
+    @user = User.find(@post.user_id)
 
     if(@post)
       render :show
