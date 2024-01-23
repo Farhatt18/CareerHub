@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 import "./PostIndexItem.css";
 import PostDropDown from "./PostDropDown";
 import CreateComment from "../comments/createComment";
+import PostIndex from "./PostsIndex";
 
 const PostIndexItem = ({ post, postUserId }) => {
   const sessionUser = useSelector((state) => state.session.user);
@@ -36,6 +37,7 @@ const PostIndexItem = ({ post, postUserId }) => {
           />
         )}
         <CreateComment postId={post.id} postUserId={post.userId} />
+        <PostIndex />
       </div>
     </div>
   );

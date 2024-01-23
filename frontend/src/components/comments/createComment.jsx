@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { createComment } from "../../store/reducers/comment";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const CreateComment = ({ postId }) => {
-  // const user = useSelector((state) => state.session.user);
+  const userId = useSelector((state) => state.session.user.id);
   // const post = useSelector((state) => state.comments.postId);
+
   const dispatch = useDispatch();
   const [body, setBody] = useState("");
   const [show, setShow] = useState(false);
@@ -14,7 +15,8 @@ const CreateComment = ({ postId }) => {
     // if (user.id !== postUserId) {
     console.log("Creating comment with postId:", postId, "body:", body);
 
-    dispatch(createComment(postId, body));
+    dispatch(createComment(postId, userId, body));
+    setBody("");
     // }
   };
   return (
@@ -27,9 +29,11 @@ const CreateComment = ({ postId }) => {
             placeholder="Add a comment..."
             onChange={(e) => setBody(e.target.value)}
           />
-          <button type="submit" onClick={handleCreateComment}>
-            Post
-          </button>
+          {body && (
+            <button type="submit" onClick={handleCreateComment}>
+              Post
+            </button>
+          )}
         </form>
       )}
     </div>
