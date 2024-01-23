@@ -5,10 +5,12 @@ import CreateComment from "../comments/createComment";
 import CommentsIndex from "../comments/commentIndex";
 import { fetchComments } from "../../store/reducers/comment";
 import { useEffect, useState } from "react";
+import comment from "../../assets/image/comment.png";
 
 const PostIndexItem = ({ post, postId }) => {
   const sessionUser = useSelector((state) => state.session.user);
   const allComments = useSelector((state) => state.comments);
+  const [show, setShow] = useState(false);
   const [comments, setComments] = useState([]);
   const dispatch = useDispatch();
 
@@ -60,12 +62,24 @@ const PostIndexItem = ({ post, postId }) => {
             height={563}
           />
         )}
-        <CreateComment
-          postId={post.id}
-          postUserId={post.userId}
-          onAddComments={handleComment}
-        />
-        <CommentsIndex postId={post.id} comments={comments} />
+        <div className="buttons">
+          <button onClick={() => setShow(true)}>
+            <img src={comment} />
+            <span>Comment</span>
+          </button>
+        </div>
+        <div className="addComment">
+          {show && (
+            <>
+              <CreateComment
+                postId={post.id}
+                postUserId={post.userId}
+                onAddComments={handleComment}
+              />
+              <CommentsIndex postId={post.id} comments={comments} />
+            </>
+          )}
+        </div>
       </div>
     </div>
   );

@@ -11,6 +11,7 @@ require "open-uri"
   # Unnecessary if using `rails db:seed:replant`
   User.destroy_all
   Post.destroy_all
+  Comment.destroy_all
   puts "Resetting primary keys..."
   # For easy testing, so that after seeding, the first `User` has `id` of 1
   ApplicationRecord.connection.reset_pk_sequence!('users')
@@ -96,3 +97,22 @@ require "open-uri"
     body: "Just published a new blog post on [Industry Topic]. Sharing insights and perspectives – check it out and let me know your thoughts! #BlogPost #ThoughtLeadership",
   )
 
+  puts "Creating comments..."
+
+  Comment.create(
+    body: 'Congrats!',
+    user_id: 1,
+    post_id: 1
+  )
+
+  Comment.create(
+    body: 'Congratulations!',
+    user_id: 1,
+    post_id: 1
+  )
+  
+  Comment.create(
+    body: 'Congrats!',
+    user_id: 1,
+    post_id: 2
+  )

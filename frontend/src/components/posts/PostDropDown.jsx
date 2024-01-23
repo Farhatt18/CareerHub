@@ -84,7 +84,6 @@ const PostDropDown = ({ post, postId, postUserId }) => {
               )}
               <div className="deleteBox">
                 <button onClick={handleDelete}>
-                  {" "}
                   <img src={trash} width={20} height={20} alt="trash" /> Delete
                   Post
                 </button>
