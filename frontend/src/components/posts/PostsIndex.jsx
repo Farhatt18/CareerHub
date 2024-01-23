@@ -18,7 +18,7 @@ const PostIndex = () => {
       <ul>
         {posts.map((post) => {
           if (post && post.id) {
-            return <PostIndexItem key={post.id} post={post} />;
+            return <PostIndexItem key={post.id} post={post} postId={post.id} />;
           }
           return null;
         })}

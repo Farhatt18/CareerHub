@@ -1,11 +1,35 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import "./PostIndexItem.css";
 import PostDropDown from "./PostDropDown";
 import CreateComment from "../comments/createComment";
-import PostIndex from "./PostsIndex";
+import CommentsIndex from "../comments/commentIndex";
+import { fetchComments } from "../../store/reducers/comment";
+import { useEffect, useState } from "react";
 
-const PostIndexItem = ({ post, postUserId }) => {
+const PostIndexItem = ({ post, postId }) => {
   const sessionUser = useSelector((state) => state.session.user);
+  const allComments = useSelector((state) => state.comments);
+  const [comments, setComments] = useState([]);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchComments(postId));
+  }, [dispatch, postId]);
+
+  useEffect(() => {
+    const postComments = Object.values(allComments).filter(
+      (comment) => comment.postId === postId
+    );
+    setComments(postComments);
+  }, [allComments, postId]);
+
+  const handleComment = (body) => {
+    const newComment = {
+      body,
+      user: { username: "current User" },
+    };
+    setComments((prevComments) => [...prevComments, newComment]);
+  };
 
   return (
     <div className="postIndexItem">
@@ -36,8 +60,12 @@ const PostIndexItem = ({ post, postUserId }) => {
             height={563}
           />
         )}
-        <CreateComment postId={post.id} postUserId={post.userId} />
-        <PostIndex />
+        <CreateComment
+          postId={post.id}
+          postUserId={post.userId}
+          onAddComments={handleComment}
+        />
+        <CommentsIndex postId={post.id} comments={comments} />
       </div>
     </div>
   );

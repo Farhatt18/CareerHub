@@ -1,18 +1,19 @@
-import { useSelector } from "react-redux";
 import CommentIndexItem from "./commentIndexItem";
 
-const CommentsIndex = () => {
-  const comments = useSelector((state) => state.comments);
-
+const CommentsIndex = ({ comments }) => {
+  // console.log("postId:", postId);
+  // console.log("comments:", comments);
+  const commentsObject = comments || {};
   return (
     <div className="allCommentContainer">
       <ul>
-        {comments.map((comment) => {
-          if (comment && comment.id) {
-            return <CommentIndexItem key={comment.id} comment={comment} />;
-          }
-          return null;
-        })}
+        {Object.values(commentsObject).map((comment) => (
+          <CommentIndexItem
+            key={comment.id}
+            comment={comment}
+            commentUserId={comment.user_id}
+          />
+        ))}
       </ul>
     </div>
   );
