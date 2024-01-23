@@ -16,12 +16,17 @@ const PostIndex = () => {
   return (
     <div className="allPostContainer">
       <ul>
-        {posts.map((post) => {
-          if (post && post.id) {
-            return <PostIndexItem key={post.id} post={post} postId={post.id} />;
-          }
-          return null;
-        })}
+        {posts
+          .slice()
+          .reverse()
+          .map((post) => {
+            if (post && post.id) {
+              return (
+                <PostIndexItem key={post.id} post={post} postId={post.id} />
+              );
+            }
+            return null;
+          })}
       </ul>
     </div>
   );

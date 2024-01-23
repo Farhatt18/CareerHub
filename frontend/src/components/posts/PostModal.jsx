@@ -4,30 +4,24 @@ import { useDispatch } from "react-redux";
 import * as modalActions from "../../store/reducers/modals";
 import Modal from "../Modal/modal";
 import "./PostModal.css";
+import * as postActions from "../../store/reducers/post";
 
 const PostModal = ({ userName }) => {
+  const [photoFile, setPhotoFile] = useState(null);
   const dispatch = useDispatch();
   const [body, setBody] = useState("");
-  const [newPost, setNewPost] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData();
     formData.append("post[body]", body);
-    if (newPost) {
-      formData.append("post[photo]", newPost);
+    if (photoFile) {
+      formData.append("post[photo]", photoFile);
     }
 
-    const response = await fetch("/api/posts", {
-      method: "POST",
-      body: formData,
-    });
-    if (response.ok) {
-      const post = await response.json();
-      setBody("");
-      setNewPost(null);
-      setNewPost(post);
-    }
+    dispatch(postActions.createPost(formData));
+    dispatch(modalActions.hideModal());
+    setBody("");
   };
 
   const handleCloseBtn = () => {
@@ -35,7 +29,7 @@ const PostModal = ({ userName }) => {
   };
   const handleFile = ({ currentTarget }) => {
     const file = currentTarget.files[0];
-    setNewPost(file);
+    setPhotoFile(file);
   };
 
   // console.log(newPost);

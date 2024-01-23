@@ -3,35 +3,22 @@ import { createComment } from "../../store/reducers/comment";
 import { useDispatch } from "react-redux";
 import "./createComment.css";
 
-const CreateComment = ({ postId, postUserId, onAddComments }) => {
+const CreateComment = ({
+  postId,
+  postUserId,
+  parentCommentId,
+  onAddComments,
+}) => {
   const dispatch = useDispatch();
   const [body, setBody] = useState("");
-  // const [showDropDown, setShowDropDown] = useState(false);
-  // const [isEditing, setIsEditing] = useState(false);
-  // const [upatedBody, setUpdatedBody] = useState("");
-  // const sessionUser = useSelector((state) => state.session.user);
-  // const [show, setShow] = useState(false);
 
   const handleCreateComment = (e) => {
     e.preventDefault();
 
     onAddComments(body);
-    dispatch(createComment(postId, postUserId, body));
+    dispatch(createComment(postId, postUserId, body, parentCommentId));
     setBody("");
   };
-
-  // const handleEditComment = (commentId) => {
-  //   dispatch(updateComment({ id: commentId, body: upatedBody }));
-  //   setIsEditing(false);
-  // };
-
-  // const handleDelete = () => {
-  //   if (sessionUser && sessionUser.id === commentUserId) {
-  //     dispatch(deleteComment(commentId));
-  //     setShowDropDown(false);
-
-  //   }
-  // };
   return (
     <div className="commentForm">
       <i className="fa-solid fa-user-circle fa-2x" />

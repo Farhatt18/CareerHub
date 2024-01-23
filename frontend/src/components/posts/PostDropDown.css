@@ -13,7 +13,7 @@
 .dropDownOptions {
   position: absolute;
   background-color: white;
-  width: 300px;
+  width: 200px;
   height: 100px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border: 1px solid #ccc;

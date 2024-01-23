@@ -76,7 +76,7 @@ const PostIndexItem = ({ post, postId }) => {
                 postUserId={post.userId}
                 onAddComments={handleComment}
               />
-              <CommentsIndex postId={post.id} comments={comments} />
+              <CommentsIndex postUserId={post.user_id} comments={comments} />
             </>
           )}
         </div>

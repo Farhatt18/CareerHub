@@ -47,10 +47,15 @@ export const fetchComment = (commentId) => async (dispatch) => {
 };
 
 export const createComment =
-  (post_id, user_id, comment) => async (dispatch) => {
+  (postId, postUserId, comment, parentCommentId) => async (dispatch) => {
     const res = await csrfFetch(`/api/comments`, {
       method: "post",
-      body: JSON.stringify({ post_id, user_id, body: comment }),
+      body: JSON.stringify({
+        post_id: postId,
+        user_id: postUserId,
+        body: comment,
+        parent_comment_id: parentCommentId,
+      }),
       headers: {
         "Content-Type": "application/json",
       },
@@ -82,8 +87,7 @@ export const deleteComment = (commentId) => async (dispatch) => {
   });
 
   if (res.ok) {
-    const comment = res.json();
-    dispatch(removeComment(comment));
+    dispatch(removeComment(commentId));
   }
 };
 

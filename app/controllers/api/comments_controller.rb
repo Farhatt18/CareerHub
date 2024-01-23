@@ -48,6 +48,7 @@ class Api::CommentsController < ApplicationController
   def destroy
     @comment = Comment.find(params[:id])
     if @comment.destroy
+      @comments = Comment.all
       render :index
     else 
       render plain: "You can't destroy what's not there."
