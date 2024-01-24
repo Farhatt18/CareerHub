@@ -1,8 +1,18 @@
 import "./commentIndexItem.css";
+import { useEffect, useState } from "react";
 
 import CommentDropDown from "./commentDropDown";
 
 const CommentIndexItem = ({ comment, postUserId }) => {
+  const [userName, setUserName] = useState("Unknown User");
+
+  useEffect(() => {
+    if (comment.user) {
+      setUserName(`${comment.user.fname} ${comment.user.lname}`);
+    }
+  }, [comment.user]);
+
+  console.log("commentUsername", comment.user?.fname, comment.user?.lname);
   return (
     <div className="commentWrapper">
       <>
@@ -14,11 +24,7 @@ const CommentIndexItem = ({ comment, postUserId }) => {
             postUserId={postUserId}
             parentCommentId={comment.parent_comment_id}
           />
-          <div>
-            {comment.user
-              ? `${comment.user.fname} ${comment.user.lname}`
-              : "Unknown User"}
-          </div>
+          <div>{userName}</div>
           <p>{comment.body}</p>
         </div>
       </>

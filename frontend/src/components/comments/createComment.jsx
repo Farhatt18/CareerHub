@@ -5,7 +5,6 @@ import "./createComment.css";
 
 const CreateComment = ({ postId, parentCommentId, onAddComments }) => {
   const userId = useSelector((state) => state.session.user.id);
-
   const dispatch = useDispatch();
   const [body, setBody] = useState("");
 
