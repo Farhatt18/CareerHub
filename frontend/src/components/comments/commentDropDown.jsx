@@ -29,11 +29,12 @@ const CommentDropDown = ({ comment, commentUserId, commentId, postUserId }) => {
   const handleCloseBtn = () => {
     setShowDropDown(false);
     setIsEditing(false);
+    setEditedComment(comment.body);
   };
 
   const handleEditButtonClick = () => {
     setIsEditing(true);
-    setShowDropDown(false);
+    // setShowDropDown(false);
   };
 
   return (
@@ -50,6 +51,22 @@ const CommentDropDown = ({ comment, commentUserId, commentId, postUserId }) => {
                 Edit Comment
               </button>
             </div>
+            {isEditing && (
+              <div className="editCommentWrapper">
+                <form>
+                  <input
+                    value={editedComment}
+                    onChange={(e) => setEditedComment(e.target.value)}
+                  />
+                  <div>
+                    <button onClick={(e) => handleUpdateComment(e)}>
+                      Save Changes
+                    </button>
+                    <button onClick={handleCloseBtn}>Cancel</button>
+                  </div>
+                </form>
+              </div>
+            )}
             <div className="deleteBox">
               <button onClick={handleDelete}>
                 <img src={trash} width={20} height={20} alt="trash" /> Delete
@@ -57,22 +74,6 @@ const CommentDropDown = ({ comment, commentUserId, commentId, postUserId }) => {
               </button>
             </div>
           </>
-        </div>
-      )}
-      {isEditing && (
-        <div className="editCommentWrapper">
-          <form>
-            <input
-              value={editedComment}
-              onChange={(e) => setEditedComment(e.target.value)}
-            />
-            <div>
-              <button onClick={(e) => handleUpdateComment(e)}>
-                Save Changes
-              </button>
-              <button onClick={handleCloseBtn}>Cancel</button>
-            </div>
-          </form>
         </div>
       )}
     </div>
