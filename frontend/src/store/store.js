@@ -4,12 +4,14 @@ import session from "./reducers/session";
 import posts from "./reducers/post";
 import modals from "./reducers/modals";
 import comments from "./reducers/comment";
+import users from "./reducers/users";
 
 const rootReducer = combineReducers({
   session,
   posts,
   modals,
   comments,
+  users,
 });
 
 let enhancer;

@@ -9,6 +9,7 @@ import * as sessionActions from "./store/reducers/session";
 import * as postActions from "./store/reducers/post";
 import * as modalActions from "./store/reducers/modals";
 import * as commentActions from "./store/reducers/comment";
+import * as usersActions from "./store/reducers/users";
 
 // let currentUser = JSON.parse(sessionStorage.getItem("currentUser"));
 
@@ -22,6 +23,7 @@ if (import.meta.env.MODE !== "production") {
   window.postActions = postActions;
   window.modalActions = modalActions;
   window.commentActions = commentActions;
+  window.usersActions = usersActions;
 }
 
 restoreCSRF();

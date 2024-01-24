@@ -14,6 +14,7 @@ class Api::CommentsController < ApplicationController
 
   def create
     @comment = Comment.new(comment_params)
+    @comment.user_id = current_user.id
     puts "Comment Params: #{comment_params.inspect}"
   
     if @comment.save 
@@ -37,6 +38,7 @@ class Api::CommentsController < ApplicationController
 
   def show 
     @comment = Comment.find_by(id: params[:id])
+    @user = User.find(@comment.user_id)
 
     if(@comment)
       render :show 

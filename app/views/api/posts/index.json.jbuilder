@@ -6,3 +6,4 @@ json.array! @posts do |post|
   end
   json.photoUrl post.photo.attached? ? post.photo.url : nil
 end
+
