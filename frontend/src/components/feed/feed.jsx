@@ -22,6 +22,7 @@ const Feed = () => {
       <div className="navigationWrapper">
         <Navigation />
       </div>
+
       <div className="feed-container">
         <div className="body">
           <div className="postWrapper">

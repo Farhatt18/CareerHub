@@ -1,6 +1,7 @@
 import "./commentIndexItem.css";
 
 import CommentDropDown from "./commentDropDown";
+
 const CommentIndexItem = ({ comment, postUserId }) => {
   return (
     <div className="commentWrapper">

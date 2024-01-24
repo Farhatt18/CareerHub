@@ -49,10 +49,14 @@ button.dropDown {
   text-decoration: none solid rgba(0, 0, 0, 0.9);
   text-align: start;
   /* width: 479px; */
-  height: 35px;
+  min-height: 35px;
   padding-right: 1px;
   border-radius: 70px;
   border: solid 2px;
   border-color: lightgray;
   outline: none;
+}
+
+.edit {
+  background-color: aquamarine;
 }
