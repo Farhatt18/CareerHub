@@ -64,10 +64,7 @@ const PostIndexItem = ({ post, postId }) => {
           />
         )}
         <div className="buttons">
-          <button
-            onClick={() => setShow(!isCommentButtonDisabled)}
-            disabled={isCommentButtonDisabled}
-          >
+          <button onClick={() => setShow(true)}>
             <img src={comment} />
             <span>Comment</span>
           </button>
