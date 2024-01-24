@@ -58,7 +58,7 @@ const PostIndexItem = ({ post, postId }) => {
             className="image"
             src={post.photoUrl}
             alt="img"
-            width={563}
+            width={550}
             height={563}
           />
         )}

@@ -20,7 +20,8 @@ const CommentDropDown = ({ comment, commentUserId, commentId, postUserId }) => {
     dispatch(deleteComment(commentId));
     setShowDropDown(false);
   };
-  const handleUpdateComment = async () => {
+  const handleUpdateComment = async (e) => {
+    e.preventDefault();
     const updatedComment = { ...comment, body: editedComment };
     await dispatch(updateComment(updatedComment));
     setIsEditing(false);
@@ -66,7 +67,9 @@ const CommentDropDown = ({ comment, commentUserId, commentId, postUserId }) => {
               onChange={(e) => setEditedComment(e.target.value)}
             />
             <div>
-              <button onClick={handleUpdateComment}>Save Changes</button>
+              <button onClick={(e) => handleUpdateComment(e)}>
+                Save Changes
+              </button>
               <button onClick={handleCloseBtn}>Cancel</button>
             </div>
           </form>

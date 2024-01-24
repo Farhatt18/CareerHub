@@ -41,7 +41,7 @@ export const fetchComments = (postId) => async (dispatch) => {
 export const fetchComment = (commentId) => async (dispatch) => {
   const res = await csrfFetch(`/api/comments/${commentId}`);
   if (res.ok) {
-    const comment = res.json();
+    const comment = await res.json();
     dispatch(receiveComment(comment));
   }
 };
@@ -75,7 +75,7 @@ export const updateComment = (comment) => async (dispatch) => {
   });
 
   if (res.ok) {
-    const comment = res.json();
+    const comment = await res.json();
     dispatch(receiveComment(comment));
   }
   return res;
