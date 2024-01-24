@@ -52,7 +52,6 @@ export const createComment =
       method: "post",
       body: JSON.stringify({
         post_id: postId,
-        user_id: postUserId,
         body: comment,
         parent_comment_id: parentCommentId,
       }),

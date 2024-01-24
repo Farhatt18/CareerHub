@@ -1,9 +1,10 @@
 import CommentIndexItem from "./commentIndexItem";
 
 const CommentsIndex = ({ postUserId, comments }) => {
-  // console.log("postId:", postId);
+  // console.log("postUserId:", postUserId);
   // console.log("comments:", comments);
   const commentsObject = comments || {};
+
   return (
     <div className="allCommentContainer">
       <ul>
@@ -13,8 +14,6 @@ const CommentsIndex = ({ postUserId, comments }) => {
             <CommentIndexItem
               key={`${comment.id}-${comment.user_id}`}
               comment={comment}
-              commentId={comment.id}
-              commentUserId={comment.user_id}
               postUserId={postUserId}
             />
           ))}

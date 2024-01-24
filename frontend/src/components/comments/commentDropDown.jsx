@@ -4,9 +4,9 @@ import { deleteComment, updateComment } from "../../store/reducers/comment";
 import edit from "../../assets/image/pencil.png";
 import trash from "../../assets/image/trash.png";
 import "./commentDropDown.css";
-const CommentDropDown = ({ comment, commentUserId, commentId, postUserId }) => {
+const CommentDropDown = ({ comment, postUserId }) => {
   const dispatch = useDispatch();
-  const sessionUser = useSelector((state) => state.session.user);
+  const userId = useSelector((state) => state.session.user.id);
   const [showDropDown, setShowDropDown] = useState(false);
   const [editedComment, setEditedComment] = useState(comment.body);
   const [isEditing, setIsEditing] = useState(false);
@@ -17,7 +17,7 @@ const CommentDropDown = ({ comment, commentUserId, commentId, postUserId }) => {
   };
 
   const handleDelete = () => {
-    dispatch(deleteComment(commentId));
+    dispatch(deleteComment(comment.id));
     setShowDropDown(false);
   };
   const handleUpdateComment = async (e) => {
@@ -25,6 +25,7 @@ const CommentDropDown = ({ comment, commentUserId, commentId, postUserId }) => {
     const updatedComment = { ...comment, body: editedComment };
     await dispatch(updateComment(updatedComment));
     setIsEditing(false);
+    setShowDropDown(false);
   };
   const handleCloseBtn = () => {
     setShowDropDown(false);
@@ -34,23 +35,26 @@ const CommentDropDown = ({ comment, commentUserId, commentId, postUserId }) => {
 
   const handleEditButtonClick = () => {
     setIsEditing(true);
-    // setShowDropDown(false);
   };
 
   return (
     <div className="commentDropDown">
-      <button className="dropDown" onClick={handleDropDownToggle}>
-        ...
-      </button>
+      {(userId === comment.userId || userId === postUserId) && (
+        <button className="dropDown" onClick={handleDropDownToggle}>
+          ...
+        </button>
+      )}
       {showDropDown && (
         <div className="commentDropDownOptions">
           <>
-            <div className="editBox">
-              <button onClick={handleEditButtonClick}>
-                <img src={edit} width={20} height={20} alt="pencil" />
-                Edit Comment
-              </button>
-            </div>
+            {userId === comment.userId && (
+              <div className="editBox">
+                <button onClick={handleEditButtonClick}>
+                  <img src={edit} width={20} height={20} alt="pencil" />
+                  Edit Comment
+                </button>
+              </div>
+            )}
             {isEditing && (
               <div className="editCommentWrapper">
                 <form>
@@ -67,12 +71,14 @@ const CommentDropDown = ({ comment, commentUserId, commentId, postUserId }) => {
                 </form>
               </div>
             )}
-            <div className="deleteBox">
-              <button onClick={handleDelete}>
-                <img src={trash} width={20} height={20} alt="trash" /> Delete
-                Comment
-              </button>
-            </div>
+            {(userId === comment.userId || userId === postUserId) && (
+              <div className="deleteBox">
+                <button onClick={handleDelete}>
+                  <img src={trash} width={20} height={20} alt="trash" /> Delete
+                  Comment
+                </button>
+              </div>
+            )}
           </>
         </div>
       )}

@@ -32,6 +32,7 @@ const PostIndexItem = ({ post, postId }) => {
     };
     setComments((prevComments) => [...prevComments, newComment]);
   };
+  const isCommentButtonDisabled = sessionUser && sessionUser.id === post.userId;
 
   return (
     <div className="postIndexItem">
@@ -63,7 +64,10 @@ const PostIndexItem = ({ post, postId }) => {
           />
         )}
         <div className="buttons">
-          <button onClick={() => setShow(true)}>
+          <button
+            onClick={() => setShow(!isCommentButtonDisabled)}
+            disabled={isCommentButtonDisabled}
+          >
             <img src={comment} />
             <span>Comment</span>
           </button>
@@ -76,7 +80,7 @@ const PostIndexItem = ({ post, postId }) => {
                 postUserId={post.userId}
                 onAddComments={handleComment}
               />
-              <CommentsIndex postUserId={post.user_id} comments={comments} />
+              <CommentsIndex postUserId={post.userId} comments={comments} />
             </>
           )}
         </div>

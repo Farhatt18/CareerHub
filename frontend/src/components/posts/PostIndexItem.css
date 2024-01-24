@@ -82,3 +82,8 @@
   width: 20px;
   margin-right: 3px;
 }
+
+button:disabled,
+button[disabled] {
+  cursor: not-allowed;
+}

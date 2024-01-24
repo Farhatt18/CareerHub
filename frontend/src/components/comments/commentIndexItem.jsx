@@ -1,12 +1,7 @@
 import "./commentIndexItem.css";
 
 import CommentDropDown from "./commentDropDown";
-const CommentIndexItem = ({
-  comment,
-  commentId,
-  commentUserId,
-  postUserId,
-}) => {
+const CommentIndexItem = ({ comment, postUserId }) => {
   return (
     <div className="commentWrapper">
       <i className="fa-solid fa-user-circle fa-2x" />
@@ -14,8 +9,6 @@ const CommentIndexItem = ({
         <CommentDropDown
           key={comment.id}
           comment={comment}
-          commentId={commentId}
-          commentUserId={commentUserId}
           postUserId={postUserId}
           parentCommentId={comment.parent_comment_id}
         />

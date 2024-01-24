@@ -1,22 +1,18 @@
 import { useState } from "react";
 import { createComment } from "../../store/reducers/comment";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import "./createComment.css";
 
-const CreateComment = ({
-  postId,
-  postUserId,
-  parentCommentId,
-  onAddComments,
-}) => {
+const CreateComment = ({ postId, parentCommentId, onAddComments }) => {
+  const userId = useSelector((state) => state.session.user.id);
+
   const dispatch = useDispatch();
   const [body, setBody] = useState("");
 
   const handleCreateComment = (e) => {
     e.preventDefault();
-
     onAddComments(body);
-    dispatch(createComment(postId, postUserId, body, parentCommentId));
+    dispatch(createComment(postId, userId, body, parentCommentId));
     setBody("");
   };
   return (
