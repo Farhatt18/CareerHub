@@ -36,6 +36,10 @@ function ProfileButton() {
     navigate("/");
   };
 
+  const handleClick = (e) => {
+    e.preventDefault();
+    navigate(`/profile/${sessionUser.id}`);
+  };
   return (
     <div className="profile-button-container">
       <button className="dropDownBtn" onClick={toggleMenu}>
@@ -52,6 +56,11 @@ function ProfileButton() {
                 {sessionUser.fname} {sessionUser.lname}
               </span>
             </div>
+            <li>
+              <a className="linkProfile" onClick={handleClick}>
+                View Profile
+              </a>
+            </li>
           </li>
           <li>
             {/* {user.username} */}

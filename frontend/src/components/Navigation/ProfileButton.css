@@ -28,9 +28,6 @@
   cursor: pointer;
 }
 
-.profile-button-container i {
-  margin-right: 4px;
-}
 .profile-button-container button {
   border: none;
   cursor: pointer;
@@ -67,4 +64,22 @@
 .img {
   border-radius: 50px;
   margin-right: 5px;
+}
+
+.profile-dropdown a {
+  display: flex;
+  justify-content: center;
+}
+a.linkProfile {
+  /* width: 100%; */
+  font-weight: 600;
+  font-size: 14px;
+  border: solid 1px;
+  border-radius: 40px;
+  color: rgb(4, 79, 154);
+  line-height: 20px;
+}
+
+a.linkProfile:hover {
+  background-color: lightblue;
 }

@@ -5,6 +5,7 @@ import SignupForm from "./components/session/SignupForm";
 import Feed from "./components/feed/feed";
 import Splash from "./components/splash/splash";
 import * as sessionActions from "./store/reducers/session";
+import ProfilePage from "./components/profile/ProfilePage";
 
 function Layout() {
   const dispatch = useDispatch();
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
       {
         path: "feed",
         element: <Feed />,
+      },
+      {
+        path: "profile/:userId",
+        element: <ProfilePage />,
       },
     ],
   },
