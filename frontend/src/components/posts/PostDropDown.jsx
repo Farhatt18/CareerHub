@@ -7,7 +7,7 @@ import trash from "../../assets/image/trash.png";
 import Modal from "../Modal/modal";
 
 const PostDropDown = ({ post, postId, postUserId }) => {
-  const [setPhotoFile] = useState(null);
+  const [photoFile, setPhotoFile] = useState(null);
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
   const [showDropDown, setShowDropDown] = useState(false);

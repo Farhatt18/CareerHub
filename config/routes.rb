@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'experience/index'
+  get 'experience/create'
+  get 'experience/update'
+  get 'experience/detroy'
   get 'comment/index'
   get 'comment/create'
   get 'comment/update'
@@ -14,6 +18,7 @@ Rails.application.routes.draw do
     resource :session, only: [:show, :create, :destroy]
     resources :posts, except: [:edit, :new]
     resources :comments, except:[:new, :edit]
+    resources :experiences, except:[:new, :edit]
   end
   
   #catch all routes to serve up frontend files

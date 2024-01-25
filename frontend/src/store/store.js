@@ -5,6 +5,7 @@ import posts from "./reducers/post";
 import modals from "./reducers/modals";
 import comments from "./reducers/comment";
 import users from "./reducers/users";
+import experiences from "./reducers/experience";
 
 const rootReducer = combineReducers({
   session,
@@ -12,6 +13,7 @@ const rootReducer = combineReducers({
   modals,
   comments,
   users,
+  experiences,
 });
 
 let enhancer;

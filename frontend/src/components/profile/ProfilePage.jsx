@@ -7,10 +7,12 @@ import { Navigate } from "react-router-dom";
 import PostModal from "../posts/PostModal";
 
 import PostIndex from "../posts/PostsIndex";
+import ExperienceModal from "./experience/experienceModal";
+import ExperienceIndex from "./experience/experienceIndex";
 
 const ProfilePage = () => {
   const user = useSelector((state) => state.session.user);
-  const modalType = useSelector((state) => state.modals.type === "SHOW_MODAL");
+  const modalType = useSelector((state) => state.modals.type);
   const dispatch = useDispatch();
 
   if (!user) return <Navigate to="/" />;
@@ -21,6 +23,11 @@ const ProfilePage = () => {
 
   const openPostModal = () => {
     dispatch(modalActions.showModal("SHOW_MODAL"));
+  };
+
+  const handleAdd = (e) => {
+    e.preventDefault();
+    dispatch(modalActions.showModal("ADD_EXPERIENCE"));
   };
 
   return (
@@ -48,7 +55,9 @@ const ProfilePage = () => {
               <div onClick={openPostModal}>
                 <a>Create a post</a>
               </div>
-              {modalType && <PostModal userName={user.username} />}
+              {modalType === "SHOW_MODAL" && (
+                <PostModal userName={user.username} />
+              )}
             </div>
             <div>
               <PostIndex type={"profile"} userId={user.id} />
@@ -58,7 +67,7 @@ const ProfilePage = () => {
           <div className="experienceBox">
             <div className="experienceHeader">
               <div className="experience">Experience</div>
-              <button className="addBtn">
+              <button className="addBtn" onClick={handleAdd}>
                 <svg width={24} height={24}>
                   <path
                     d="M21 13h-8v8h-2v-8H3v-2h8V3h2v8h8z"
@@ -68,6 +77,10 @@ const ProfilePage = () => {
                 </svg>
               </button>
             </div>
+            {modalType === "ADD_EXPERIENCE" && (
+              <ExperienceModal userId={user.id} />
+            )}
+            {/* <ExperienceIndex /> */}
           </div>
         </div>
         <div className="sideBar">

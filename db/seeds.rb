@@ -12,6 +12,7 @@ require "open-uri"
   User.destroy_all
   Post.destroy_all
   Comment.destroy_all
+  Experience.destroy_all
   puts "Resetting primary keys..."
   # For easy testing, so that after seeding, the first `User` has `id` of 1
   ApplicationRecord.connection.reset_pk_sequence!('users')
@@ -116,3 +117,27 @@ require "open-uri"
     user_id: 1,
     post_id: 2
   )
+
+  
+
+
+  puts "Creating experience..."
+  50.times do 
+  title = Faker::Job.title
+  Experience.create!(
+    user_id: rand(1..10),
+    title: title,
+    employment_type: ['full-time', 'part-time', 'self-employed', 'contract', 'internship'].sample,
+    company_name: Faker::Company.name,
+    location: Faker::Address.city,
+    start_date: Faker::Date.backward(days: 365 * 5),  # 5 years ago
+    end_date: Faker::Date.backward(days: 365),       # Up to 1 year ago
+    description: Faker::Lorem.paragraph(sentence_count: 3, supplemental: title)
+  )
+  end
+
+
+
+
+
+
