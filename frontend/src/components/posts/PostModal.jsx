@@ -5,6 +5,7 @@ import * as modalActions from "../../store/reducers/modals";
 import Modal from "../Modal/modal";
 import "./PostModal.css";
 import * as postActions from "../../store/reducers/post";
+import person from "../../assets/image/ghostPerson.svg";
 
 const PostModal = ({ userName }) => {
   const [photoFile, setPhotoFile] = useState(null);
@@ -39,7 +40,7 @@ const PostModal = ({ userName }) => {
         <h2 className="sharedHeader">
           <button className="btnShared">
             <div className="icon">
-              <i className="fa-solid fa-user-circle fa-3x" />
+              <img src={person} width={50} height={50} className="img" />
               <span>{userName}</span>
             </div>
           </button>

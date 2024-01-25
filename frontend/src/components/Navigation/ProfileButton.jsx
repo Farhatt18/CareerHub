@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import * as sessionActions from "../../store/reducers/session";
 import "./ProfileButton.css";
 import { useNavigate } from "react-router-dom";
-
+import person from "../../assets/image/ghostPerson.svg";
 function ProfileButton() {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
@@ -39,15 +39,18 @@ function ProfileButton() {
   return (
     <div className="profile-button-container">
       <button className="dropDownBtn" onClick={toggleMenu}>
-        <i className="fa-solid fa-user-circle s" />
+        <img src={person} width={30} height={30} className="img" />
+        <div className="img"></div>
         <h6>Me</h6>
       </button>
       {showMenu && (
         <ul className="profile-dropdown" ref={dropdownRef}>
           <li>
             <div className="profileName">
-              <i className="fa-solid fa-user-circle fa-3x" />
-              <span className="user">{sessionUser.username}</span>
+              <img src={person} width={60} height={60} className="img" />
+              <span className="user">
+                {sessionUser.fname} {sessionUser.lname}
+              </span>
             </div>
           </li>
           <li>

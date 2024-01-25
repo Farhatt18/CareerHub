@@ -5,7 +5,7 @@ import { Navigate } from "react-router-dom";
 import * as modalActions from "../../store/reducers/modals";
 import PostModal from "../posts/PostModal";
 import PostIndex from "../posts/postsIndex";
-
+import person from "../../assets/image/ghostPerson.svg";
 const Feed = () => {
   const sessionUser = useSelector((state) => state.session.user);
   const dispatch = useDispatch();
@@ -24,9 +24,21 @@ const Feed = () => {
       </div>
 
       <div className="feed-container">
+        <div className="feedSideBox">
+          <div className="feedIdentity">
+            <div className="background-image"></div>
+            <a>
+              <div className="cameraImg"> </div>
+              <div className="name">Welcome, {sessionUser.fname}!</div>
+              <div className="photoLink">
+                <span>Add a photo </span>
+              </div>
+            </a>
+          </div>
+        </div>
         <div className="body">
           <div className="postWrapper">
-            <i className="fa-solid fa-user-circle fa-3x" />
+            <img src={person} width={50} height={50} className="img" />
             <button onClick={openPostModal}> Start a Post </button>
             {modalType && (
               <PostModal
@@ -40,6 +52,9 @@ const Feed = () => {
           <div className="allPosts">
             <PostIndex />
           </div>
+        </div>
+        <div className="feedbox">
+          <h2>Linkedln News</h2>
         </div>
       </div>
     </div>
