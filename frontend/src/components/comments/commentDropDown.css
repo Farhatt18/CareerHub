@@ -39,24 +39,3 @@ button.dropDown {
 .commentDropDownOptions button:hover {
   background-color: #f5f5f5;
 }
-
-.editCommentWrapper input {
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 400;
-  background-color: rgba(0, 0, 0, 0);
-  color: rgba(0, 0, 0, 0.9);
-  text-decoration: none solid rgba(0, 0, 0, 0.9);
-  text-align: start;
-  /* width: 479px; */
-  min-height: 35px;
-  padding-right: 1px;
-  border-radius: 70px;
-  border: solid 2px;
-  border-color: lightgray;
-  outline: none;
-}
-
-.edit {
-  background-color: aquamarine;
-}

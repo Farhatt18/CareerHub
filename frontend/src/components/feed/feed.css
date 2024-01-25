@@ -8,6 +8,9 @@
   min-height: 600vh;
   background-color: #f4f2ee;
 }
+.profileBox {
+  width: 225px;
+}
 
 .body {
   margin-top: 75px;
