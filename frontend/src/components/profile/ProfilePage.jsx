@@ -1,9 +1,16 @@
 import { useSelector } from "react-redux";
 import Navigation from "../Navigation/Navigation";
 import "./ProfilePage.css";
+import ProfileModal from "./profileModal";
 
 const ProfilePage = () => {
   const user = useSelector((state) => state.session.user);
+  // const [isModalOpen, setModalOpen] = useState();
+  const handlePhoto = () => {
+    console.log("photo");
+    <ProfileModal />;
+  };
+
   return (
     <div className="profilePageWrapper">
       <div className="profilePageHeader">
@@ -13,7 +20,8 @@ const ProfilePage = () => {
         <div className="profileBody">
           <div className="imgWrapper">
             <div className="profilePhoto"></div>
-            <button className="profileCamera"> </button>
+            <button className="profileCamera" onClick={handlePhoto}></button>
+
             <div className="userHeader">
               <div className="currentUser">
                 <h1>
