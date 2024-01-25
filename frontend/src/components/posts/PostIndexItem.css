@@ -31,7 +31,7 @@
 }
 
 .postHeader {
-  width: 523px;
+  min-width: 523px;
   /* height: 63px; */
   padding-top: 10px;
   padding-left: 10px;

@@ -56,7 +56,7 @@ const Feed = () => {
           <br />
 
           <div className="allPosts">
-            <PostIndex />
+            <PostIndex type={"feed"} />
           </div>
         </div>
         <div className="feedbox">

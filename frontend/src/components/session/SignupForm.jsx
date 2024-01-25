@@ -21,6 +21,7 @@ function SignupForm() {
     e.preventDefault();
     if (password === confirmPassword) {
       setErrors([]);
+      // debugger;
       return dispatch(
         sessionActions.signup({
           email,
