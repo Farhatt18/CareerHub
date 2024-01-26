@@ -5,17 +5,31 @@ class Api::ExperiencesController < ApplicationController
     render :index
   end
 
-  def create
-    @experience = Experience.new(experience_params)
-    @experience.user_id = current_user.id
-    @user = current_user
+  # def create
+  #   @experience = Experience.new(experience_params)
+  #   @experience.user_id = current_user.id
+  #   @user = current_user
 
-    if @experience.save
-      render '/api/users/show'
-    else 
-      render json:{errors: @experience.errors.full_messages}, status: 422
-    end
+  #   if @experience.save
+  #     render '/api/users/show'
+  #   else 
+  #     render json:{errors: @experience.errors.full_messages}, status: 422
+  #   end
+  # end
+
+  # In your controller
+def create
+  @experience = Experience.new(experience_params)
+  @experience.user_id = current_user.id
+
+  if @experience.valid?
+    @experience.save
+    render '/api/users/show'
+  else
+    render json: { errors: @experience.errors.full_messages }, status: 422
   end
+end
+
 
   def update
     @experience = Experience.find(params[:id])
@@ -35,7 +49,7 @@ class Api::ExperiencesController < ApplicationController
     end
   end
 
-  private 
+
   def experience_params
     params.require(:experience).permit(:user_id, :title, :company_name, :employment_type, :location, :start_date, :end_date, :description)
   end
