@@ -56,11 +56,11 @@ function ProfileButton() {
                 {sessionUser.fname} {sessionUser.lname}
               </span>
             </div>
-            <li>
-              <a className="linkProfile" onClick={handleClick}>
-                View Profile
-              </a>
-            </li>
+          </li>
+          <li>
+            <a className="linkProfile" onClick={handleClick}>
+              View Profile
+            </a>
           </li>
           <li>
             {/* {user.username} */}

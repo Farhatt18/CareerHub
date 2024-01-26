@@ -124,14 +124,16 @@ require "open-uri"
   puts "Creating experience..."
   50.times do 
   title = Faker::Job.title
+  start_date = Faker::Date.backward(days: 365 * 5)  # 5 years ago
+  end_date = Faker::Date.between(from: start_date, to: Date.today)  # Random date between start_date and today
   Experience.create!(
     user_id: rand(1..10),
     title: title,
     company_name: Faker::Company.name,
     employment_type: ['full-time', 'part-time', 'self-employed', 'contract', 'internship'].sample,
     location: Faker::Address.city,
-    start_date: Faker::Date.backward(days: 365 * 5),  # 5 years ago
-    end_date: Faker::Date.backward(days: 365),       # Up to 1 year ago
+    start_date: start_date, # 5 years ago
+    end_date: end_date,     # Up to 1 year ago
     description: Faker::Lorem.paragraph(sentence_count: 3, supplemental: title)
   )
   end
