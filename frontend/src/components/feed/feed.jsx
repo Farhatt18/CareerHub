@@ -43,11 +43,7 @@ const Feed = () => {
               </div>
             </div>
           </div>
-          <div className="feedSecSideBox">
-            <div>
-              <h2>Recent</h2>
-            </div>
-          </div>
+          <div className="feedSecSideBox"></div>
         </div>
         <div className="body">
           <div className="postWrapper">

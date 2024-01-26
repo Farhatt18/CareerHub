@@ -33,7 +33,6 @@ const PostModal = ({ userName }) => {
     setPhotoFile(file);
   };
 
-  // console.log(newPost);
   return (
     <Modal>
       <div className="postModalWrapper">
