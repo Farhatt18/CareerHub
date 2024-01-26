@@ -7,7 +7,7 @@ import trash from "../../assets/image/trash.png";
 import Modal from "../Modal/modal";
 
 const PostDropDown = ({ post, postId, postUserId }) => {
-  const [photoFile, setPhotoFile] = useState(null);
+  // const [photoFile, setPhotoFile] = useState(null);
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
   const [showDropDown, setShowDropDown] = useState(false);
@@ -34,10 +34,10 @@ const PostDropDown = ({ post, postId, postUserId }) => {
     setShowDropDown(false);
     setIsEditing(false);
   };
-  const handleFile = ({ currentTarget }) => {
-    const file = currentTarget.files[0];
-    setPhotoFile(file);
-  };
+  // const handleFile = ({ currentTarget }) => {
+  //   const file = currentTarget.files[0];
+  //   setPhotoFile(file);
+  // };
 
   return (
     <div className="postDropDown">
@@ -75,7 +75,7 @@ const PostDropDown = ({ post, postId, postUserId }) => {
                           onChange={(e) => setEditedBody(e.target.value)}
                           maxLength={3000}
                         />
-                        <input type="file" onChange={handleFile} />
+                        {/* <input type="file" onChange={handleFile} /> */}
                         <div className="editFooter">
                           <button
                             onClick={handleUpdatePost}

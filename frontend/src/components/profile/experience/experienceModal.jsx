@@ -10,7 +10,7 @@ const ExperienceModal = ({ userId }) => {
     userId,
     title: "",
     companyName: "",
-    employmenType: "",
+    employmentType: "",
     location: "",
     description: "",
     startDate: "",
@@ -32,7 +32,7 @@ const ExperienceModal = ({ userId }) => {
     setFormData({
       userId,
       title: "",
-      company: "",
+      companyName: "",
       employmentType: "",
       location: "",
       description: "",
@@ -70,7 +70,7 @@ const ExperienceModal = ({ userId }) => {
               <label>Employment type</label>
               <select
                 name="employmentType"
-                value={formData.employment_type}
+                value={formData.employmentType}
                 onChange={handleChange}
               >
                 <option value="">please select</option>

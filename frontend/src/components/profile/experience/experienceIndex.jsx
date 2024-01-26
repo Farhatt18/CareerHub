@@ -17,7 +17,10 @@ const ExperienceIndex = ({ userId }) => {
     <div className="experienceWrapper">
       <ul>
         {experiences.map((experience) => (
-          <ExperienceIndexItem key={experience.id} experience={experience} />
+          <ExperienceIndexItem
+            key={`${experience.id}-${experience.user_id}`}
+            experience={experience}
+          />
         ))}
       </ul>
     </div>

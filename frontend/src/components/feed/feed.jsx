@@ -43,7 +43,11 @@ const Feed = () => {
               </div>
             </div>
           </div>
-          <div className="feedSecSideBox"></div>
+          <div className="feedSecSideBox">
+            <div>
+              <h2>Recent</h2>
+            </div>
+          </div>
         </div>
         <div className="body">
           <div className="postWrapper">
@@ -63,11 +67,11 @@ const Feed = () => {
           </div>
         </div>
         <div className="feedbox">
-          <h2>Linkedln News</h2>
+          <h2>Careerhub News</h2>
           <ul>
             <li>
               <a href="https://www.linkedin.com/news/story/doj-investigating-gms-cruise-5916444/">
-                DOJ investigating GM's Cruise
+                DOJ investigating GM&apos;s Cruise
               </a>
             </li>
             <li>
