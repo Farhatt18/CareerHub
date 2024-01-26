@@ -140,6 +140,8 @@ const loadMoreComments = () => {
 - Users can create detailed professional profiles through work experience and achievements
 - Users can upload profile photo using AWS
 
+![Login, Feed and Profile](./frontend/src/assets/video/loginPage.gif)
+
 ## Technologies Used
 
 - **Languages:** JavaScript, Ruby, HTML, CSS
@@ -148,3 +150,9 @@ const loadMoreComments = () => {
 - **Databases:** PostgreSQL
 - **Hosting:** Render
 - **Storage:** AWS Simple Storage Service (S3)
+
+## Future Implementation
+
+- Work on Connections
+- Add the Like button
+- Add Eduction in the profile page
