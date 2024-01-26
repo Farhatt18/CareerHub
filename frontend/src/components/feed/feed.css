@@ -153,3 +153,21 @@
 .allPosts {
   margin-top: 75px;
 }
+
+.feedbox ul {
+  width: 300px;
+  margin-left: 10px;
+}
+
+.feedbox li {
+  list-style-position: inside;
+  margin-bottom: 10px; /* Adjust spacing between list items */
+}
+
+.feedbox a {
+  text-decoration: none; /* Remove underlines from links */
+  color: black; /* Set link color to black */
+}
+.feedbox a:hover {
+  text-decoration: underline;
+}

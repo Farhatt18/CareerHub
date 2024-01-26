@@ -2,6 +2,25 @@ import csrfFetch from "../csrf";
 
 const SET_USER = "session/setUser";
 const REMOVE_USER = "session/removeUser";
+const UPDATE_PROFILE_PICTURE = "UPDATE_PROFILE_PICTURE";
+
+export const updateProfilePicture = (userId, file) => async (dispatch) => {
+  const formData = new FormData();
+  formData.append("file", file);
+
+  const res = await csrfFetch(`/api/users/${userId}/update-profile-picture`, {
+    method: "POST",
+    body: formData,
+  });
+
+  if (res.ok) {
+    const { user } = await res.json();
+    dispatch({
+      type: UPDATE_PROFILE_PICTURE,
+      user,
+    });
+  }
+};
 
 const setUser = (user) => {
   return {

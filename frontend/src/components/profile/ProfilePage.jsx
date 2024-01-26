@@ -9,8 +9,12 @@ import PostModal from "../posts/PostModal";
 import PostIndex from "../posts/PostsIndex";
 import ExperienceModal from "./experience/experienceModal";
 import ExperienceIndex from "./experience/experienceIndex";
+import ProfileModal from "./profileModal";
+// import pencil from "../../assets/image/pencil.png";
+// import { useState } from "react";
 
 const ProfilePage = () => {
+  // const [photoFile, setPhotoFile] = useState(null);
   const user = useSelector((state) => state.session.user);
   const modalType = useSelector((state) => state.modals.type);
   const dispatch = useDispatch();
@@ -29,6 +33,17 @@ const ProfilePage = () => {
     e.preventDefault();
     dispatch(modalActions.showModal("ADD_EXPERIENCE"));
   };
+  // const handleProfilePictureChange = (currentTarget) => {
+  //   const file = currentTarget.target.files[0];
+  //   if (file) {
+  //     setPhotoFile(file);
+  //   }
+  // };
+
+  const handlePhoto = (e) => {
+    e.preventDefault();
+    dispatch(modalActions.showModal("PROFILE_MODAL"));
+  };
 
   return (
     <div className="profilePageWrapper">
@@ -39,7 +54,16 @@ const ProfilePage = () => {
         <div className="profileBody">
           <div className="imgWrapper">
             <div className="profilePhoto"></div>
-            <button className="profileCamera"></button>
+            <button className="profileCamera" onClick={handlePhoto}>
+              {/* <input
+                type="file"
+                accept="image/"
+                onChange={handleProfilePictureChange}
+              /> */}
+              {/* <img src={pencil} width={20} height={20} /> */}
+            </button>
+            {modalType === "PROFILE_MODAL" && <ProfileModal />}
+
             <div className="userHeader">
               <div className="currentUser">
                 <h1>
@@ -55,10 +79,10 @@ const ProfilePage = () => {
               <div onClick={openPostModal}>
                 <a>Create a post</a>
               </div>
-              {modalType === "SHOW_MODAL" && (
-                <PostModal userName={user.username} />
-              )}
             </div>
+            {modalType === "SHOW_MODAL" && (
+              <PostModal userName={user.username} />
+            )}
             <div>
               <PostIndex type={"profile"} userId={user.id} />
             </div>
@@ -80,7 +104,9 @@ const ProfilePage = () => {
             {modalType === "ADD_EXPERIENCE" && (
               <ExperienceModal userId={user.id} />
             )}
-            {/* <ExperienceIndex /> */}
+            <div>
+              <ExperienceIndex />
+            </div>
           </div>
         </div>
         <div className="sideBar">

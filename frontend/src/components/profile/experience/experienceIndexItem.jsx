@@ -1,14 +1,18 @@
+import "./experienceIndexItem.css";
 const ExperienceIndexItem = ({ experience }) => {
+  const { title, location, description } = experience;
+
+  const companyAndEmployment = `${experience.companyName} · ${experience.employmentType}`;
+
   return (
-    <div>
-      <p className="expTitle">{experience.title}</p>
-      <p className="expCom">
-        {experience.company}
-        <span className="expEmp">{experience.employmentType}</span>
-      </p>
-      {/* <p>{experience.startTime}</p> */}
-      <p className="expLoc">{experience.location}</p>
-      <p className="expDes">{experience.description}</p>
+    <div className="experienceIndexItem">
+      <div className="eachExperience">
+        <p className="expTitle">{title}</p>
+        <p className="expComEmp">{companyAndEmployment}</p>
+        {/* <p>{experience.startTime}</p> */}
+        <p className="expLoc">{location}</p>
+        <p className="expDes">{description}</p>
+      </div>
     </div>
   );
 };

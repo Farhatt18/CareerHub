@@ -127,8 +127,8 @@ require "open-uri"
   Experience.create!(
     user_id: rand(1..10),
     title: title,
-    employment_type: ['full-time', 'part-time', 'self-employed', 'contract', 'internship'].sample,
     company_name: Faker::Company.name,
+    employment_type: ['full-time', 'part-time', 'self-employed', 'contract', 'internship'].sample,
     location: Faker::Address.city,
     start_date: Faker::Date.backward(days: 365 * 5),  # 5 years ago
     end_date: Faker::Date.backward(days: 365),       # Up to 1 year ago

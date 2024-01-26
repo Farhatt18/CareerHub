@@ -1,0 +1,77 @@
+.headerBox {
+  width: 720px;
+  height: 61px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 16px;
+  margin-left: 5px;
+}
+
+.headerBox h2 {
+  width: 660px;
+  height: 28px;
+  font-size: 20px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: 600;
+}
+
+.headerBox button {
+  background-color: white;
+  height: 24px;
+  width: 24px;
+  border: none;
+  font-size: 14px;
+  border-radius: 100%;
+  cursor: pointer;
+}
+
+.headerBox button:hover {
+  background-color: lightgray;
+}
+
+.photoBox {
+  margin-top: 40px;
+  text-align: center;
+  /* font-size: 20px; */
+  width: 720px;
+  height: 420px;
+  display: flex;
+  flex-direction: column;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  /* justify-content: space-between; */
+}
+
+.photoBox img {
+  margin-top: 20px;
+  width: 438px;
+  height: 104px;
+  margin-left: 120px;
+}
+
+.littlePara {
+  width: 520px;
+  height: 39px;
+  margin-top: 60px;
+  margin-bottom: 50px;
+  text-align: center;
+  margin-left: 120px;
+  font-size: 14px;
+}
+
+.imgFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 720px;
+}
+.imgFooter button {
+  border-radius: 60px;
+  width: 138px;
+  height: 32px;
+  background-color: #0a66c2;
+  color: white;
+  cursor: pointer;
+}

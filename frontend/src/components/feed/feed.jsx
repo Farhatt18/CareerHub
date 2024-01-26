@@ -30,17 +30,20 @@ const Feed = () => {
       </div>
 
       <div className="feed-container">
-        <div className="feedSideBox">
-          <div className="feedIdentity">
-            <div className="background-image"></div>
-            <a onClick={handleClick}>
-              <div className="cameraImg"></div>
-              <div className="name">Welcome, {sessionUser.fname}!</div>
-            </a>
-            <div className="photoLink">
-              <span>Add a photo </span>
+        <div>
+          <div className="feedSideBox">
+            <div className="feedIdentity">
+              <div className="background-image"></div>
+              <a onClick={handleClick}>
+                <div className="cameraImg"></div>
+                <div className="name">Welcome, {sessionUser.fname}!</div>
+              </a>
+              <div className="photoLink">
+                <span>Add a photo </span>
+              </div>
             </div>
           </div>
+          <div className="feedSecSideBox"></div>
         </div>
         <div className="body">
           <div className="postWrapper">
@@ -61,6 +64,28 @@ const Feed = () => {
         </div>
         <div className="feedbox">
           <h2>Linkedln News</h2>
+          <ul>
+            <li>
+              <a href="https://www.linkedin.com/news/story/doj-investigating-gms-cruise-5916444/">
+                DOJ investigating GM's Cruise
+              </a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/news/story/pokemon-swipes-at-viral-competitor-5906676/">
+                Pokemon swipes at viral competitor
+              </a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/news/story/pokemon-swipes-at-viral-competitor-5906676/">
+                Bud Light bets on Super Bowl ad
+              </a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/news/story/accessible-travel-is-booming-5903876/">
+                Accessible travel is booming
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
     </div>

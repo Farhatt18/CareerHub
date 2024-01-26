@@ -1,17 +1,20 @@
 import { useDispatch } from "react-redux";
 import * as modalActions from "../../../store/reducers/modals";
 import * as experienceActions from "../../../store/reducers/experience";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Modal from "../../Modal/modal";
+import "./experienceModal.css";
 const ExperienceModal = ({ userId }) => {
   const dispatch = useDispatch();
   const [formData, setFormData] = useState({
     userId,
     title: "",
     companyName: "",
-    employmentType: "",
+    employmenType: "",
     location: "",
-    descripation: "",
+    description: "",
+    startDate: "",
+    endDate: "",
   });
 
   const handleChange = (e) => {
@@ -32,7 +35,9 @@ const ExperienceModal = ({ userId }) => {
       company: "",
       employmentType: "",
       location: "",
-      descripation: "",
+      description: "",
+      startDate: "",
+      endDate: "",
     });
     dispatch(modalActions.hideModal());
   };
@@ -49,90 +54,84 @@ const ExperienceModal = ({ userId }) => {
             X
           </button>
         </div>
-        <div>
+        <div className="exBody">
           <p>* Indicates required</p>
-          <div>
-            <div>
-              <label>
-                Title*
-                <input
-                  type="text"
-                  name="title"
-                  value={formData.title}
-                  onChange={handleChange}
-                  required
-                />
-              </label>
+          <div className="exForm">
+            <label>Title*</label>
+            <input
+              type="text"
+              name="title"
+              value={formData.title}
+              onChange={handleChange}
+              required
+            />
+
+            <div className="type">
+              <label>Employment type</label>
+              <select
+                name="employmentType"
+                value={formData.employment_type}
+                onChange={handleChange}
+              >
+                <option value="">please select</option>
+                <option value="full-time">Full-time</option>
+                <option value="part-time">Part-time</option>
+                <option value="self-employed">Self-employed</option>
+                <option value="contract">Contract</option>
+                <option value="internship">Internship</option>
+              </select>
             </div>
-            <div>
-              <label>
-                Employment type
-                <input
-                  type="text"
-                  name="employmentType"
-                  value={formData.employmentType}
-                  onChange={handleChange}
-                />
-              </label>
-            </div>
-            <div>
-              <label>
-                Company name*
-                <input
-                  type="text"
-                  name="companyName"
-                  value={formData.company}
-                  onChange={handleChange}
-                  required
-                />
-              </label>
-            </div>
-            <div>
-              <label>
-                Location*
-                <input
-                  type="text"
-                  name="location"
-                  value={formData.location}
-                  onChange={handleChange}
-                  required
-                />
-              </label>
-            </div>
-            {formData.startDate !== undefined && (
-              <fieldset>
-                <div>
-                  <label>
-                    Start date*
-                    <input
-                      type="date"
-                      id="startDate"
-                      name="startDate"
-                      value={formData.startDate}
-                      onChange={handleChange}
-                      required
-                    />
-                  </label>
-                </div>
-              </fieldset>
-            )}
+
+            <label>Company name*</label>
+            <input
+              type="text"
+              name="companyName"
+              value={formData.company}
+              onChange={handleChange}
+              required
+            />
+
+            <label>Location*</label>
+            <input
+              type="text"
+              name="location"
+              value={formData.location}
+              onChange={handleChange}
+              required
+            />
 
             <fieldset>
-              <div>
-                <label>
-                  End date*
-                  <input
-                    type="date"
-                    id="endDate"
-                    name="endDate"
-                    value={formData.EndDate}
-                    onChange={handleChange}
-                    required
-                  />
-                </label>
-              </div>
+              <label>Start date* </label>
+              <input
+                type="date"
+                id="startDate"
+                name="startDate"
+                value={formData.startDate}
+                onChange={handleChange}
+                required
+              />
             </fieldset>
-            <div>
+
+            <fieldset>
+              <label>End date*</label>
+              <input
+                type="date"
+                id="endDate"
+                name="endDate"
+                value={formData.endDate}
+                onChange={handleChange}
+                required
+              />
+            </fieldset>
+            <div className="descriptionField">
+              <label>Description</label>
+              <textarea
+                name="description"
+                value={formData.description}
+                onChange={handleChange}
+              />
+            </div>
+            <div className="exFooter">
               <button onClick={handleSubmit}>Save</button>
             </div>
           </div>

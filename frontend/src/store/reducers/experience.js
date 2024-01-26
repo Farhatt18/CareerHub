@@ -1,9 +1,8 @@
 import csrfFetch from "../csrf";
 import { createSelector } from "reselect";
-
-const RECEIVE_EXPERIENCES = "RECEIVE_EXPERIENCES";
-const RECEIVE_EXPERIENCE = "RECEIVE_EXPERIENCE";
-const REMOVE_EXPERIENCE = "REMOVE_EXPERIENCE";
+const RECEIVE_EXPERIENCES = "experiences/RECEIVE_EXPERIENCES";
+const RECEIVE_EXPERIENCE = "experiences/RECEIVE_EXPERIENCE";
+const REMOVE_EXPERIENCE = "experiences/REMOVE_EXPERIENCE";
 
 export const receiveExperiences = (experiences) => ({
   type: RECEIVE_EXPERIENCES,
@@ -20,10 +19,19 @@ export const removeExperience = (experienceId) => ({
   experienceId,
 });
 
+const selectExperiencesState = (state) => state.experiences;
+
+// Use createSelector to create a memoized selector that transforms the posts
+export const selectExperiences = createSelector(
+  [selectExperiencesState],
+  (experiences) => Object.values(experiences)
+);
+
 export const fetchExperiences = (userId) => async (dispatch) => {
-  const res = await csrfFetch(`/api/users/${userId}`);
+  const res = await csrfFetch(`/api/experiences?user_id=${userId}`);
   if (res.ok) {
     const { experiences } = await res.json();
+    console.log(experiences);
     dispatch(receiveExperiences(experiences));
   }
 };
@@ -35,7 +43,7 @@ export const createExperience = (experience) => async (dispatch) => {
   });
 
   if (res.ok) {
-    const experience = await res.json();
+    const { experience } = await res.json();
     dispatch(receiveExperience(experience));
   }
 };
@@ -61,8 +69,11 @@ export const deleteExperience = (experienceId) => async (dispatch) => {
     dispatch(removeExperience(experienceId));
   }
 };
+const initialState = {
+  experiences: [],
+};
 
-const experienceReducers = (state = {}, action) => {
+const experienceReducers = (state = initialState, action) => {
   const nextState = { ...state };
   switch (action.type) {
     case RECEIVE_EXPERIENCES:

@@ -17,8 +17,8 @@ Rails.application.routes.draw do
     resources :users, only: [:create, :index]
     resource :session, only: [:show, :create, :destroy]
     resources :posts, except: [:edit, :new]
-    resources :comments, except:[:new, :edit]
-    resources :experiences, except:[:new, :edit]
+    resources :comments, except: [:new, :edit]
+    resources :experiences, except: [:new, :edit]
   end
   
   #catch all routes to serve up frontend files
