@@ -23,7 +23,7 @@ require "open-uri"
   User.create!(
     username: 'Demo-lition', 
     email: 'demo@user.io', 
-    fname: "Demo",
+    fname: "Demo", 
     lname: 'Lition',
     password: 'password'
   )
