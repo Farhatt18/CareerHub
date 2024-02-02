@@ -4,7 +4,7 @@
 
 Careerhub is a clone of Linkdln that gives you the opportunity to connect with peers and professionals and expand your network to help you in your career. You can create professional profile, add experiences and you can post pictures.
 
-[Check out the live site](https://careerhub-i6ba.onrender.com/)
+[Check out the live site](https://careerhub-iofc.onrender.com
 
 ## Features
 
