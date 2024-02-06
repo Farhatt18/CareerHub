@@ -10,6 +10,9 @@ import PostIndex from "../posts/PostsIndex";
 import ExperienceModal from "./experience/experienceModal";
 import ExperienceIndex from "./experience/experienceIndex";
 import ProfileModal from "./profileModal";
+import github from "../../assets/image/github.png";
+import linkedin from "../../assets/image/linkedin.png";
+
 // import pencil from "../../assets/image/pencil.png";
 // import { useState } from "react";
 
@@ -71,6 +74,24 @@ const ProfilePage = () => {
                 </h1>
               </div>
               {/* <h2>Status</h2> */}
+              <div className="aboutLinks">
+                <a
+                  className="github"
+                  href="https://github.com/Farhatt18"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img src={github} alt="githublogo" width={30} />
+                </a>
+                <a
+                  className="linkedin"
+                  href="https://www.linkedin.com/in/farhat-sumaiya-4704b11a3/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img src={linkedin} alt="linkedin logo" width={30} />
+                </a>
+              </div>
             </div>
           </div>
           <div className="activityBox">
