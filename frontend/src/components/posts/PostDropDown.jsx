@@ -5,18 +5,22 @@ import "./PostDropDown.css";
 import edit from "../../assets/image/pencil.png";
 import trash from "../../assets/image/trash.png";
 import Modal from "../Modal/modal";
+import person from "../../assets/image/ghostPerson.svg";
+import photo from "../../assets/image/photo.png";
 
 const PostDropDown = ({ post, postId, postUserId }) => {
-  // const [photoFile, setPhotoFile] = useState(null);
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
   const [showDropDown, setShowDropDown] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
   const [editedBody, setEditedBody] = useState(post.body);
+  const [setPhotoFile] = useState(null);
+  const [photoUrl, setPhotoUrl] = useState(post.photoUrl); // Assuming post.photoUrl is the URL of the existing image
 
   const handleDropDownToggle = () => {
     setShowDropDown(!showDropDown);
   };
+
   const handleDelete = () => {
     if (sessionUser && sessionUser.id === postUserId) {
       dispatch(deletePost(postId));
@@ -25,7 +29,7 @@ const PostDropDown = ({ post, postId, postUserId }) => {
   };
 
   const handleUpdatePost = async () => {
-    const updatedPost = { ...post, body: editedBody };
+    const updatedPost = { ...post, body: editedBody, photoUrl };
     await dispatch(updatePost(updatedPost));
     setIsEditing(false);
   };
@@ -34,9 +38,24 @@ const PostDropDown = ({ post, postId, postUserId }) => {
     setShowDropDown(false);
     setIsEditing(false);
   };
-  // const handleFile = ({ currentTarget }) => {
-  //   const file = currentTarget.files[0];
-  //   setPhotoFile(file);
+
+  const handleFile = ({ currentTarget }) => {
+    const file = currentTarget.files[0];
+    setPhotoFile(file);
+
+    // Convert image to Base64 data URL
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      setPhotoUrl(reader.result);
+    };
+    if (file) {
+      reader.readAsDataURL(file);
+    }
+  };
+
+  // const handleRemovePhoto = () => {
+  //   setPhotoFile(null);
+  //   setPhotoUrl(null);
   // };
 
   return (
@@ -57,10 +76,15 @@ const PostDropDown = ({ post, postId, postUserId }) => {
               {isEditing && (
                 <Modal>
                   <div className="postEditWrapper">
-                    <h2 className="editSharedHeader">
+                    <h2 className="sharedHeader">
                       <button className="btnShared">
                         <div className="icon">
-                          <i className="fa-solid fa-user-circle fa-3x" />
+                          <img
+                            src={person}
+                            width={50}
+                            height={50}
+                            className="img"
+                          />
                           <span>{sessionUser.username}</span>
                         </div>
                       </button>
@@ -68,18 +92,40 @@ const PostDropDown = ({ post, postId, postUserId }) => {
                         X
                       </button>
                     </h2>
-                    <div className="editSharedBody">
+                    <div className="sharedBody">
                       <form>
-                        <textarea
-                          value={editedBody}
-                          onChange={(e) => setEditedBody(e.target.value)}
-                          maxLength={3000}
-                        />
-                        {/* <input type="file" onChange={handleFile} /> */}
+                        <div className="textImg">
+                          <textarea
+                            value={editedBody}
+                            onChange={(e) => setEditedBody(e.target.value)}
+                            maxLength={3000}
+                          />
+
+                          {photoUrl && (
+                            <div>
+                              {/* <span onClick={handleRemovePhoto}>X</span> */}
+                              <img
+                                src={photoUrl}
+                                alt="Selected"
+                                className="selectedImg"
+                              />
+                            </div>
+                          )}
+                        </div>
+                        <div className="image-upload">
+                          <label htmlFor="file-input">
+                            <img src={photo} className="fileImg" />
+                          </label>
+                          <input
+                            id="file-input"
+                            type="file"
+                            onChange={handleFile}
+                          />
+                        </div>
                         <div className="editFooter">
                           <button
                             onClick={handleUpdatePost}
-                            className={editedBody ? "active" : ""}
+                            className={editedBody ? "active" : "saveBtn"}
                           >
                             Save
                           </button>

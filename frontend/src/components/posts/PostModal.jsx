@@ -49,7 +49,7 @@ const PostModal = ({ userName }) => {
           </button>
         </h2>
         <div className="sharedBody">
-          <form className="form" onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit}>
             <div className="textImg">
               <textarea
                 value={body}

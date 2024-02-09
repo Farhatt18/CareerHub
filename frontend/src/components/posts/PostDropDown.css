@@ -19,7 +19,7 @@
   border: 1px solid #ccc;
   border-radius: 4px;
   /* padding: 8px; */
-  z-index: 1;
+  /* z-index: 1; */
   right: 0;
 }
 
@@ -99,13 +99,12 @@ button.btnshared {
   cursor: pointer;
 }
 
-.editSharedBody .active {
+/* .editSharedBody .active {
   background-color: #0b65c2;
   color: white;
-}
+} */
 
 button.postClose {
-  /* position: relative; */
   padding: 10px;
   cursor: pointer;
   border-radius: 100%;
@@ -116,7 +115,6 @@ button.postClose {
   width: 40px;
   height: 40px;
   border: none;
-  /* background-color: aquamarine; */
 }
 
 .editBox {
@@ -127,4 +125,8 @@ button.postClose {
 .deleteBox {
   display: flex;
   justify-content: space-between;
+}
+
+.fileImg {
+  bottom: 70px;
 }
