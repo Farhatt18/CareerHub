@@ -1,9 +1,10 @@
 .commentForm {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  padding: 4px 16px 8px;
-  /* justify-content: space-between; */
-  margin-bottom: 20px;
+  /* padding: 4px 16px 8px; */
+  padding-left: 5px;
+  margin-bottom: 5px;
 }
 
 .commentForm i {
@@ -25,8 +26,6 @@
   border: solid 2px;
   border-color: lightgray;
   outline: none;
-  /* padding: 10px; */
-  /* border: solid transparent; */
 }
 
 .commentForm button {
@@ -41,4 +40,5 @@
   border-radius: 70px;
   text-align: center;
   color: white;
+  margin-left: 40px;
 }

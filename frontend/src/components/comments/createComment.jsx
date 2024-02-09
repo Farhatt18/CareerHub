@@ -16,13 +16,16 @@ const CreateComment = ({ postId, parentCommentId, onAddComments }) => {
   };
   return (
     <div className="commentForm">
-      <i className="fa-solid fa-user-circle fa-2x" />
       <form>
-        <input
-          value={body}
-          placeholder="Add a comment..."
-          onChange={(e) => setBody(e.target.value)}
-        />
+        <div className="commentForm">
+          <i className="fa-solid fa-user-circle fa-2x" />
+
+          <input
+            value={body}
+            placeholder="Add a comment..."
+            onChange={(e) => setBody(e.target.value)}
+          />
+        </div>
         {body && <button onClick={handleCreateComment}>Post</button>}
       </form>
     </div>

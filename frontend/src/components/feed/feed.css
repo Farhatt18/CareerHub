@@ -3,9 +3,10 @@
   justify-content: center;
 
   width: 100%;
-  min-height: 600vh;
+  min-height: 1000vh;
   background-color: #f4f2ee;
 }
+
 .feedSideBox {
   margin-top: 90px;
   margin-right: 20px;
