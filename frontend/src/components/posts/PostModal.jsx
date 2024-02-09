@@ -6,6 +6,7 @@ import Modal from "../Modal/modal";
 import "./PostModal.css";
 import * as postActions from "../../store/reducers/post";
 import person from "../../assets/image/ghostPerson.svg";
+import photo from "../../assets/image/photo.png";
 
 const PostModal = ({ userName }) => {
   const [photoFile, setPhotoFile] = useState(null);
@@ -48,17 +49,33 @@ const PostModal = ({ userName }) => {
           </button>
         </h2>
         <div className="sharedBody">
-          <form onSubmit={handleSubmit}>
-            <textarea
-              value={body}
-              onChange={(e) => setBody(e.target.value)}
-              placeholder="What's on your mind?"
-              maxLength={3000}
-            />
-            <input type="file" onChange={handleFile} />
+          <form className="form" onSubmit={handleSubmit}>
+            <div className="textImg">
+              <textarea
+                value={body}
+                onChange={(e) => setBody(e.target.value)}
+                placeholder="What's on your mind?"
+                maxLength={3000}
+              />
 
+              {photoFile && (
+                <div className="selectedImage">
+                  <img
+                    src={URL.createObjectURL(photoFile)}
+                    alt="Selected"
+                    className="selectedImg"
+                  />
+                </div>
+              )}
+            </div>
+            <div className="image-upload">
+              <label htmlFor="file-input">
+                <img src={photo} className="fileImg" />
+              </label>
+              <input id="file-input" type="file" onChange={handleFile} />
+            </div>
             <div className="footer">
-              <button className={body ? "active" : ""}>Post</button>
+              <button className={body ? "active" : "postBtn"}>Post</button>
             </div>
           </form>
         </div>

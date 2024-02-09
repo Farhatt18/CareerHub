@@ -38,33 +38,33 @@ button.btnShared {
   color: #000000;
 }
 
-.sharedBody {
+.textImg {
+  position: relative;
   width: 744px;
-  height: 488px;
+  height: auto;
+  overflow-y: auto;
 }
 
-.sharedBody textarea {
+.textImg textarea {
   width: 696px;
-  height: 390px;
+  min-height: 390px;
   margin-left: 10px;
-  /* height: 96px; */
   border: none;
   padding: 12px;
-  /* margin: 20px; */
   font-size: 20px;
   resize: none;
   outline: none;
 }
 
 .footer {
+  position: absolute;
+  bottom: 10px;
   flex: 20%;
   display: flex;
   justify-content: flex-end;
   align-items: center;
   width: 744px;
   height: 40px;
-  /* background-color: aquamarine; */
-
   border-top: 0.1px solid;
   border-color: rgba(0, 0, 0, 0.9);
 }
@@ -84,6 +84,11 @@ button.btnShared {
 .sharedBody .active {
   background-color: #0b65c2;
   color: white;
+  border-radius: 10px;
+}
+
+.sharedBody .postBtn {
+  border-radius: 10px;
 }
 
 button.closeBtn {
@@ -99,4 +104,29 @@ button.closeBtn {
   height: 40px;
   border: none;
   /* background-color: aquamarine; */
+}
+
+.image-upload > input {
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
+
+.fileImg {
+  position: absolute;
+  bottom: 55px;
+  margin-left: 10px;
+  width: 30px;
+  cursor: pointer;
+}
+
+.selectedImage {
+  /* position: absolute; */
+  margin-left: 50px;
+  margin-top: 10px;
+}
+
+.selectedImg {
+  max-width: 100%;
+  max-height: 200px;
 }

@@ -7,6 +7,7 @@ import { fetchComments } from "../../store/reducers/comment";
 import { useEffect, useState } from "react";
 import comment from "../../assets/image/comment.png";
 import person from "../../assets/image/ghostPerson.svg";
+
 const PostIndexItem = ({ post, postId }) => {
   const sessionUser = useSelector((state) => state.session.user);
   const allComments = useSelector((state) => state.comments);
