@@ -15,10 +15,10 @@ const PostDropDown = ({ post, postId, postUserId }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [editedBody, setEditedBody] = useState(post.body);
   const [setPhotoFile] = useState(null);
-  const [photoUrl, setPhotoUrl] = useState(post.photoUrl); // Assuming post.photoUrl is the URL of the existing image
+  const [photoUrl, setPhotoUrl] = useState(post.photoUrl);
 
   const handleDropDownToggle = () => {
-    setShowDropDown(!showDropDown);
+    setShowDropDown((prevShowDropDown) => !prevShowDropDown);
   };
 
   const handleDelete = () => {
@@ -28,10 +28,12 @@ const PostDropDown = ({ post, postId, postUserId }) => {
     }
   };
 
-  const handleUpdatePost = async () => {
+  const handleUpdatePost = async (e) => {
+    e.preventDefault();
     const updatedPost = { ...post, body: editedBody, photoUrl };
     await dispatch(updatePost(updatedPost));
     setIsEditing(false);
+    setShowDropDown(false);
   };
 
   const handleCloseBtn = () => {
@@ -42,15 +44,7 @@ const PostDropDown = ({ post, postId, postUserId }) => {
   const handleFile = ({ currentTarget }) => {
     const file = currentTarget.files[0];
     setPhotoFile(file);
-
-    // Convert image to Base64 data URL
-    const reader = new FileReader();
-    reader.onloadend = () => {
-      setPhotoUrl(reader.result);
-    };
-    if (file) {
-      reader.readAsDataURL(file);
-    }
+    setPhotoUrl(URL.createObjectURL(file));
   };
 
   // const handleRemovePhoto = () => {
@@ -98,12 +92,17 @@ const PostDropDown = ({ post, postId, postUserId }) => {
                           <textarea
                             value={editedBody}
                             onChange={(e) => setEditedBody(e.target.value)}
+                            onKeyDown={(e) => {
+                              if (e.key === "Enter" && !e.shiftKey) {
+                                e.preventDefault();
+                                handleUpdatePost(e);
+                              }
+                            }}
                             maxLength={3000}
                           />
 
                           {photoUrl && (
                             <div>
-                              {/* <span onClick={handleRemovePhoto}>X</span> */}
                               <img
                                 src={photoUrl}
                                 alt="Selected"

@@ -24,6 +24,7 @@ const PostModal = ({ userName }) => {
     dispatch(postActions.createPost(formData));
     dispatch(modalActions.hideModal());
     setBody("");
+    setPhotoFile(null);
   };
 
   const handleCloseBtn = () => {
@@ -54,6 +55,12 @@ const PostModal = ({ userName }) => {
               <textarea
                 value={body}
                 onChange={(e) => setBody(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" && !e.shiftKey) {
+                    e.preventDefault();
+                    handleSubmit(e);
+                  }
+                }}
                 placeholder="What's on your mind?"
                 maxLength={3000}
               />

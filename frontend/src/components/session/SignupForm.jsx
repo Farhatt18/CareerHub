@@ -21,7 +21,6 @@ function SignupForm() {
     e.preventDefault();
     if (password === confirmPassword) {
       setErrors([]);
-      // debugger;
       return dispatch(
         sessionActions.signup({
           email,
@@ -33,10 +32,9 @@ function SignupForm() {
       ).catch(async (res) => {
         let data;
         try {
-          // .clone() essentially allows you to read the response body twice
           data = await res.clone().json();
         } catch {
-          data = await res.text(); // Will hit this case if the server is down
+          data = await res.text();
         }
         if (data?.errors) setErrors(data.errors);
         else if (data) setErrors([data]);
@@ -62,8 +60,8 @@ function SignupForm() {
         <div className="signup-container">
           <form onSubmit={handleSubmit}>
             <ul>
-              {errors.map((error) => (
-                <li key={error}>{error.message}</li>
+              {errors.map((error, index) => (
+                <li key={index}>{error.message || error}</li>
               ))}
             </ul>
             <label>
