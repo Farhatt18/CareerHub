@@ -32,12 +32,12 @@ class Api::PostsController < ApplicationController
 
   def show
     @post = Post.find_by(id: params[:id])
-    @user = User.find(@post.user_id)
-
+    
     if(@post)
+      @user = User.find(@post.user_id)
       render :show
     else
-      render json: {errors: @post.errors.full_messages}, status: 404
+      render json: { errors: 'Post not found' }, status: 404
     end
   end
 
