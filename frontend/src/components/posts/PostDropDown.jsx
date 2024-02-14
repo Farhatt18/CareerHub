@@ -14,7 +14,7 @@ const PostDropDown = ({ post, postId, postUserId }) => {
   const [showDropDown, setShowDropDown] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
   const [editedBody, setEditedBody] = useState(post.body);
-  const [setPhotoFile] = useState(null);
+  const [photoFile, setPhotoFile] = useState(null);
   const [photoUrl, setPhotoUrl] = useState(post.photoUrl);
 
   const handleDropDownToggle = () => {
@@ -30,8 +30,15 @@ const PostDropDown = ({ post, postId, postUserId }) => {
 
   const handleUpdatePost = async (e) => {
     e.preventDefault();
-    const updatedPost = { ...post, body: editedBody, photoUrl };
-    await dispatch(updatePost(updatedPost));
+
+    const formData = new FormData();
+    formData.append("post[id]", postId);
+    formData.append("post[body]", editedBody);
+    if (photoFile) {
+      formData.append("post[photo]", photoFile);
+    }
+
+    await dispatch(updatePost(formData));
     setIsEditing(false);
     setShowDropDown(false);
   };
@@ -39,6 +46,9 @@ const PostDropDown = ({ post, postId, postUserId }) => {
   const handleCloseBtn = () => {
     setShowDropDown(false);
     setIsEditing(false);
+    setEditedBody(post.body);
+    setPhotoFile(null);
+    setPhotoUrl(post.photoUrl);
   };
 
   const handleFile = ({ currentTarget }) => {
@@ -46,11 +56,6 @@ const PostDropDown = ({ post, postId, postUserId }) => {
     setPhotoFile(file);
     setPhotoUrl(URL.createObjectURL(file));
   };
-
-  // const handleRemovePhoto = () => {
-  //   setPhotoFile(null);
-  //   setPhotoUrl(null);
-  // };
 
   return (
     <div className="postDropDown">
@@ -92,12 +97,6 @@ const PostDropDown = ({ post, postId, postUserId }) => {
                           <textarea
                             value={editedBody}
                             onChange={(e) => setEditedBody(e.target.value)}
-                            onKeyDown={(e) => {
-                              if (e.key === "Enter" && !e.shiftKey) {
-                                e.preventDefault();
-                                handleUpdatePost(e);
-                              }
-                            }}
                             maxLength={3000}
                           />
 

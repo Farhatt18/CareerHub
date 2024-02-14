@@ -35,8 +35,10 @@ function LoginForm() {
     e.preventDefault();
     setCredential("Demo-lition");
     setPassword("password");
-    // dispatch(sessionActions.login({ credential, password }));
-    // await handleSubmit(e);
+
+    dispatch(
+      sessionActions.login({ credential: "Demo-lition", password: "password" })
+    );
   };
 
   return (

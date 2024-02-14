@@ -51,10 +51,10 @@ export const fetchPost = (postId) => async (dispatch) => {
   }
 };
 
-export const createPost = (post) => async (dispatch) => {
+export const createPost = (formData) => async (dispatch) => {
   const res = await csrfFetch(`/api/posts`, {
     method: "post",
-    body: post,
+    body: formData,
   });
 
   if (res.ok) {
@@ -63,10 +63,10 @@ export const createPost = (post) => async (dispatch) => {
   }
 };
 
-export const updatePost = (post) => async (dispatch) => {
-  const res = await csrfFetch(`/api/posts/${post.id}`, {
+export const updatePost = (formData) => async (dispatch) => {
+  const res = await csrfFetch(`/api/posts/${formData.get("post[id]")}`, {
     method: "put",
-    body: JSON.stringify(post),
+    body: formData,
   });
 
   if (res.ok) {
