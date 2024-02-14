@@ -38,6 +38,7 @@ const ProfileModal = () => {
       </div>
       <footer className="imgFooter">
         <input type="file" />
+
         <div>
           <button onClick={handleFooter}>Upload Photo</button>
         </div>
