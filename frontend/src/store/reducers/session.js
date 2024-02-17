@@ -4,24 +4,6 @@ const SET_USER = "session/setUser";
 const REMOVE_USER = "session/removeUser";
 const UPDATE_PROFILE_PICTURE = "UPDATE_PROFILE_PICTURE";
 
-export const updateProfilePicture = (userId, file) => async (dispatch) => {
-  const formData = new FormData();
-  formData.append("file", file);
-
-  const res = await csrfFetch(`/api/users/${userId}/update-profile-picture`, {
-    method: "POST",
-    body: formData,
-  });
-
-  if (res.ok) {
-    const { user } = await res.json();
-    dispatch({
-      type: UPDATE_PROFILE_PICTURE,
-      user,
-    });
-  }
-};
-
 const setUser = (user) => {
   return {
     type: SET_USER,
@@ -33,6 +15,24 @@ const removeUser = () => {
   return {
     type: REMOVE_USER,
   };
+};
+
+const updateUser = (user) => ({
+  type: UPDATE_PROFILE_PICTURE,
+  user,
+});
+
+export const updateProfilePicture = (updatedUser) => async (dispatch) => {
+  const userId = updatedUser.get("id");
+  const res = await csrfFetch(`/api/users/${userId}`, {
+    method: "put",
+    body: updatedUser,
+  });
+
+  if (res.ok) {
+    const { user } = await res.json();
+    dispatch(updateUser(user));
+  }
 };
 
 const storeCSRFToken = (response) => {
@@ -97,6 +97,8 @@ const sessionReducer = (state = initialState, action) => {
       return { ...state, user: action.payload };
     case REMOVE_USER:
       return { ...state, user: null };
+    case UPDATE_PROFILE_PICTURE:
+      return { ...state, user: action.user };
     default:
       return state;
   }

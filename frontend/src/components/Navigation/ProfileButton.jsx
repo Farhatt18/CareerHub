@@ -43,7 +43,12 @@ function ProfileButton() {
   return (
     <div className="profile-button-container">
       <button className="dropDownBtn" onClick={toggleMenu}>
-        <img src={person} width={30} height={30} className="img" />
+        <img
+          src={sessionUser.photoUrl || person}
+          width={30}
+          height={30}
+          className="img"
+        />
         <div className="img"></div>
         <h6>Me</h6>
       </button>
@@ -51,7 +56,12 @@ function ProfileButton() {
         <ul className="profile-dropdown" ref={dropdownRef}>
           <li>
             <div className="profileName">
-              <img src={person} width={60} height={60} className="img" />
+              <img
+                src={sessionUser.photoUrl || person}
+                width={60}
+                height={60}
+                className="img"
+              />
               <span className="user">
                 {sessionUser.fname} {sessionUser.lname}
               </span>

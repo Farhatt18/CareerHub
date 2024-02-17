@@ -40,7 +40,14 @@ const PostIndexItem = ({ post, postId }) => {
       <div className="eachPost">
         <div className="postHeader">
           <div className="icon">
-            <img src={person} width={50} height={50} className="img" />
+            <img
+              src={
+                sessionUser.id === post.userId ? sessionUser.photoUrl : person
+              }
+              width={50}
+              height={50}
+              className="img"
+            />
             <span>{`${post.author.fname} ${post.author.lname}`}</span>
           </div>
           {sessionUser && sessionUser.id === post.userId && (

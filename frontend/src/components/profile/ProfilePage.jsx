@@ -12,23 +12,20 @@ import ExperienceIndex from "./experience/experienceIndex";
 import ProfileModal from "./profileModal";
 import github from "../../assets/image/github.png";
 import linkedin from "../../assets/image/linkedin.png";
+import camera from "../../assets/image/camera.svg";
 
 // import pencil from "../../assets/image/pencil.png";
 // import { useState } from "react";
 
 const ProfilePage = () => {
-  // const [photoFile, setPhotoFile] = useState(null);
   const user = useSelector((state) => state.session.user);
   const modalType = useSelector((state) => state.modals.type);
   const dispatch = useDispatch();
 
   if (!user) return <Navigate to="/" />;
 
-  // const handlePhoto = () => {
-  //   dispatch(modalActions.showModal("SHOW_MOODAL"));
-  // };
-
-  const openPostModal = () => {
+  const openPostModal = (e) => {
+    e.preventDefault();
     dispatch(modalActions.showModal("SHOW_MODAL"));
   };
 
@@ -36,12 +33,6 @@ const ProfilePage = () => {
     e.preventDefault();
     dispatch(modalActions.showModal("ADD_EXPERIENCE"));
   };
-  // const handleProfilePictureChange = (currentTarget) => {
-  //   const file = currentTarget.target.files[0];
-  //   if (file) {
-  //     setPhotoFile(file);
-  //   }
-  // };
 
   const handlePhoto = (e) => {
     e.preventDefault();
@@ -57,14 +48,9 @@ const ProfilePage = () => {
         <div className="profileBody">
           <div className="imgWrapper">
             <div className="profilePhoto"></div>
-            <button className="profileCamera" onClick={handlePhoto}>
-              {/* <input
-                type="file"
-                accept="image/"
-                onChange={handleProfilePictureChange}
-              /> */}
-              {/* <img src={pencil} width={20} height={20} /> */}
-            </button>
+            <div onClick={handlePhoto}>
+              <img src={user.photoUrl || camera} className="profileCamera" />
+            </div>
             {modalType === "PROFILE_MODAL" && <ProfileModal />}
 
             <div className="userHeader">
@@ -73,7 +59,7 @@ const ProfilePage = () => {
                   {user.fname} {user.lname}
                 </h1>
               </div>
-              {/* <h2>Status</h2> */}
+
               <div className="aboutLinks">
                 <a
                   className="github"

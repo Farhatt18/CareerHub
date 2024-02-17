@@ -6,6 +6,7 @@ import * as modalActions from "../../store/reducers/modals";
 import PostModal from "../posts/PostModal";
 import PostIndex from "../posts/postsIndex";
 import person from "../../assets/image/ghostPerson.svg";
+import camera from "../../assets/image/camera.svg";
 const Feed = () => {
   const navigate = useNavigate();
   const sessionUser = useSelector((state) => state.session.user);
@@ -35,19 +36,29 @@ const Feed = () => {
             <div className="feedIdentity">
               <div className="background-image"></div>
               <a onClick={handleClick}>
-                <div className="cameraImg"></div>
-                <div className="name">Welcome, {sessionUser.fname}!</div>
+                <img
+                  src={sessionUser.photoUrl || camera}
+                  className="cameraImg"
+                />
+                <div className="name">
+                  {sessionUser.fname} {sessionUser.lname}
+                </div>
               </a>
-              <div className="photoLink">
+              {/* <div className="photoLink">
                 <span>Add a photo </span>
-              </div>
+              </div> */}
             </div>
           </div>
           <div className="feedSecSideBox"></div>
         </div>
         <div className="body">
           <div className="postWrapper">
-            <img src={person} width={50} height={50} className="img" />
+            <img
+              src={sessionUser.photoUrl || person}
+              width={50}
+              height={50}
+              className="img"
+            />
             <button onClick={openPostModal}> Start a Post </button>
             {modalType && (
               <PostModal

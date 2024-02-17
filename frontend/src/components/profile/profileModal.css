@@ -67,6 +67,11 @@
   align-items: center;
   width: 720px;
 }
+.imgFooter input {
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
 .imgFooter button {
   border-radius: 60px;
   width: 138px;
@@ -74,4 +79,9 @@
   background-color: #0a66c2;
   color: white;
   cursor: pointer;
+}
+
+.profileImg {
+  padding: 20px;
+  margin-left: 120px;
 }

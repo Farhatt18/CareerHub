@@ -30,7 +30,7 @@
 }
 
 .cameraImg {
-  background-image: url(../../assets//image//camera.svg);
+  /* background-image: url(../../assets//image//camera.svg); */
   background-color: #f8fafd;
   background-size: 50%;
   width: 72px;

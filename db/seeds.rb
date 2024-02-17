@@ -20,12 +20,17 @@ require "open-uri"
 
   puts "Creating users..."
   # Create one user with an easy to remember username, email, and password:
-  User.create!(
+  demo = User.create!(
     username: 'Demo-lition', 
     email: 'demo@user.io', 
     fname: "Demo", 
     lname: 'Lition',
     password: 'password'
+  )
+
+  demo.photo.attach(
+    io:URI.open("https://careerhub-fsp-seeds.s3.amazonaws.com/2-removebg-preview+(4).png"),
+    filename: "random"
   )
 
 

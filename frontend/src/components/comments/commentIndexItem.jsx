@@ -2,11 +2,12 @@ import "./commentIndexItem.css";
 import { useEffect, useState } from "react";
 
 import CommentDropDown from "./commentDropDown";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { updateComment } from "../../store/reducers/comment";
-
+import person from "../../assets/image/ghostPerson.svg";
 const CommentIndexItem = ({ comment, postUserId }) => {
   const dispatch = useDispatch();
+  const user = useSelector((state) => state.session.user);
   const [userName, setUserName] = useState("Unknown User");
   const [isEditing, setIsEditing] = useState(false);
   const [editedComment, setEditedComment] = useState(comment.body);
@@ -42,7 +43,8 @@ const CommentIndexItem = ({ comment, postUserId }) => {
   return (
     <div className="commentWrapper">
       <>
-        <i className="fa-solid fa-user-circle fa-2x" />
+        {/* <i className="fa-solid fa-user-circle fa-2x" /> */}
+        <img src={user.photoUrl || person} width={30} height={30} />
         <div className="commentBox">
           <CommentDropDown
             key={comment.id}
