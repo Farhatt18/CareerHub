@@ -29,7 +29,7 @@ function Navigation() {
     <div className="header">
       <div className="logo">
         <NavLink to={"/feed"} className="navbar-logo">
-          <span>hub</span>
+          Career<span>hub</span>
         </NavLink>
       </div>
       <div className="navbar-links">

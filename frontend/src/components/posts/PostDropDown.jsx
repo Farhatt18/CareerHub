@@ -79,7 +79,7 @@ const PostDropDown = ({ post, postId, postUserId }) => {
                       <button className="btnShared">
                         <div className="icon">
                           <img
-                            src={person}
+                            src={sessionUser.photoUrl || person}
                             width={50}
                             height={50}
                             className="img"

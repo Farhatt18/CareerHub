@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import * as modalActions from "../../store/reducers/modals";
 import Modal from "../Modal/modal";
 import "./PostModal.css";
@@ -11,6 +11,7 @@ import photo from "../../assets/image/photo.png";
 const PostModal = ({ userName }) => {
   const [photoFile, setPhotoFile] = useState(null);
   const dispatch = useDispatch();
+  const user = useSelector((state) => state.session.user);
   const [body, setBody] = useState("");
 
   const handleSubmit = async (e) => {
@@ -41,7 +42,12 @@ const PostModal = ({ userName }) => {
         <h2 className="sharedHeader">
           <button className="btnShared">
             <div className="icon">
-              <img src={person} width={50} height={50} className="img" />
+              <img
+                src={user.photoUrl || person}
+                width={50}
+                height={50}
+                className="img"
+              />
               <span>{userName}</span>
             </div>
           </button>
