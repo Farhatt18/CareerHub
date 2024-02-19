@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Navigate, Link, NavLink } from "react-router-dom";
+import { Navigate, NavLink, useNavigate } from "react-router-dom";
 import * as sessionActions from "../../store/reducers/session";
 import "./SignupForm.css";
 
 function SignupForm() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const sessionUser = useSelector((state) => state.session.user);
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
@@ -46,6 +47,10 @@ function SignupForm() {
     ]);
   };
 
+  const handleLogBtn = (e) => {
+    e.preventDefault();
+    navigate("/");
+  };
   return (
     <div className="signUpPageWrapper">
       <div className="nav">
@@ -124,12 +129,9 @@ function SignupForm() {
               />
             </label>
             <button type="submit">Sign Up</button>
-            <p className="session-redirect">
-              Already on CareerHub?&#160;
-              <Link to="/" style={{ textDecoration: "none" }}>
-                Log In
-              </Link>
-            </p>
+            <button className="session-redirect" onClick={handleLogBtn}>
+              Already on CareerHub? Log In
+            </button>
           </form>
         </div>
       </div>

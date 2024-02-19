@@ -1,11 +1,12 @@
 import { useState } from "react";
 import * as sessionActions from "../../store/reducers/session";
 import { useDispatch, useSelector } from "react-redux";
-import { Navigate, Link } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import "./LoginForm.css";
 
 function LoginForm() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const sessionUser = useSelector((state) => state.session.user);
   const [credential, setCredential] = useState("");
   const [password, setPassword] = useState("");
@@ -30,6 +31,10 @@ function LoginForm() {
         else setErrors([res.statusText]);
       }
     );
+  };
+  const handleSignBtn = (e) => {
+    e.preventDefault();
+    navigate("/signup");
   };
   const handleDemo = async (e) => {
     e.preventDefault();
@@ -75,11 +80,8 @@ function LoginForm() {
             Demo user
           </button>
           <div className="signUp">
-            <button className="session-redirect">
-              New to CareerHub?&#160;
-              <Link to="/signup" style={{ textDecoration: "none" }}>
-                Sign Up
-              </Link>
+            <button className="session-redirect" onClick={handleSignBtn}>
+              New to CareerHub? Sign Up
             </button>
           </div>
         </div>

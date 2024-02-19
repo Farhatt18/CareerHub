@@ -92,3 +92,13 @@ p {
   font-size: 18px;
   text-align: center;
 }
+.signup-container .session-redirect {
+  background-color: #ffffff;
+  color: #404040;
+  font-size: 15px;
+  border: 1px solid;
+}
+
+.signup-container .session-redirect:hover {
+  background-color: gainsboro;
+}
