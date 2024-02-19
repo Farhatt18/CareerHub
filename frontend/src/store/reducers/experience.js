@@ -28,9 +28,10 @@ export const selectExperiences = createSelector(
 );
 
 export const fetchExperiences = (userId) => async (dispatch) => {
-  const res = await csrfFetch(`/api/experiences?user_id=${userId}`);
+  const res = await csrfFetch(`/api/users/${userId}`);
   if (res.ok) {
     const { experiences } = await res.json();
+
     dispatch(receiveExperiences(experiences));
   }
 };
@@ -42,9 +43,10 @@ export const createExperience = (experience) => async (dispatch) => {
   });
 
   if (res.ok) {
-    const data = await res.json();
+    const user = await res.json();
 
-    dispatch(receiveExperiences(data.experiences));
+    dispatch(receiveExperiences(user.experiences));
+    return res;
   }
 };
 
@@ -77,7 +79,7 @@ const experienceReducers = (state = {}, action) => {
   const nextState = { ...state };
   switch (action.type) {
     case RECEIVE_EXPERIENCES:
-      return { ...nextState, ...action.experiences };
+      return { ...action.experiences };
     case RECEIVE_EXPERIENCE:
       return {
         ...nextState,

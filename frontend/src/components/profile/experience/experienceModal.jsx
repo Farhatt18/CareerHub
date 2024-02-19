@@ -67,11 +67,12 @@ const ExperienceModal = ({ userId }) => {
             />
 
             <div className="type">
-              <label>Employment type</label>
+              <label>Employment type*</label>
               <select
                 name="employmentType"
                 value={formData.employmentType}
                 onChange={handleChange}
+                required
               >
                 <option value="">please select</option>
                 <option value="full-time">Full-time</option>

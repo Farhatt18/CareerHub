@@ -13,7 +13,7 @@ const receiveUser = (user) => ({
   user,
 });
 
-export const fetchUsers = () => async (dispatch) => {
+export const fetchAllUsers = () => async (dispatch) => {
   const res = await csrfFetch("/api/users");
   if (res.ok) {
     const data = await res.json();
@@ -36,7 +36,8 @@ const usersReducer = (state = {}, action) => {
     case RECIEVE_USERS:
       return { ...nextState, ...action.users };
     case RECEIVE_USER:
-      return { ...nextState, [action.user.id]: action.user };
+      nextState[action.user.id] = action.user;
+      return nextState;
     default:
       return state;
   }
