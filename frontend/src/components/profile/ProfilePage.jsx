@@ -112,7 +112,7 @@ const ProfilePage = () => {
               <ExperienceModal userId={user.id} />
             )}
             <div>
-              <ExperienceIndex />
+              <ExperienceIndex userId={user.id} />
             </div>
           </div>
         </div>

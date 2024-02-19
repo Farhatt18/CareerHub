@@ -11,7 +11,6 @@ import * as modalActions from "./store/reducers/modals";
 import * as commentActions from "./store/reducers/comment";
 import * as usersActions from "./store/reducers/users";
 import * as experienceActions from "./store/reducers/experience";
-// let currentUser = JSON.parse(sessionStorage.getItem("currentUser"));
 
 const store = configureStore();
 

@@ -5,11 +5,17 @@
   min-width: 523px;
   min-height: 200px;
   background-color: rgb(255, 255, 255);
-  border-radius: 0.8rem;
+  /* border-radius: 0.8rem; */
+
+  border-color: gray;
+
+  padding: 20px;
 }
 
 .eachExperience {
   display: block;
+  min-width: 600px;
+  border-bottom: solid 0.2px;
 }
 
 .eachExperience p {

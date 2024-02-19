@@ -31,7 +31,6 @@ export const fetchExperiences = (userId) => async (dispatch) => {
   const res = await csrfFetch(`/api/experiences?user_id=${userId}`);
   if (res.ok) {
     const { experiences } = await res.json();
-    console.log(experiences);
     dispatch(receiveExperiences(experiences));
   }
 };
@@ -43,8 +42,9 @@ export const createExperience = (experience) => async (dispatch) => {
   });
 
   if (res.ok) {
-    const { experience } = await res.json();
-    dispatch(receiveExperience(experience));
+    const data = await res.json();
+
+    dispatch(receiveExperiences(data.experiences));
   }
 };
 
@@ -69,17 +69,21 @@ export const deleteExperience = (experienceId) => async (dispatch) => {
     dispatch(removeExperience(experienceId));
   }
 };
-const initialState = {
-  experiences: [],
-};
+// const initialState = {
+//   experiences: [],
+// };
 
-const experienceReducers = (state = initialState, action) => {
+const experienceReducers = (state = {}, action) => {
   const nextState = { ...state };
   switch (action.type) {
     case RECEIVE_EXPERIENCES:
-      return { ...action.experiences };
+      return { ...nextState, ...action.experiences };
     case RECEIVE_EXPERIENCE:
-      return { ...nextState, [action.experience.id]: action.experience };
+      return {
+        ...nextState,
+        [action.experience.id]: action.experience,
+      };
+
     case REMOVE_EXPERIENCE:
       delete nextState[action.experienceId];
       return nextState;

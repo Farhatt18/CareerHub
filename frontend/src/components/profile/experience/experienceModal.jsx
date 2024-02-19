@@ -91,13 +91,12 @@ const ExperienceModal = ({ userId }) => {
               required
             />
 
-            <label>Location*</label>
+            <label>Location</label>
             <input
               type="text"
               name="location"
               value={formData.location}
               onChange={handleChange}
-              required
             />
 
             <fieldset>
@@ -113,14 +112,13 @@ const ExperienceModal = ({ userId }) => {
             </fieldset>
 
             <fieldset>
-              <label>End date*</label>
+              <label>End date</label>
               <input
                 type="date"
                 id="endDate"
                 name="endDate"
                 value={formData.endDate}
                 onChange={handleChange}
-                required
               />
             </fieldset>
             <div className="descriptionField">
