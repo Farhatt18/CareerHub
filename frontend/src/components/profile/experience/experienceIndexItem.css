@@ -8,14 +8,13 @@
   /* border-radius: 0.8rem; */
 
   border-color: gray;
-
+  border-bottom: solid 0.2px;
   padding: 20px;
 }
 
 .eachExperience {
   display: block;
   min-width: 600px;
-  border-bottom: solid 0.2px;
 }
 
 .eachExperience p {

@@ -55,16 +55,17 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_25_220326) do
   end
 
   create_table "experiences", force: :cascade do |t|
-    t.integer "user_id", null: false
+    t.bigint "user_id", null: false
     t.string "title", null: false
     t.string "company_name", null: false
     t.string "employment_type"
-    t.string "location", null: false
+    t.string "location"
     t.date "start_date", null: false
     t.date "end_date"
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_experiences_on_user_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -95,5 +96,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_25_220326) do
   add_foreign_key "comments", "comments", column: "parent_comment_id"
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
+  add_foreign_key "experiences", "users"
   add_foreign_key "posts", "users"
 end
