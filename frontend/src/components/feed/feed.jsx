@@ -34,7 +34,9 @@ const Feed = () => {
         <div>
           <div className="feedSideBox">
             <div className="feedIdentity">
-              <div className="background-image"></div>
+              <div className="background-image">
+                <img src={sessionUser.coverPic} width={225} height={56} />
+              </div>
               <a onClick={handleClick}>
                 <img
                   src={sessionUser.photoUrl || camera}

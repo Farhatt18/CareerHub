@@ -12,7 +12,9 @@ import ExperienceIndex from "./experience/experienceIndex";
 import ProfileModal from "./profileModal";
 import github from "../../assets/image/github.png";
 import linkedin from "../../assets/image/linkedin.png";
-import camera from "../../assets/image/camera.svg";
+import pencil from "../../assets/image/editPencil.png";
+import CoverPicModal from "./coverPicModal";
+// import camera from "../../assets/image/camera.svg";
 
 // import pencil from "../../assets/image/pencil.png";
 // import { useState } from "react";
@@ -33,6 +35,10 @@ const ProfilePage = () => {
     e.preventDefault();
     dispatch(modalActions.showModal("ADD_EXPERIENCE"));
   };
+  const handleCover = (e) => {
+    e.preventDefault();
+    dispatch(modalActions.showModal("COVER_MODAL"));
+  };
 
   const handlePhoto = (e) => {
     e.preventDefault();
@@ -47,9 +53,13 @@ const ProfilePage = () => {
       <div className="profilePageContainer">
         <div className="profileBody">
           <div className="imgWrapper">
-            <div className="profilePhoto"></div>
+            <div className="coverPhotoContainer" onClick={handleCover}>
+              <img src={user.coverPic} className="profilePhoto" />
+              <img src={pencil} width={20} className="pencil" />
+            </div>
+            {modalType === "COVER_MODAL" && <CoverPicModal />}
             <div onClick={handlePhoto}>
-              <img src={user.photoUrl || camera} className="profileCamera" />
+              <img src={user.photoUrl} className="profileCamera" />
             </div>
             {modalType === "PROFILE_MODAL" && <ProfileModal />}
 

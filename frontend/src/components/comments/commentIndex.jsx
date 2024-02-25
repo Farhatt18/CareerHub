@@ -2,8 +2,6 @@ import { useState } from "react";
 import CommentIndexItem from "./commentIndexItem";
 import "./commentIndexItem.css";
 const CommentsIndex = ({ postUserId, comments }) => {
-  // console.log("postUserId:", postUserId);
-  // console.log("comments:", comments);
   const commentsObject = comments || {};
   const [visibleComments, setVisibleComments] = useState(3);
 

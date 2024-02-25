@@ -79,6 +79,7 @@
   background-color: #0a66c2;
   color: white;
   cursor: pointer;
+  border: none;
 }
 
 .profileImg {

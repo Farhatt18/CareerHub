@@ -8,7 +8,6 @@ import "./experienceDropDown.css";
 
 const ExperienceDropDown = ({ experienceId }) => {
   const dispatch = useDispatch();
-  console.log("experienceId", experienceId);
   // const user = useSelector((state) => state.session.user);
   const [showDropDown, setShowDropDown] = useState(false);
   // const [isEditing, setIsEditing] = useState(false);

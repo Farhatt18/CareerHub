@@ -35,6 +35,19 @@ export const updateProfilePicture = (updatedUser) => async (dispatch) => {
   }
 };
 
+export const updateCoverPicture = (updatedUser) => async (dispatch) => {
+  const userId = updatedUser.get("id");
+  const res = await csrfFetch(`/api/users/${userId}`, {
+    method: "put",
+    body: updatedUser,
+  });
+
+  if (res.ok) {
+    const { user } = await res.json();
+    dispatch(updateUser(user));
+  }
+};
+
 const storeCSRFToken = (response) => {
   const csrfToken = response.headers.get("X-CSRF-Token");
   if (csrfToken) sessionStorage.setItem("X-CSRF-Token", csrfToken);

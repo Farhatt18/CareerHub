@@ -33,6 +33,11 @@ require "open-uri"
     filename: "random"
   )
 
+  demo.cover_pic.attach(
+    io:URI.open("https://careerhub-fsp-seeds.s3.amazonaws.com/55k1z8997gh8dwtihm11aajyq.svg"),
+    filename: "random"
+  )
+
 
   # More users
   10.times do 

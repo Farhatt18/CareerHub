@@ -1,0 +1,24 @@
+.coverPicModal {
+  position: relative;
+}
+
+.imgFooter button {
+  position: absolute;
+  bottom: 10px;
+  right: 3px;
+  padding: 10px;
+  text-align: center;
+}
+
+.coverPicPost {
+  border: none;
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.coverPicPost:hover {
+  background-color: #0056b3;
+}

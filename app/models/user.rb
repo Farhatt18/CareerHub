@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_secure_password
   has_one_attached :photo, dependent: :destroy
+  has_one_attached :cover_pic, dependent: :destroy
   validates :username,
     uniqueness: true,
     length: { in: 3..40 },

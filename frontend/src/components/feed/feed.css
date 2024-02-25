@@ -22,11 +22,11 @@
   background-position: center;
   background-size: cover;
   display: block;
-  min-width: 225px;
-  height: 56px;
+  /* width: 225px;
+  height: 56px; */
   border-top-left-radius: 0.8rem;
   border-top-right-radius: 0.8rem;
-  background-image: url("../../assets//image//background.svg");
+  /* background-image: url("../../assets//image//background.svg"); */
 }
 
 .cameraImg {
