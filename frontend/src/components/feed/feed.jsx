@@ -54,7 +54,7 @@ const Feed = () => {
           <div className="feedSecSideBox"></div>
         </div>
         <div className="body">
-          <div className="postWrapper">
+          <div className="postWrapper" onClick={handleClick}>
             <img
               src={sessionUser.photoUrl || person}
               width={50}
@@ -69,7 +69,6 @@ const Feed = () => {
               />
             )}
           </div>
-          <br />
 
           <div className="allPosts">
             <PostIndex type={"feed"} />

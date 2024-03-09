@@ -7,6 +7,7 @@ import { fetchComments } from "../../store/reducers/comment";
 import { useEffect, useState } from "react";
 import comment from "../../assets/image/comment.png";
 import person from "../../assets/image/ghostPerson.svg";
+import { useNavigate } from "react-router-dom";
 
 const PostIndexItem = ({ post, postId }) => {
   const sessionUser = useSelector((state) => state.session.user);
@@ -14,6 +15,7 @@ const PostIndexItem = ({ post, postId }) => {
   const [show, setShow] = useState(false);
   const [comments, setComments] = useState([]);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(fetchComments(postId));
@@ -35,11 +37,20 @@ const PostIndexItem = ({ post, postId }) => {
   };
   // const isCommentButtonDisabled = sessionUser && sessionUser.id === post.userId;
 
+  const handleProfile = (e) => {
+    e.preventDefault();
+    if (post.userId === sessionUser.id) {
+      navigate(`/profile/${sessionUser.id}`);
+    }
+
+    //   navigate(`/profile/${post.userId}`);
+    // }
+  };
   return (
     <div className="postIndexItem">
       <div className="eachPost">
         <div className="postHeader">
-          <div className="icon">
+          <div className="icon" onClick={handleProfile}>
             <img
               src={
                 sessionUser.id === post.userId ? sessionUser.photoUrl : person

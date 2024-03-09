@@ -28,6 +28,9 @@
   border-top-right-radius: 0.8rem;
   /* background-image: url("../../assets//image//background.svg"); */
 }
+.img {
+  cursor: pointer;
+}
 
 .cameraImg {
   /* background-image: url(../../assets//image//camera.svg); */
@@ -138,6 +141,8 @@
 }
 
 .allPosts {
+  border-top: solid 1px;
+  border-color: gainsboro;
   margin-top: 75px;
 }
 
