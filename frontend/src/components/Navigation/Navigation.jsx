@@ -2,6 +2,8 @@ import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 import ProfileButton from "./ProfileButton";
 import "./Navigation.css";
+import github from "../../assets/image/github.png";
+import linkedin from "../../assets/image/linkedin.png";
 
 function Navigation() {
   const sessionUser = useSelector((state) => state.session.user);
@@ -33,6 +35,24 @@ function Navigation() {
         </NavLink>
       </div>
       <div className="navbar-links">
+        {/* <div className="aboutLinks"> */}
+        <a
+          className="github"
+          href="https://github.com/Farhatt18"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img src={github} alt="githublogo" width={30} />
+        </a>
+        <a
+          className="linkedin"
+          href="https://www.linkedin.com/in/farhat-sumaiya-4704b11a3/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img src={linkedin} alt="linkedin logo" width={30} />
+        </a>
+
         <ProfileButton user={sessionUser} />
       </div>
     </div>

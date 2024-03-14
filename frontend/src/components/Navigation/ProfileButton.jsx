@@ -4,6 +4,7 @@ import * as sessionActions from "../../store/reducers/session";
 import "./ProfileButton.css";
 import { useNavigate } from "react-router-dom";
 import person from "../../assets/image/ghostPerson.svg";
+
 function ProfileButton() {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
