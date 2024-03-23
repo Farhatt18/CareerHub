@@ -59,7 +59,7 @@ const PostIndexItem = ({ post, postId }) => {
               height={50}
               className="img"
             />
-            <span>{`${post.author.fname} ${post.author.lname}`}</span>
+            <span className="postAuthor">{`${post.author.fname} ${post.author.lname}`}</span>
           </div>
           {sessionUser && sessionUser.id === post.userId && (
             <div className="postActions">

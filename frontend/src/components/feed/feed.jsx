@@ -54,12 +54,13 @@ const Feed = () => {
           <div className="feedSecSideBox"></div>
         </div>
         <div className="body">
-          <div className="postWrapper" onClick={handleClick}>
+          <div className="postWrapper">
             <img
               src={sessionUser.photoUrl || person}
               width={50}
               height={50}
               className="img"
+              onClick={handleClick}
             />
             <button onClick={openPostModal}> Start a Post </button>
             {modalType && (
