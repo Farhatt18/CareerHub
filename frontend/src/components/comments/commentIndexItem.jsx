@@ -5,7 +5,9 @@ import CommentDropDown from "./commentDropDown";
 import { useDispatch, useSelector } from "react-redux";
 import { updateComment } from "../../store/reducers/comment";
 import person from "../../assets/image/ghostPerson.svg";
+import { useNavigate } from "react-router-dom";
 const CommentIndexItem = ({ comment, postUserId }) => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const user = useSelector((state) => state.session.user);
   const [userName, setUserName] = useState("Unknown User");
@@ -38,6 +40,15 @@ const CommentIndexItem = ({ comment, postUserId }) => {
     setEditedComment(e.target.value);
     setIsTyping(true);
   };
+  const handleProfile = (e) => {
+    e.preventDefault();
+    if (comment.userId === user.id) {
+      navigate(`/profile/${user.id}`);
+    }
+
+    //   navigate(`/profile/${post.userId}`);
+    // }
+  };
 
   // console.log("commentUsername", comment.user?.fname, comment.user?.lname);
   return (
@@ -55,7 +66,7 @@ const CommentIndexItem = ({ comment, postUserId }) => {
             showBtn={showBtn}
             setShowBtn={setShowBtn}
           />
-          <div className="commenter">
+          <div className="commenter" onClick={handleProfile}>
             <span>{userName}</span>
           </div>
           {isEditing ? (
