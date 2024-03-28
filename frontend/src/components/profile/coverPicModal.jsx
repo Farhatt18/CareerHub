@@ -4,7 +4,7 @@ import * as modalActions from "../../store/reducers/modals";
 import Modal from "../Modal/modal";
 import photo from "../../assets/image/photo.png";
 import "./coverPicModal.css";
-import { updateCoverPicture } from "../../store/reducers/session";
+import { updateCoverPicture } from "../../store/reducers/users";
 
 const CoverPicModal = () => {
   const dispatch = useDispatch();

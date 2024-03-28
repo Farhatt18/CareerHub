@@ -1,30 +1,53 @@
+// import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Navigate, useParams } from "react-router-dom";
 import Navigation from "../Navigation/Navigation";
 import "./ProfilePage.css";
-
 import * as modalActions from "../../store/reducers/modals";
-import { Navigate } from "react-router-dom";
+import * as usersActions from "../../store/reducers/users";
 import PostModal from "../posts/PostModal";
-
 import PostIndex from "../posts/PostsIndex";
 import ExperienceModal from "./experience/experienceModal";
 import ExperienceIndex from "./experience/experienceIndex";
-import ProfileModal from "./profileModal";
 import github from "../../assets/image/github.png";
 import linkedin from "../../assets/image/linkedin.png";
 import pencil from "../../assets/image/editPencil.png";
 import CoverPicModal from "./coverPicModal";
-// import camera from "../../assets/image/camera.svg";
-
-// import pencil from "../../assets/image/pencil.png";
-// import { useState } from "react";
+import { useEffect } from "react";
+import ProfileModal from "./profileModal";
+// import { selectUserById } from "../../store/reducers/users";
 
 const ProfilePage = () => {
-  const user = useSelector((state) => state.session.user);
-  const modalType = useSelector((state) => state.modals.type);
   const dispatch = useDispatch();
+  const sessionUser = useSelector((state) => state.session.user);
+  const modalType = useSelector((state) => state.modals.type);
+  const { userId } = useParams();
+  // console.log("userID", userId);
+  // const user = useSelector(selectUserById(userId));
+  const user = useSelector((state) => state.users[userId]);
+  // console.log("user", user);
 
-  if (!user) return <Navigate to="/" />;
+  useEffect(() => {
+    dispatch(usersActions.fetchuser(userId));
+  }, [dispatch, userId]);
+
+  if (!sessionUser) {
+    return <Navigate to="/" />;
+  }
+
+  if (!user) {
+    return <p>Loading...</p>;
+  }
+
+  const handleCover = (e) => {
+    e.preventDefault();
+    dispatch(modalActions.showModal("COVER_MODAL"));
+  };
+
+  const handlePhoto = (e) => {
+    e.preventDefault();
+    dispatch(modalActions.showModal("PROFILE_MODAL"));
+  };
 
   const openPostModal = (e) => {
     e.preventDefault();
@@ -34,15 +57,6 @@ const ProfilePage = () => {
   const handleAdd = (e) => {
     e.preventDefault();
     dispatch(modalActions.showModal("ADD_EXPERIENCE"));
-  };
-  const handleCover = (e) => {
-    e.preventDefault();
-    dispatch(modalActions.showModal("COVER_MODAL"));
-  };
-
-  const handlePhoto = (e) => {
-    e.preventDefault();
-    dispatch(modalActions.showModal("PROFILE_MODAL"));
   };
 
   return (
@@ -54,12 +68,16 @@ const ProfilePage = () => {
         <div className="profileBody">
           <div className="imgWrapper">
             <div className="coverPhotoContainer" onClick={handleCover}>
-              <img src={user.coverPic} className="profilePhoto" />
-              <img src={pencil} width={20} className="pencil" />
+              <img src={user.coverPic} className="profilePhoto" alt="Cover" />
+              <img src={pencil} width={20} className="pencil" alt="Edit" />
             </div>
             {modalType === "COVER_MODAL" && <CoverPicModal />}
             <div onClick={handlePhoto}>
-              <img src={user.photoUrl} className="profileCamera" />
+              <img
+                src={user.photoUrl}
+                className="profileCamera"
+                alt="Profile"
+              />
             </div>
             {modalType === "PROFILE_MODAL" && <ProfileModal />}
 
@@ -77,7 +95,7 @@ const ProfilePage = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <img src={github} alt="githublogo" width={30} />
+                  <img src={github} alt="GitHub Logo" width={30} />
                 </a>
                 <a
                   className="linkedin"
@@ -85,7 +103,7 @@ const ProfilePage = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <img src={linkedin} alt="linkedin logo" width={30} />
+                  <img src={linkedin} alt="LinkedIn Logo" width={30} />
                 </a>
               </div>
             </div>
@@ -133,4 +151,5 @@ const ProfilePage = () => {
     </div>
   );
 };
+
 export default ProfilePage;

@@ -3,7 +3,7 @@ import * as modalActions from "../../store/reducers/modals";
 import { useDispatch, useSelector } from "react-redux";
 import "./profileModal.css";
 import { useEffect, useState } from "react";
-import { updateProfilePicture } from "../../store/reducers/session";
+import { updateProfilePicture } from "../../store/reducers/users";
 import photo from "../../assets/image/photo.png";
 const ProfileModal = () => {
   const dispatch = useDispatch();

@@ -2,7 +2,7 @@ import csrfFetch from "../csrf";
 
 const SET_USER = "session/setUser";
 const REMOVE_USER = "session/removeUser";
-const UPDATE_PROFILE_PICTURE = "UPDATE_PROFILE_PICTURE";
+// const UPDATE_PROFILE_PICTURE = "UPDATE_PROFILE_PICTURE";
 
 const setUser = (user) => {
   return {
@@ -17,36 +17,36 @@ const removeUser = () => {
   };
 };
 
-const updateUser = (user) => ({
-  type: UPDATE_PROFILE_PICTURE,
-  user,
-});
+// const updateUser = (user) => ({
+//   type: UPDATE_PROFILE_PICTURE,
+//   user,
+// });
 
-export const updateProfilePicture = (updatedUser) => async (dispatch) => {
-  const userId = updatedUser.get("id");
-  const res = await csrfFetch(`/api/users/${userId}`, {
-    method: "put",
-    body: updatedUser,
-  });
+// export const updateProfilePicture = (updatedUser) => async (dispatch) => {
+//   const userId = updatedUser.get("id");
+//   const res = await csrfFetch(`/api/users/${userId}`, {
+//     method: "put",
+//     body: updatedUser,
+//   });
 
-  if (res.ok) {
-    const { user } = await res.json();
-    dispatch(updateUser(user));
-  }
-};
+//   if (res.ok) {
+//     const { user } = await res.json();
+//     dispatch(updateUser(user));
+//   }
+// };
 
-export const updateCoverPicture = (updatedUser) => async (dispatch) => {
-  const userId = updatedUser.get("id");
-  const res = await csrfFetch(`/api/users/${userId}`, {
-    method: "put",
-    body: updatedUser,
-  });
+// export const updateCoverPicture = (updatedUser) => async (dispatch) => {
+//   const userId = updatedUser.get("id");
+//   const res = await csrfFetch(`/api/users/${userId}`, {
+//     method: "put",
+//     body: updatedUser,
+//   });
 
-  if (res.ok) {
-    const { user } = await res.json();
-    dispatch(updateUser(user));
-  }
-};
+//   if (res.ok) {
+//     const { user } = await res.json();
+//     dispatch(updateUser(user));
+//   }
+// };
 
 const storeCSRFToken = (response) => {
   const csrfToken = response.headers.get("X-CSRF-Token");
@@ -110,8 +110,8 @@ const sessionReducer = (state = initialState, action) => {
       return { ...state, user: action.payload };
     case REMOVE_USER:
       return { ...state, user: null };
-    case UPDATE_PROFILE_PICTURE:
-      return { ...state, user: action.user };
+    // case UPDATE_PROFILE_PICTURE:
+    //   return { ...state, user: action.user };
     default:
       return state;
   }

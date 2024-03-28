@@ -39,10 +39,7 @@ const PostIndexItem = ({ post, postId }) => {
 
   const handleProfile = (e) => {
     e.preventDefault();
-    if (post.userId === sessionUser.id) {
-      navigate(`/profile/${sessionUser.id}`);
-    }
-
+    navigate(`/profile/${post.userId}`);
     //   navigate(`/profile/${post.userId}`);
     // }
   };
