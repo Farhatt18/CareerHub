@@ -59,6 +59,7 @@ const CoverPicModal = () => {
         <label htmlFor="file-input">
           <img src={photo} className="fileImg" />
         </label>
+
         <input id="file-input" type="file" onChange={handlefile} />
 
         <div>

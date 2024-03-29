@@ -1,14 +1,21 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { deleteExperience } from "../../../store/reducers/experience";
 import { useState } from "react";
 // import edit from "../../../assets/image/pencil.png";
 import trash from "../../../assets/image/trash.png";
 import "./experienceDropDown.css";
+import { useParams } from "react-router-dom";
 // import Modal from "../../Modal/modal";
 
 const ExperienceDropDown = ({ experienceId }) => {
   const dispatch = useDispatch();
-  // const user = useSelector((state) => state.session.user);
+  const sessionUser = useSelector((state) => state.session.user);
+  console.log("sessionUser", sessionUser);
+  console.log("sessionUserId", sessionUser.id);
+  const { userId } = useParams();
+  console.log("userId", userId);
+  const user = useSelector((state) => state.users[userId]);
+  console.log("User", user);
   const [showDropDown, setShowDropDown] = useState(false);
   // const [isEditing, setIsEditing] = useState(false);
 
@@ -23,9 +30,11 @@ const ExperienceDropDown = ({ experienceId }) => {
 
   return (
     <div className="experienceDropDown">
-      <button className="dropDownBtn" onClick={handleDropDownToggle}>
-        ...
-      </button>
+      {sessionUser.id === user.id && (
+        <button className="dropDownBtn" onClick={handleDropDownToggle}>
+          ...
+        </button>
+      )}
       {showDropDown && (
         <div className="dropDownOptions">
           <>

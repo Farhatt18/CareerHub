@@ -27,6 +27,10 @@ const ProfilePage = () => {
   const user = useSelector((state) => state.users[userId]);
   // console.log("user", user);
 
+  console.log("sessionUser", sessionUser);
+  console.log("sessionUserId", sessionUser.id);
+  console.log("userId", userId);
+  console.log("User", user);
   useEffect(() => {
     dispatch(usersActions.fetchuser(userId));
   }, [dispatch, userId]);
@@ -111,9 +115,11 @@ const ProfilePage = () => {
           <div className="activityBox">
             <div className="activityHeader">
               <div className="activity">Activity</div>
+              {/* {sessionUser.id === userId && ( */}
               <div onClick={openPostModal}>
                 <a>Create a post</a>
               </div>
+              {/* )} */}
             </div>
             {modalType === "SHOW_MODAL" && (
               <PostModal userName={user.username} />
@@ -126,6 +132,7 @@ const ProfilePage = () => {
           <div className="experienceBox">
             <div className="experienceHeader">
               <div className="experience">Experience</div>
+              {/* {sessionUser.id === userId && ( */}
               <button className="addBtn" onClick={handleAdd}>
                 <svg width={24} height={24}>
                   <path
@@ -135,6 +142,7 @@ const ProfilePage = () => {
                   ></path>
                 </svg>
               </button>
+              {/* )} */}
             </div>
             {modalType === "ADD_EXPERIENCE" && (
               <ExperienceModal userId={user.id} />
