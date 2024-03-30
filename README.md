@@ -156,3 +156,4 @@ const loadMoreComments = () => {
 - Work on Connections
 - Add the Like button
 - Add Eduction in the profile page
+- Add the option to upload pictures only
