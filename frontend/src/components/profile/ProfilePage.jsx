@@ -27,10 +27,10 @@ const ProfilePage = () => {
   const user = useSelector((state) => state.users[userId]);
   // console.log("user", user);
 
-  console.log("sessionUser", sessionUser);
-  console.log("sessionUserId", sessionUser.id);
-  console.log("userId", userId);
-  console.log("User", user);
+  // console.log("sessionUser", sessionUser);
+  // console.log("sessionUserId", sessionUser.id);
+  // console.log("userId", userId);
+  // console.log("User", user);
   useEffect(() => {
     dispatch(usersActions.fetchuser(userId));
   }, [dispatch, userId]);
