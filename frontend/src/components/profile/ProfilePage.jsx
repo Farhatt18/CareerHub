@@ -115,11 +115,11 @@ const ProfilePage = () => {
           <div className="activityBox">
             <div className="activityHeader">
               <div className="activity">Activity</div>
-              {/* {sessionUser.id === userId && ( */}
-              <div onClick={openPostModal}>
-                <a>Create a post</a>
-              </div>
-              {/* )} */}
+              {sessionUser.id === parseInt(userId) && (
+                <div onClick={openPostModal}>
+                  <a>Create a post</a>
+                </div>
+              )}
             </div>
             {modalType === "SHOW_MODAL" && (
               <PostModal userName={user.username} />
@@ -132,17 +132,17 @@ const ProfilePage = () => {
           <div className="experienceBox">
             <div className="experienceHeader">
               <div className="experience">Experience</div>
-              {/* {sessionUser.id === userId && ( */}
-              <button className="addBtn" onClick={handleAdd}>
-                <svg width={24} height={24}>
-                  <path
-                    d="M21 13h-8v8h-2v-8H3v-2h8V3h2v8h8z"
-                    width={18}
-                    height={18}
-                  ></path>
-                </svg>
-              </button>
-              {/* )} */}
+              {sessionUser.id === parseInt(userId) && (
+                <button className="addBtn" onClick={handleAdd}>
+                  <svg width={24} height={24}>
+                    <path
+                      d="M21 13h-8v8h-2v-8H3v-2h8V3h2v8h8z"
+                      width={18}
+                      height={18}
+                    ></path>
+                  </svg>
+                </button>
+              )}
             </div>
             {modalType === "ADD_EXPERIENCE" && (
               <ExperienceModal userId={user.id} />
