@@ -10,12 +10,12 @@ import { useParams } from "react-router-dom";
 const ExperienceDropDown = ({ experienceId }) => {
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
-  console.log("sessionUser", sessionUser);
-  console.log("sessionUserId", sessionUser.id);
+  // console.log("sessionUser", sessionUser);
+  // console.log("sessionUserId", sessionUser.id);
   const { userId } = useParams();
-  console.log("userId", userId);
+  // console.log("userId", userId);
   const user = useSelector((state) => state.users[userId]);
-  console.log("User", user);
+  // console.log("User", user);
   const [showDropDown, setShowDropDown] = useState(false);
   // const [isEditing, setIsEditing] = useState(false);
 

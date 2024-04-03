@@ -180,3 +180,11 @@ button.addBtn:hover {
   cursor: pointer;
   background-color: lightgray;
 }
+.profilePost {
+  display: flex;
+  margin-left: 20px;
+}
+
+.profilePost .postHeader {
+  width: 750px;
+}

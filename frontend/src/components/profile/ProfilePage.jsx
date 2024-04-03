@@ -121,10 +121,12 @@ const ProfilePage = () => {
                 </div>
               )}
             </div>
+
             {modalType === "SHOW_MODAL" && (
               <PostModal userName={user.username} />
             )}
-            <div>
+
+            <div className="profilePost">
               <PostIndex type={"profile"} userId={user.id} />
             </div>
           </div>
