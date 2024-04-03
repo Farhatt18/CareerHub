@@ -73,7 +73,9 @@ const ProfilePage = () => {
           <div className="imgWrapper">
             <div className="coverPhotoContainer" onClick={handleCover}>
               <img src={user.coverPic} className="profilePhoto" alt="Cover" />
-              <img src={pencil} width={20} className="pencil" alt="Edit" />
+              {sessionUser.id === parseInt(userId) && (
+                <img src={pencil} width={20} className="pencil" alt="Edit" />
+              )}
             </div>
             {modalType === "COVER_MODAL" && <CoverPicModal />}
             <div onClick={handlePhoto}>
