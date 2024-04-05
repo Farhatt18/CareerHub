@@ -1,4 +1,3 @@
-// import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Navigate, useParams } from "react-router-dom";
 import Navigation from "../Navigation/Navigation";
