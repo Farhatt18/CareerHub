@@ -14,22 +14,15 @@ import pencil from "../../assets/image/editPencil.png";
 import CoverPicModal from "./coverPicModal";
 import { useEffect } from "react";
 import ProfileModal from "./profileModal";
-// import { selectUserById } from "../../store/reducers/users";
 
 const ProfilePage = () => {
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
   const modalType = useSelector((state) => state.modals.type);
   const { userId } = useParams();
-  // console.log("userID", userId);
-  // const user = useSelector(selectUserById(userId));
-  const user = useSelector((state) => state.users[userId]);
-  // console.log("user", user);
 
-  // console.log("sessionUser", sessionUser);
-  // console.log("sessionUserId", sessionUser.id);
-  // console.log("userId", userId);
-  // console.log("User", user);
+  const user = useSelector((state) => state.users[userId]);
+
   useEffect(() => {
     dispatch(usersActions.fetchuser(userId));
   }, [dispatch, userId]);
