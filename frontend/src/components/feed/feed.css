@@ -156,8 +156,8 @@
 }
 
 .feedbox a {
-  text-decoration: none; /* Remove underlines from links */
-  color: black; /* Set link color to black */
+  text-decoration: none;
+  color: black;
 }
 .feedbox a:hover {
   text-decoration: underline;
