@@ -152,7 +152,7 @@
 
 .feedbox li {
   list-style-position: inside;
-  margin-bottom: 10px; /* Adjust spacing between list items */
+  margin-bottom: 10px;
 }
 
 .feedbox a {
