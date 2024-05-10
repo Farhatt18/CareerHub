@@ -1,7 +1,6 @@
 # json.comments do
   @comments.each do |comment|
     json.set! comment.id do
-      # debugger 
       json.extract! comment, :id, :user_id, :post_id, :parent_comment_id, :body
       json.user do 
         json.fname comment.user.fname
