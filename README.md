@@ -30,7 +30,6 @@ Careerhub is hosted on [Render](https://render.com/) for seamless deployment and
 ```javascript
 // in the feed page you have a button to create a post and under the button it fetches all the post and displays them where you have the option to delete and edit post.
 
-
 <div className="body">
   <div className="postWrapper">
     <img src={person} width={50} height={50} className="img" />
