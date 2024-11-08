@@ -20,6 +20,7 @@ Careerhub is hosted on [Render](https://render.com/) for seamless deployment and
 
 ### 3. Posts - CRUD
 
+
 - **Create:** Signed-in users can share professional updates and articles.
 - **Read:** Users can view posts shared by their network.
 - **Update:** Edit your posts to keep information current.
