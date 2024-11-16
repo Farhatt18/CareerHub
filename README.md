@@ -26,6 +26,7 @@ Careerhub is hosted on [Render](https://render.com/) for seamless deployment and
 - **Update:** Edit your posts to keep information current.
 - **Delete:** Remove posts that are no longer relevant.
 
+
 ![Post](./frontend/src/assets/video/Post.gif)
 
 ```javascript
