@@ -10,7 +10,6 @@ Careerhub is a clone of Linkdln that gives you the opportunity to connect with p
 
 ### 1. Hosting
 
-
 Careerhub is hosted on [Render](https://render.com/) for seamless deployment and reliable performance.
 
 ### 2. User Authentication
